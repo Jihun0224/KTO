@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>카카오 Map 시작하기</title>
+
+</head>
+
+<body>
+
+  <div id="map" style="width:100%;height:650px;"></div>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6577bee1cdf0d8c13c3f06da81693302"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+
+      var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+      mapOption = {
+      center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+      level: 12 // 지도의 확대 레벨
+      };
+      // 지도를 표시할 div와 지도 옵션으로 지도를 생성합니다
+      const map = new kakao.maps.Map(mapContainer, mapOption);
+      const customOverlay = new kakao.maps.CustomOverlay({});
+      const infowindow = new kakao.maps.InfoWindow({ removable: true });
+
+
+
+      $.getJSON("sido.json", function(geojson) {
+      let data = geojson.features;
+      console.log(data);
+      let coordinates = []; //좌표 저장 배열
+      let name = ''; //행정구 이름
+      let polygons = [];
+
+      let path = [];
+      let points = [];
+
+      const displayArea = (coordinates, name) => {
+        let path = [];
+        let points = [];
+
+        coordinates[0].forEach((coordinate) => {
+          let point = {};
+          point.x = coordinate[1];
+          point.y = coordinate[0];
+          points.push(point);
+          path.push(new kakao.maps.LatLng(coordinate[1], coordinate[0]));
+        });
+        console.log(path);
+        let polygon = new kakao.maps.Polygon({  
+            map: map,
+            path:path, // 그려질 다각형의 좌표 배열입니다
+            strokeWeight: 1, // 선의 두께입니다
+            strokeColor: '#39DE2A', // 선의 색깔입니다
+            strokeOpacity: 0.8, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+            strokeStyle: 'solid', // 선의 스타일입니다
+            fillColor: '#A2FF99', // 채우기 색깔입니다
+            fillOpacity: 0.7 // 채우기 불투명도 입니다
+        });
+    };
+
+      data.forEach((val) => {
+        
+        coordinates = val.geometry.coordinates;
+        name = val.properties.SIG_KOR_NM;
+        displayArea(coordinates, name);
+      });
+      
+    })
+
+  </script>
+  
+
+</body>
+
+</html>
