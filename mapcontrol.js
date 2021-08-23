@@ -6,7 +6,7 @@ function Initialization(_map){
 }
 
 function DrawPolygon(){
-    $.getJSON("./data/geo.json", function(geojson){
+    $.getJSON("./data/sido.json", function(geojson){
         var data = geojson.features;
         var name = '';
         var code = '';

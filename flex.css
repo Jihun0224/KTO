@@ -32,3 +32,13 @@
 .tourlist{
 	grid-area: tourlist;
 }
+
+.RecommandedSite{
+	list-style: none;
+	border: 1px solid black;
+}
+
+.RecommandedSite .sitename{
+	text-align: center;
+	position: relative;
+}
