@@ -1,25 +1,10 @@
-import pandas as pd
 
-def idClassification(id):
-    if id == "숙박업(일반)" or id == '숙박업(생활)':
-        return 2
-    elif id == "외국인관광도시민박업":
-        return 3
-    else:
-        return 1
-df["인증업종"] = df["인증업종"].apply(idClassification)
+import pymongo
+mongo = pymongo.MongoClient('mongodb+srv://jihun:dja1wkd2@qualified.mmv3l.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 
-df = pd.read_csv("./data/received_data.csv")
+db = pymongo.database.Database(mongo, 'Certified')
+col = pymongo.collection.Collection(db, 'certified')
 
-df = df.drop(["No.","인증","갱신","주소1", "주소2","주소(지번)","세부주소","인증유효기간","객실수","구분"], axis=1)
-df = df.rename(columns={'주소(도로명)':'address'})
-df["인증.1"] = df["인증.1"].apply(lambda x: 1 if x=="프리미어" else 0)
-df["인증업종"] = df["인증업종"].apply(idClassification)
+col_results = list(col.find().limit(5))
 
-df = df.rename(columns={'인증.1':'premium','인증업종':'id'})
-
-print(df.info())
-print(df.head())
-print(df["premium"].value_counts())
-
-df.to_csv('./data.csv')
+print(col_results)

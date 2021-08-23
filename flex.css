@@ -23,6 +23,11 @@
 
 .main{
 	grid-area: main;
+	padding:0 50px 0 0;
+}
+
+.label{
+	text-align:center;
 }
 
 .mapinfo{
@@ -35,10 +40,43 @@
 
 .RecommandedSite{
 	list-style: none;
-	border: 1px solid black;
+	/* border: 1px solid black; */
 }
 
 .RecommandedSite .sitename{
 	text-align: center;
 	position: relative;
 }
+.menubar{
+	
+	margin: 0;
+	padding: 0;
+	padding-left: 20px;
+  }
+  ul {
+	background: #fff;
+	margin: 40px;
+	position: relative;
+	overflow: hidden;
+  }
+  ul li {
+	list-style: none;
+	text-transform: uppercase;
+	float: left;
+	margin: 0 10px;
+	padding: 0 5px 5px;
+  }
+  ul li a {
+	color: #000;
+	display: inline-block;
+	font-size: 12px;
+	text-decoration: none;
+	display: inline-block;
+  }
+  .menuUnderline {
+	background-color: #000;
+	position: absolute;
+	height: 3px;
+	left: 0;
+	bottom: 0;
+  }

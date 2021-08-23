@@ -1,45 +1,36 @@
-from flask import Flask
-from flaskext.mysql import MySQL
-from pandas.io import sql
 from flask_cors import CORS
-from flask import jsonify
-from pandas import json_normalize
-
-import pandas as pd
+from flask import Flask,jsonify,request
+import pymongo
 import json
 
 app = Flask(__name__)
 CORS(app)
-mysql = MySQL()
- 
-# MySQL configurations
-app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'dja1wkd2'
-app.config['MYSQL_DATABASE_DB'] = 'kq'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
-mysql.init_app(app)
 
-# def db_connector():
-#     db = mysql.connect()
-#     cursor = db.cursor()
-#     sql = '''SELECT * FROM postage_table;'''
-#     cursor.execute(sql)
-#     result = cursor.fetchall()
-#     db.close()
-#     return jsonify(result)
+CONNECTION_STRING = "mongodb+srv://jihun:dja1wkd2@qualified.mmv3l.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+client = pymongo.MongoClient(CONNECTION_STRING)
 
+# 인증 숙소
+db = client.get_database('Certified')
+certified = db.certified
 
+# 비대면 관광지 100선 가을 
+travelDestinationdb = client.get_database('travelDestination')
+autumn = travelDestinationdb.autumn
 
+def parse_json(data):
+    return json.loads(json_util.dumps(data))
 
-@app.route('/test')
+@app.route('/mongo')
 def test1():
-    db = mysql.connect()
-    cursor = db.cursor()
-    sql = '''SELECT * FROM test;'''
-    cursor.execute(sql)
-    result = cursor.fetchall()
-    db.close()
-    return jsonify(result)
+    col_results = list(certified.find().limit(5))
+
+    return json.dumps(col_results, default=str,ensure_ascii=False)
+
+@app.route('/autumn')
+def test2():
+    col_results = list(autumn.find().limit(5))
+
+    return json.dumps(col_results, default=str,ensure_ascii=False)
 
 if __name__ == '__main__': 
     app.run(debug=True)
