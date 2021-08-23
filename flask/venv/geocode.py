@@ -2,8 +2,8 @@ import json
 import pandas as pd
 import requests
 
-data = pd.read_csv('./data.csv')
-
+df1 = pd.read_csv('./data/품질인증업소.csv')
+df2 = pd.read_csv('./result.csv')
 url = 'http://api.vworld.kr/req/address?'
 params = 'service=address&request=getcoord&version=2.0&crs=epsg:4326&refine=true&simple=false&format=json&type='
 road_type = 'ROAD'
@@ -77,5 +77,3 @@ df_result = pd.merge(df, df_1, how='left')
 df_result = df_result.drop(["업소사진", "Unnamed: 2","Unnamed: 3"],axis=1)
 
 df_result = df_result.rename(columns={'업소이름':'name', '업소주소':'address','업소구분':'id'})
-
-toSql(extraction_geo(df_result))

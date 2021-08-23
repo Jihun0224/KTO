@@ -17,12 +17,9 @@ certified = db.certified
 travelDestinationdb = client.get_database('travelDestination')
 autumn = travelDestinationdb.autumn
 
-def parse_json(data):
-    return json.loads(json_util.dumps(data))
-
-@app.route('/mongo')
+@app.route('/Certified')
 def test1():
-    col_results = list(certified.find().limit(5))
+    col_results = list(certified.find({}))
 
     return json.dumps(col_results, default=str,ensure_ascii=False)
 

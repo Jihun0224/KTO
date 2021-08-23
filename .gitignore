@@ -2,3 +2,5 @@
 *.csv
 *.xlsx
 *.xls
+
+flask/venv/
