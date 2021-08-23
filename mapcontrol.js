@@ -78,3 +78,4 @@ function displayArea(name, code, coordinates, multi){
     }
     polygon.setMap(map);
 }
+
