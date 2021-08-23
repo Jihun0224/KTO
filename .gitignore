@@ -2,5 +2,9 @@
 *.csv
 *.xlsx
 *.xls
+<<<<<<< HEAD
 
 flask/venv/
+=======
+flask/
+>>>>>>> d12b456d46528a129f8f94bf64fb36bf91dfca45

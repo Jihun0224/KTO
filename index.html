@@ -3,7 +3,6 @@
     <meta charset="utf-8">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="mapcontrol.js"></script>
-    <script src="marker.js"></script>
     <script src="menubar.js"></script>
     <link rel="stylesheet" href="flex.css">
     <title>결과화면 창</title>
@@ -53,7 +52,6 @@
 
                 Initialization(map);
                 DrawPolygon();
-                displayMarker(map);
             </script>
         </div>
         <div class="tourlist">
@@ -76,8 +74,13 @@
                         document.write('<li class="RecommandedSite">' +
                                             '<img class="touriamge" src='+ imgArray[i] +' width="200" height="150"/>' +
                                             '<a class="sitename" href='+ siteUrlArray[i] +'>'+ titleArray[i] +'</a>' +
-                                        '</li>')
-                    }
+                                        '</li>')}
+                        fetch("http://localhost:5000/mongo", {
+                            method: "get",
+                            }).then(response => response.json())  
+                                .then(json => {
+                                    console.log(json[0].name);
+                                })
                 </script>    
             </ul>
         </div>
