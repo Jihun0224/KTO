@@ -1,0 +1,34 @@
+.container {
+	display: grid;
+
+	grid-template-columns: 1fr 1fr 600px;
+	/* grid-template-columns: 1fr 1fr 1fr */
+	/* grid-template-columns: repeat(3, 1fr) */
+	/* grid-template-columns: 200px 1fr */
+	/* grid-template-columns: 100px 200px auto */
+
+	grid-template-rows: 100px 500px 300px;
+	/* grid-template-rows: repeat(3, 1fr) */
+	/* grid-template-rows: 200px 1fr */
+	/* grid-template-rows: 100px 200px auto */
+	grid-template-areas:
+		"header header header"
+		"main    main    mapinfo"
+		"main    main	tourlist";
+}
+
+.header{
+	grid-area: header;
+}
+
+.main{
+	grid-area: main;
+}
+
+.mapinfo{
+	grid-area: mapinfo;
+}
+
+.tourlist{
+	grid-area: tourlist;
+}
