@@ -2,6 +2,8 @@ var map;
 
 function Initialization(_map){
     map = _map;
+    var zoomControl = new kakao.maps.ZoomControl();
+    map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
     // document.write(map)
 }
 
@@ -33,7 +35,6 @@ function makePolygon(coordinates){
     $.each(coordinates[0], function(index, coordinate){
         polygonPath.push(new kakao.maps.LatLng(coordinate[1], coordinate[0]));
     });
-    console.log(polygonPath);
     return new kakao.maps.Polygon({
         path: polygonPath,
         strokeWeight:1,
@@ -79,3 +80,17 @@ function displayArea(name, code, coordinates, multi){
     polygon.setMap(map);
 }
 
+function displayMarker(){
+    fetch("http://localhost:5000/Certified")
+    .then(response => response.json())  
+    .then(json => {
+        $.each(json, function(index,space){
+            var marker = new kakao.maps.Marker({
+                map: map,
+                position: new kakao.maps.LatLng(space.y, space.x)
+            })
+            marker.setMap(map);
+
+        })
+    })
+}
