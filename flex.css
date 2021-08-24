@@ -1,7 +1,7 @@
 .container {
 	display: grid;
 
-	grid-template-columns: 1fr 1fr 600px;
+	grid-template-columns: 1fr 400px;
 	/* grid-template-columns: 1fr 1fr 1fr */
 	/* grid-template-columns: repeat(3, 1fr) */
 	/* grid-template-columns: 200px 1fr */
@@ -12,9 +12,9 @@
 	/* grid-template-rows: 200px 1fr */
 	/* grid-template-rows: 100px 200px auto */
 	grid-template-areas:
-		"header header header"
-		"main    main    mapinfo"
-		"main    main	tourlist";
+		"header header"
+		"main    mapinfo"
+		"main	tourlist";
 }
 
 .header{
