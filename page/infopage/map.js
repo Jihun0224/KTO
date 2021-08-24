@@ -4,11 +4,10 @@ function Initialization(_map){
     map = _map;
     var zoomControl = new kakao.maps.ZoomControl();
     map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
-    // document.write(map)
 }
 
 function DrawPolygon(){
-    $.getJSON("./data/sido.json", function(geojson){
+    $.getJSON("../../data/sido.json", function(geojson){
         var data = geojson.features;
         var name = '';
         var code = '';

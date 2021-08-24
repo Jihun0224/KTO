@@ -4,7 +4,7 @@
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="mapcontrol.js"></script>
     <script src="menubar.js"></script>
-    <link rel="stylesheet" href="flex.css">
+    <link rel="stylesheet" href="infopage.css">
     <title>결과화면 창</title>
 </head>
 <body>
@@ -12,7 +12,7 @@
         <div class="header">
             <span class="menubar">
                 <ul>
-                    <li><a href="mainpage/main_page.html" class="home">home</a></li>
+                    <li><a href="../mainpage/main_page.html" class="home">home</a></li>
                     <li><a href="about.html" class="about">about</a></li>
                     <li><a href="#" class="products">products</a></li>
                     <li><a href="#" class="services">services</a></li>
@@ -26,7 +26,7 @@
             <ul>
                 <h1>관광지 이름</h1>
                 <div class="label">
-                <img src="mainpage/충북_단양.png" width="400" height="250"></img>
+                <img src="../mainpage/충북_단양.png" width="400" height="250"></img>
                 <br>
                 <h style=font-size:20px>이미지 설명</h>
                 </div>
@@ -75,12 +75,6 @@
                                             '<img class="touriamge" src='+ imgArray[i] +' width="200" height="150"/>' +
                                             '<a class="sitename" href='+ siteUrlArray[i] +'>'+ titleArray[i] +'</a>' +
                                         '</li>')}
-                        fetch("http://localhost:5000/mongo", {
-                            method: "get",
-                            }).then(response => response.json())  
-                                .then(json => {
-                                    console.log(json[0].name);
-                                })
                 </script>    
             </ul>
         </div>
