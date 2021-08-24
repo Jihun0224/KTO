@@ -1,6 +1,15 @@
+# 시스템 흐름   
+- 사용자가 정보 입력 -> Flask Server -> 연산 결과 -> 클라이언트 -> 검색 결과로 이동   
+--- 
+# 메인 페이지  
+- 지역 선택, 가치 선택 창 css 수정
+- 서버에 파라미터 전달 하는 부분 추가(fetch post 방식으로 하면 됨 -> 간단)
+- Flask 서버에서 받아온 결과를 검색 결과 페이지로 전달하면서 페이지 전환  
+이거면 메인 할 일 끝
+
+---
 # 검색 결과 페이지  
 ## 업소 관련 페이지 할 일  
----
 - 현재 지도에 폴리곤을 씌웠을 때 버벅거림이 생김  
     - 확대 했을 때 많은 버벅임이 발생하므로 zoom level이 특정 수준 아래로 떨어지면 폴리곤을 없애고, 마커를 띄움.  
     1. 마커가 생성되는 기준은 현재 map center의 좌표와 bounds를 받아서 근처 얼마만큼 띄워 주는 방법
@@ -32,4 +41,6 @@ python으로 그린 지표를 클라이언트로 바로 불러올 수 있는지 
 ex) 메뉴바 중간에 Logo로 홈으로 이동하도록 정도?
 ---
 
-+ [그냥 마음에 든 버튼](https://www.csscodelab.com/css-button-hover-motion-effect-code-snippet/)
++ [그냥 마음에 든 버튼(메인에서 검색 버튼에 넣으면 어떨까 싶음)](https://www.csscodelab.com/css-button-hover-motion-effect-code-snippet/)
+---
+
