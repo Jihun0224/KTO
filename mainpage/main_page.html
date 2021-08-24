@@ -36,12 +36,27 @@
             }
 
             .frame{
+                width:500px;
+                margin: auto;
                 padding: 53px;
                 text-align: center;
                 background-color: lightgray
             }
 
+            .selectBox{
+                width: 550px;
+                margin: auto;
+            }
+
+            .keyword_group{
+                margin: auto;
+                text-align: center;
+            }
+
             .label{
+                text-align: center;
+                margin: auto;
+                width: 250px;
                 font-size:18px;
                 line-height:30px
             }
@@ -56,6 +71,8 @@
                 text-align: center;
             }
         </style>
+
+        <title>메인 페이지</title>
     </head>
     <body>
         <meta charset="utf-8">
@@ -65,7 +82,7 @@
         <main>
             <section>
                 <article>
-                    <h2></h2>
+                    <h2>asdasdasd</h2>
                     <p>This is iptsome descrion text for this panel.</p>
                 </article>
             </section>
@@ -94,47 +111,59 @@
                 </article>
             </section>
         </main>
-        <button>Toggle images</button>
-    </div>
-    </body>
-    
-    <div class="info">
-        <img src="우주공감.png">
-        <h1 class="service_name">서비스 이름</h1>
-        <h>
-            서비스 설명
-        </h>
-    </div>
-    <div class="input">
+        </div>
+        </body>
+        
+        <div class="info">
+            <img src="우주공감.png">
+            <h1 class="service_name">서비스 이름</h1>
+            <h>
+                서비스 설명
+            </h>
+        </div>
+        <div class="input">
+            <div class="input_group">
+                <h1 class=label>지역선택(도 단위, 예: 강원도)</h1>
+                <form class="frame" method="get" action="form-action.html">
+                    <label><input type="checkbox" name="region" value="경기도">경기</label>
+                    <label><input type="checkbox" name="region" value="경상북도">경북</label>
+                    <label><input type="checkbox" name="region" value="경상남도">경남</label>
+                    <label><input type="checkbox" name="region" value="광주">광주</label>
+                    <label><input type="checkbox" name="region" value="대전">대전</label>
+                    <label><input type="checkbox" name="region" value="부산">부산</label>
+                    <label><input type="checkbox" name="region" value="서울">서울</label>
+                    <label><input type="checkbox" name="region" value="인천">인천</label>
+                    <label><input type="checkbox" name="region" value="전라북도">전북</label>
+                    <label><input type="checkbox" name="region" value="전라남도">전남 </label>
+                    <label><input type="checkbox" name="region" value="제주도">제주</label>
+                    <label><input type="checkbox" name="region" value="강원도">강원</label>
+                    <label><input type="checkbox" name="region" value="대구">대구</label>
+                    <p class="bottom"><input type="reset" value="Reset"></p>
+                </form>
+            </div>
+        </div>
         <div class="input_group">
-            <h class=label>지역</h>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="지역을 입력하세요" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                <button class="btn btn-outline-secondary" style=color:black type="button">선택</button>
-                </div>
-            </div>
+            <h1 class=label>가치 선택하기</h1>    
+            <form class="frame" method="get" action="form-action.html">
+                <label><input type="checkbox" name="region" value="경기도">자연/경치</label>
+                <label><input type="checkbox" name="region" value="경상북도">체험/학습</label>
+                <label><input type="checkbox" name="region" value="경상남도">휴식/힐링</label>
+                <label><input type="checkbox" name="region" value="광주">미식</label>
+                <label><input type="checkbox" name="region" value="대전">레저</label>
+                <label><input type="checkbox" name="region" value="부산">드라이브</label>
+                <label><input type="checkbox" name="region" value="서울">사진/영상</label>
+                <label><input type="checkbox" name="region" value="인천">여유로운</label>
+                <label><input type="checkbox" name="region" value="전라북도">활기찬</label>
+                <label><input type="checkbox" name="region" value="전라남도">힐링</label>
+                <label><input type="checkbox" name="region" value="제주도">낭만적인</label>
+                <p class="bottom"><input type="reset" value="Reset"></p>    
+                
+            </form>
         </div>
-        <div class = "keyword_group">
-            <h class=label>키워드</h>
-            <div class="frame">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                      Default checkbox
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                        Default checkbox
-                </label>
-                </div>    
-            </div>
-        </div>
-    </div class="input">
-
-    <div class="bottom">
-        <button type="button" style="width:300px" class="btn btn-secondary btn-lg">제출</button>
-    </div>
+        <div class="bottom">
+            <form action="index.html">
+                <input type="submit" value="결과보기" style="width:300px" class="btn btn-secondary btn-lg">
+            </form>
+        </div>        
+    </body>
 </html>
