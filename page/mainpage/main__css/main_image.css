@@ -142,7 +142,7 @@ body{overflow-x: hidden; overflow-y: auto;}
 
 #wrap section:nth-child(1):before {
   background-color: #e60000;
-  background-image: url(인천_대청도_농여해변.png);
+  background-image: url(../main_img/인천_대청도_농여해변.png);
 }
 
 .hide-images #wrap section:nth-child(1):before {
@@ -163,7 +163,7 @@ body{overflow-x: hidden; overflow-y: auto;}
 
 #wrap section:nth-child(2):before {
   background-color: #cc0000;
-  background-image: url(충북_단양.png);
+  background-image: url(../../infopage/충북_단양.png);
 }
 
 .hide-images #wrap section:nth-child(2):before {
@@ -184,7 +184,7 @@ body{overflow-x: hidden; overflow-y: auto;}
 
 #wrap section:nth-child(3):before {
   background-color: #b30000;
-  background-image: url(충남_공주_한옥마을.png);
+  background-image: url(../main_img/충남_공주_한옥마을.png);
 }
 
 .hide-images #wrap section:nth-child(3):before {
@@ -205,7 +205,7 @@ body{overflow-x: hidden; overflow-y: auto;}
 
 #wrap section:nth-child(4):before {
   background-color: #990000;
-  background-image: url(거제_해안거님길.png);
+  background-image: url(../main_img/거제_해안거님길.png);
 }
 
 .hide-images #wrap section:nth-child(4):before {
@@ -226,7 +226,7 @@ body{overflow-x: hidden; overflow-y: auto;}
 
 #wrap section:nth-child(5):before {
   background-color: maroon;
-  background-image: url(가평_피노키오와다빈치.png);
+  background-image: url(../main_img/가평_피노키오와다빈치.png);
 }
 
 .hide-images #wrap section:nth-child(5):before {
