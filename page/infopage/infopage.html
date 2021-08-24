@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="mapcontrol.js"></script>
+    <script src="map.js"></script>
     <script src="menubar.js"></script>
     <link rel="stylesheet" href="infopage.css">
     <title>결과화면 창</title>
@@ -50,8 +50,9 @@
 
                 var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 
-                // Initialization(map);
+                Initialization(map);
                 // DrawPolygon();
+                displayMarker();
             </script>
         </div>
         <div class="tourlist">

@@ -17,15 +17,19 @@ certified = db.certified
 travelDestinationdb = client.get_database('travelDestination')
 autumn = travelDestinationdb.autumn
 
+# @app.route('/get_params', methods=['POST'])
+# def GetParams():
+#         value = request
+#     return value
 
 @app.route('/Certified')
-def test1():
+def Certified():
     col_results = list(certified.find({}))
 
     return json.dumps(col_results, default=str,ensure_ascii=False)
 
 @app.route('/autumn')
-def test2():
+def autumn():
     col_results = list(autumn.find({}))
 
     return json.dumps(col_results, default=str,ensure_ascii=False)
