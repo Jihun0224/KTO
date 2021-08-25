@@ -135,6 +135,9 @@ function displayMarker(){
 
             var position = new kakao.maps.LatLng(place.y,  place.x)
             var name = place.name.split('[')[0]
+            var address = place.address
+            var phoneNumber = place.phoneNumber
+            var infoUrl = place.infoUrl
             var marker = new kakao.maps.Marker({
                 map: map,
                 position: position,
@@ -143,7 +146,18 @@ function displayMarker(){
                 id == 2?Hotelicon:
                 BBicon
             })
-            
+
+            kakao.maps.event.addListener(marker, 'click', function() {
+                // 마커 위에 인포윈도우를 표시합니다
+                var name_click = name;
+                var addr_click = address;
+                var num_click = phoneNumber;
+                var url_click = infoUrl;
+                document.getElementById("hotel-name").innerHTML=name_click
+                document.getElementById("hotel-addr").innerHTML=addr_click
+                document.getElementById("hotel-num").innerHTML=num_click
+                document.getElementById("hotel-url").innerHTML=url_click
+          })
 
             $('head').append('<link rel="stylesheet" type="text/css" href="./infopage_css/overlay.css">');
             var contents = 
@@ -155,9 +169,9 @@ function displayMarker(){
             '                <img src="https://cfile181.uf.daum.net/image/250649365602043421936D" width="73" height="70">' +
             '           </div>' + 
             '            <div class="overlaydesc">' + 
-            '                <div class="ellipsis">'+place.address+'</div>' + 
-            '                <div class="jibun ellipsis">'+place.phoneNumber+'</div>' + 
-            '                <div><a href='+ place.infoUrl +'target="_blank" class="link">상세보기</a></div>' + 
+            '                <div class="ellipsis">'+address+'</div>' + 
+            '                <div class="jibun ellipsis">'+phoneNumber+'</div>' + 
+            '                <div><a href='+ infoUrl +'target="_blank" class="link">상세보기</a></div>' + 
             '            </div>' + 
             '        </div>' + 
             '    </div>' +    
@@ -165,9 +179,11 @@ function displayMarker(){
             var content = document.createElement('div');
             content.innerHTML = contents;
             content.style.cssText = 'background-color: white';
+            
 
             marker.setMap(map);
             MarkerArr.push(marker)
+            
 
             var overlay = new kakao.maps.CustomOverlay({
                 yAnchor: 2.5,
@@ -183,6 +199,7 @@ function displayMarker(){
                 overlay.setMap(map);
                 activeId = id;
             };
+
             
             var mouseOutHandler = function() {
                 timeoutId = window.setTimeout(function() {
