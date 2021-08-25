@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="./infopage_css/infopage.css">
     <link rel="stylesheet" href="./infopage_css/recommend_info.css">
+    <link rel="stylesheet" href="./infopage_css/menubar.css">
     <title>결과화면 창</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -16,17 +17,17 @@
 <body>
     <div class="container" style="height: auto;">
         <div class="header">
-            <span class="menubar">
-                <ul>
-                    <li><a href="../mainpage/main_page.html" class="home">home</a></li>
-                    <li><a href="#" class="about">about</a></li>
-                    <li><a href="#" class="products">products</a></li>
-                    <li><a href="#" class="services">services</a></li>
-                    <li><a href="#" class="form">forum</a></li>
-                    <li><a href="#" class="contact">contact</a></li>
-                    <div class="menuUnderline"></div>
-                </ul>
-            </span>
+          <form id="form1" runat="server">
+            <div class="wrap">
+                <div class="menubar" style=margin-top:10px>
+                    <ul class="menuItem">
+                        <li><a href="../mainpage/main_page.html">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            </form>
         </div>
         <div class="main" style="width:850px; height: auto; position: relative; right: 150px;">
             <ul>
