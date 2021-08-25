@@ -10,7 +10,7 @@ function Initialization(_map){
         var level = map.getLevel();
         if (level>12){
             setMarkers(null);
-            DrawPolygon();
+            // DrawPolygon();
         }
         else{            
             setMarkers(map)
@@ -145,7 +145,7 @@ function displayMarker(){
             })
             
 
-            $('head').append('<link rel="stylesheet" type="text/css" href="overlay.css">');
+            $('head').append('<link rel="stylesheet" type="text/css" href="./infopage_css/overlay.css">');
             var contents = 
             '<div class="overlaywrap">' + 
             '    <div class="overlayinfo">' + 

@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="map.js"></script>
     <script src="menubar.js"></script>
-    <link rel="stylesheet" href="infopage.css">
+    <script src="description.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./infopage_css/infopage.css">
+    <link rel="stylesheet" href="./infopage_css/recommend_info.css">
     <title>결과화면 창</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
     <div class="container">
@@ -13,7 +19,7 @@
             <span class="menubar">
                 <ul>
                     <li><a href="../mainpage/main_page.html" class="home">home</a></li>
-                    <li><a href="about.html" class="about">about</a></li>
+                    <li><a href="#" class="about">about</a></li>
                     <li><a href="#" class="products">products</a></li>
                     <li><a href="#" class="services">services</a></li>
                     <li><a href="#" class="form">forum</a></li>
@@ -22,24 +28,53 @@
                 </ul>
             </span>
         </div>
-        <div class="main">
+        <div class="main" style="width:700px; position: relative; right: 150px;">
             <ul>
-                <h1>관광지 이름</h1>
+                <h1 id="hotel-name">관광지 이름</h1>
                 <div class="label">
-                <img src="충북_단양.png" width="400" height="250"></img>
+                <div>
+                    <img id="img" width="400" height="250" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"/>
+                    <br>
+                    <h style=font-size:20px id="img-name">이미지 설명</h>
+                </div>
+                <button onclick=GetTourapiImages()>button</button>
+                <br><br>
+                <h style=font-weight:bold>주소 </h><h id="hotel-addr">addr</h><br>
+                <h style=font-weight:bold>전화번호 </h><h id="hotel-num">num</h><br>
+                <h style=font-weight:bold>정보(대한민국 구석구석) </h><a id="hotel-url" target="_blank">url</a><br>
+                <button onclick=GetDescription()>button</button><br><br>
+                
+                <h>친환경적인 요소</h>
+                    <br>
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                      <button type="button" style=background-color:coral class="btn btn-secondary"><h style=font-size:14px>풍력</h></button>
+                      <button type="button" class="btn btn-secondary"><h style=font-size:14px>태양열</h></button>
+                      <button type="button" class="btn btn-secondary"><h style=font-size:14px>어메니티</h></button>
+                      <button type="button" class="btn btn-secondary"><h style=font-size:14px>일회용기 미사용</h></button>
+                    </div>
+                </div>
                 <br>
-                <h style=font-size:20px>이미지 설명</h>
+                <h>열린 관광 요소</h>
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                      <button type="button" style=background-color:coral class="btn btn-secondary"><h style=font-size:14px>A</h></button>
+                      <button type="button" class="btn btn-secondary"><h style=font-size:14px>B</h></button>
+                      <button type="button" class="btn btn-secondary"><h style=font-size:14px>C</h></button>
+                      <button type="button" class="btn btn-secondary"><h style=font-size:14px>D</h></button>
+                    </div>
+                </div>
                 </div>
                 <br>
                 '대한민국 테마여행 10선'은 전국의 10개 권역을 대한민국 대표 관광지로 육성하기 위한 문화체육관광부의 국내 여행 활성화 사업입니다. 각 권역에 있는 3~4개 지방자치단체는 지역의 테마에 맞는 선진 문화 관광 콘텐츠 개발에 힘을 모으고 고품격 관광 코스로 국내외 관광객을 맞이합니다. 전 세계인의 겨울 축제인 2018평창동계올림픽이 열리는 2월, 강릉 평창 속초 정선으로 떠나는 ‘드라마틱 강원 여행’을 추천합니다. 우리나라를 대표하는 바다와 산, 호수를 아우르는 자연 속에 푸근히 자리한 네 도시에서 감동 넘치는 여행, 내가 주연인 행복한 여정을 만끽해 보세요.
                 <script>
-                    for (var i = 0; i < 20; i++) {
+                    for (var i = 0; i < 5; i++) {
                         document.write('<li><h1>추천 숙소 게시물이 들어갈 부분</h1></li>')   
                     }
                 </script>
             </ul>
         </div>
-        <div class="mapinfo" id="map" style="width:400px; height:500px;">
+        <div class="mapinfo" id="map" style="width:650px; height:500px; position: relative; left: 70px;">
             <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=97b4f781718b6c8fccdf91b1e940a5dc"></script>
             <script>
                 var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
@@ -51,19 +86,28 @@
                 var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 
                 Initialization(map);
-                // DrawPolygon();
                 displayMarker();
             </script>
         </div>
-        <div class="tourlist">
-            <ul>
+        
+            <div class="tourlist">
                 <ul>
                     <li>
-                        <link rel="stylesheet" type="text/css" href="recommand_info.css">
-                        <a class="card2" href="#">
-                            <h3>This is option 2</h3>
-                            <p class="small">Card description with lots of great facts and interesting details.</p>
-                            
+                        <a class="card2" href="#">  
+                            <h3>관광지 이름</h3>
+                            <p class="small">
+                            <div class="lb-wrap">
+                                    <div class="lb-text">
+                                    <h2>설명</h2>
+                                    <div class="ib-text_2">
+                                        <h5>주소</h5>
+                                    </div>
+                                </div>
+                                <div class="ib-image" style=" width:400px; height:200px;">
+                                    <div class="blackDeco"></div>
+                                    <img src="./infopage_images/충북_단양.png" width=400px height=200px alt=""></img></div>
+                                </div>
+                            </p>
                             <div class="go-corner" href="#">
                             <div class="go-arrow">
                                 →
@@ -71,8 +115,8 @@
                             </div>
                         </a>    
                     </li>
-                </ul>                
-            </ul>
-        </div>
+                </ul>            
+            </div>
+        
     </div>
 </body>
