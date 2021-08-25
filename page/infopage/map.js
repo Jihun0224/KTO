@@ -156,7 +156,7 @@ function displayMarker(){
                 document.getElementById("hotel-name").innerHTML=name_click
                 document.getElementById("hotel-addr").innerHTML=addr_click
                 document.getElementById("hotel-num").innerHTML=num_click
-                document.getElementById("hotel-url").innerHTML=url_click
+                $("#hotel-url").attr("href",url_click)
           })
 
             $('head').append('<link rel="stylesheet" type="text/css" href="./infopage_css/overlay.css">');
