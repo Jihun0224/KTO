@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background: #f1f1f1;
+  margin: 2rem;
+}
 
 .blog-card {
   display: flex;
@@ -149,7 +153,7 @@
 .blog-card:hover .details {
   left: 0%;
 }
-@media (min-width: 640px) {
+/* @media (min-width: 640px) {
   .blog-card {
     flex-direction: row;
     max-width: 700px;
@@ -183,4 +187,4 @@
   .blog-card.alt .details {
     padding-left: 25px;
   }
-}
+} */
