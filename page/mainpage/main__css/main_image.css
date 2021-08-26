@@ -163,11 +163,7 @@ body{overflow-x: hidden;}
 
 #wrap section:nth-child(2):before {
   background-color: #cc0000;
-<<<<<<< HEAD
   background-image: url(../../infopage/infopage_images/충북_단양.png);
-=======
-  background-image: url(../main_img/충북_단양.png);
->>>>>>> 48fbc2f2d73a778883a629e1f0e31acaabea42c5
 }
 
 .hide-images #wrap section:nth-child(2):before {

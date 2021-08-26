@@ -143,6 +143,16 @@ function displayMarker(){
             var help = place.help
             var imgSrc = place.src
             
+            if(help.indexOf("장애인 화장실") != -1)
+            {
+                $("#b1").attr("style","background-color:rgb(157,186,209)");
+                $("#bb1").attr("style","color:white");
+            }
+            else
+            {
+                $("#b1").attr("style","background-color:white");
+                $("#bb1").attr("style","color:rgb(157,186,209)");
+            }
             
             
             var marker = new kakao.maps.Marker({
