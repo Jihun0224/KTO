@@ -25,9 +25,10 @@ def index():
 def result():
 
     jsonData = request.get_json()
+    print(jsonData)
     col_results = list(certified.find().limit(1))
     print(col_results)
-    return render_template('infopage.html', certified=col_results)
+    return render_template('infopage.html')
 
 @app.route('/Certified')
 def Certified():

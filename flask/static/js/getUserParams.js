@@ -33,5 +33,6 @@ function getUserParams(){
               body: JSON.stringify(params)
             });
           })();
+          location.href ="./result"
     }
 }
