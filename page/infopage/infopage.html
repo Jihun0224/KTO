@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="./infopage_css/infopage.css">
     <link rel="stylesheet" href="./infopage_css/recommend_info.css">
+    <link rel="stylesheet" href="./infopage_css/menubar.css">
     <title>결과화면 창</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -22,28 +23,34 @@
                     <li><a href="#" class="about">about</a></li>
                     <li><a href="#" class="products">products</a></li>
                     <li><a href="#" class="services">services</a></li>
-                    <li><a href="#" class="form">forum</a></li>
-                    <li><a href="#" class="contact">contact</a></li>
                     <div class="menuUnderline"></div>
                 </ul>
             </span>
         </div>
         <div class="main" style="width:850px; height: auto; position: relative; right: 150px;">
             <ul>
+                <div style="text-align:center">
+                  <h id="hotel-summary" style="font-size:20px">부제</h>
+                </div>
                 <h1 id="hotel-name" style="text-align: center;font-weight:bold">베스트루이스해밀턴호텔</h1>
                 <div class="label" style="position: relative; top: 30px;">
                 <div>
-                    <img id="img" width="500" height="300" src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=98be5e22-f0f1-4c57-9bab-a85cd860990a"/>
+                    <img id="hotel-img" width="500" height="300" target="_blank" src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=98be5e22-f0f1-4c57-9bab-a85cd860990a"/>
                     <br>
-                    <h style=font-size:20px id="img-name"><br>이미지 설명</h>
+                    
                 </div>
-                <!-- <button onclick=GetTourapiImages()>button</button> -->
+                
                 <br>
                 <h style=font-weight:bold>주소 </h><h id="hotel-addr">addr</h><br>
-                <h style=font-weight:bold>전화번호 </h><h id="hotel-num">num</h><br>
-                <h style=font-weight:bold>정보(대한민국 구석구석) </h><a id="hotel-url" target="_blank">click!</a><br>
-                <!-- <button onclick=GetDescription()>button</button><br><br> -->
-                <h><br>친환경적인 요소</h>
+                <h style=font-weight:bold>전화번호 </h><h id="hotel-num">num</h>
+                <!-- <h style=font-weight:bold>대한민국 구석구석 페이지 이동 </h><a id="hotel-url" target="_blank">click!</a><br> -->
+                  
+                <p style="position: relative; top: 30px;">
+                    <h id="hotel-info">대한민국 테마여행 10선'은 전국의 10개 권역을 대한민국 대표 관광지로 육성하기 위한 문화체육관광부의 국내 여행 활성화 사업입니다. 각 권역에 있는 3~4개 지방자치단체는 지역의 테마에 맞는 선진 문화 관광 콘텐츠 개발에 힘을 모으고 고품격 관광 코스로 국내외 관광객을 맞이합니다. 전 세계인의 겨울 축제인 2018평창동계올림픽이 열리는 2월, 강릉 평창 속초 정선으로 떠나는 ‘드라마틱 강원 여행’을 추천합니다. 우리나라를 대표하는 바다와 산, 호수를 아우르는 자연 속에 푸근히 자리한 네 도시에서 감동 넘치는 여행, 내가 주연인 행복한 여정을 만끽해 보세요.</h>
+                  <br>
+                </p>
+
+                <h style=font-weight:bold><br><br>친환경적 요소</h>
                     <br>
                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups" >
                   <div class="btn-group mr-2" role="group" aria-label="First group" style='margin-left: 188px; '>
@@ -54,19 +61,32 @@
                   </div>
                 </div>
                 <br>
-                <h>열린 관광 요소</h>
+                <h style=font-weight:bold>열린 관광 요소</h>
                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div class="btn-group mr-2" role="group" aria-label="First group" style='margin-left: 290px;'>
-                      <button type="button" style=background-color:rgb(157,186,209) class="btn btn-secondary"><h style='font-size:14px'>A</h></button>
-                      <button type="button" style=background-color:white class="btn btn-secondary"><h style=font-size:14px;color:rgb(157,186,209)>B</h></button>
-                      <button type="button" style=background-color:white class="btn btn-secondary"><h style=font-size:14px;color:rgb(157,186,209)>C</h></button>
-                      <button type="button" style=background-color:white class="btn btn-secondary"><h style=font-size:14px;color:rgb(157,186,209)>D</h></button>
+                    <div class="btn-group mr-2" role="group" aria-label="First group" style='margin:auto;'>
+                      <button type="button" style=background-color:rgb(157,186,209) class="btn btn-secondary"><h style='font-size:14px'>장애인 화장실</h></button>
+                      <button type="button" style=background-color:white class="btn btn-secondary"><h style=font-size:14px;color:rgb(157,186,209)>장애인용 엘리베이터</h></button>
+                      <button type="button" style=background-color:white class="btn btn-secondary"><h style=font-size:14px;color:rgb(157,186,209)>장애인 전용 주차구역</h></button>
+                      <button type="button" style=background-color:white class="btn btn-secondary"><h style=font-size:14px;color:rgb(157,186,209)>주출입구 단차없음</h></button>
                     </div>
                   </div>
-                <p style="position: relative; top: 30px;">
-                    '대한민국 테마여행 10선'은 전국의 10개 권역을 대한민국 대표 관광지로 육성하기 위한 문화체육관광부의 국내 여행 활성화 사업입니다. 각 권역에 있는 3~4개 지방자치단체는 지역의 테마에 맞는 선진 문화 관광 콘텐츠 개발에 힘을 모으고 고품격 관광 코스로 국내외 관광객을 맞이합니다. 전 세계인의 겨울 축제인 2018평창동계올림픽이 열리는 2월, 강릉 평창 속초 정선으로 떠나는 ‘드라마틱 강원 여행’을 추천합니다. 우리나라를 대표하는 바다와 산, 호수를 아우르는 자연 속에 푸근히 자리한 네 도시에서 감동 넘치는 여행, 내가 주연인 행복한 여정을 만끽해 보세요.
-                  <br>
-                  </p>
+                  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group" style='margin:auto;'>
+                      <button type="button" style=background-color:white class="btn btn-secondary"><h style=font-size:14px;color:rgb(157,186,209)>지하철 접근가능</h></button>
+                      <button type="button" style=background-color:rgb(157,186,209) class="btn btn-secondary"><h style='font-size:14px'>저상버스 접근가능</h></button>
+                      <button type="button" style=background-color:white class="btn btn-secondary"><h style=font-size:14px;color:rgb(157,186,209)>휠체어 대여</h></button>
+                      <button type="button" style=background-color:white class="btn btn-secondary"><h style=font-size:14px;color:rgb(157,186,209)>시각장애인 편의</h></button>
+                    </div>
+                  </div>
+                  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group" style='margin:auto;'>
+                      <button type="button" style=background-color:white class="btn btn-secondary"><h style=font-size:14px;color:rgb(157,186,209)>청각장애인 편의</h></button>
+                      <button type="button" style=background-color:white class="btn btn-secondary"><h style=font-size:14px;color:rgb(157,186,209)>수유실</h></button>
+                      <button type="button" style=background-color:white class="btn btn-secondary"><h style=font-size:14px;color:rgb(157,186,209)>장애인 객실</h></button>
+                      <button type="button" style=background-color:rgb(157,186,209) class="btn btn-secondary"><h style='font-size:14px'>유모차 대여</h></button>
+                    </div>
+                  </div>
+
                 <div style="position: relative; top: 30px;">
                     <div class="card-columns" style="height: 500px;">
                         <div class="card" style="height: 420px; width: 350px;">
