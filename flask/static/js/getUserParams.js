@@ -23,6 +23,15 @@ function getUserParams(){
         alert("1개 이상의 가치를 가치를 선택해 주세요.");
     }
     else{
-        alert("Page 이동");
+        (async () => {
+            const rawResponse = await fetch('/result', {
+              method: 'POST',
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(params)
+            });
+          })();
     }
 }

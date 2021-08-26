@@ -21,6 +21,14 @@ autumn = travelDestinationdb.autumn
 def index():
     return render_template('index.html')
 
+@app.route("/result", methods=["GET", "POST"])
+def result():
+
+    jsonData = request.get_json()
+    col_results = list(certified.find().limit(1))
+    print(col_results)
+    return render_template('infopage.html', certified=col_results)
+
 @app.route('/Certified')
 def Certified():
     col_results = list(certified.find({}))
