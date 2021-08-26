@@ -138,6 +138,10 @@ function displayMarker(){
             var address = place.address
             var phoneNumber = place.phoneNumber
             var infoUrl = place.infoUrl
+            var summary = place.summary
+            var info = place.info
+            var help = place.help
+            var imgSrc = place.src
             var marker = new kakao.maps.Marker({
                 map: map,
                 position: position,
@@ -148,15 +152,14 @@ function displayMarker(){
             })
 
             kakao.maps.event.addListener(marker, 'click', function() {
-                // 마커 위에 인포윈도우를 표시합니다
-                var name_click = name;
-                var addr_click = address;
-                var num_click = phoneNumber;
-                var url_click = infoUrl;
-                document.getElementById("hotel-name").innerHTML=name_click
-                document.getElementById("hotel-addr").innerHTML=addr_click
-                document.getElementById("hotel-num").innerHTML=num_click
-                $("#hotel-url").attr("href",url_click)
+                // 클릭 이벤트
+                document.getElementById("hotel-name").innerHTML=name;
+                document.getElementById("hotel-addr").innerHTML=address;
+                document.getElementById("hotel-num").innerHTML=phoneNumber;
+                $("#hotel-url").attr("href",infoUrl);
+                document.getElementById("hotel-summary").innerHTML=summary;
+                document.getElementById("hotel-info").innerHTML=info;
+                $("#hotel-img").attr("src",imgSrc);
           })
 
             $('head').append('<link rel="stylesheet" type="text/css" href="./infopage_css/overlay.css">');
@@ -166,7 +169,7 @@ function displayMarker(){
             '        <div class="title">' + name +'</div>' + 
             '        <div class="body">' + 
             '            <div class="img">' +
-            '                <img src="https://cfile181.uf.daum.net/image/250649365602043421936D" width="73" height="70">' +
+            '                <img src="'+ imgSrc+ '"width="73" height="70">' +
             '           </div>' + 
             '            <div class="overlaydesc">' + 
             '                <div class="ellipsis">'+address+'</div>' + 
