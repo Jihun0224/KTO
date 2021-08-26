@@ -1,5 +1,5 @@
 from flask_cors import CORS
-from flask import Flask,jsonify,request
+from flask import Flask,jsonify,request,render_template
 import pymongo
 import json
 
@@ -17,10 +17,9 @@ certified = db.certified
 travelDestinationdb = client.get_database('travelDestination')
 autumn = travelDestinationdb.autumn
 
-@app.route('/get_params', methods=['POST','GET'])
-def GetParams():
-    value = request.form
-    return str(value)
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @app.route('/Certified')
 def Certified():

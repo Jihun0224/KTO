@@ -9,8 +9,8 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="./main__css/main__info.css">
-        <link rel="stylesheet", type="text/css" href="./main__css/main_image.css">
+        <link rel="stylesheet" href="{{url_for('static', filename='main__css/main__info.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='main__css/main_image.css')}}">
         
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -64,7 +64,7 @@
 
         
         <div class="info">
-            <img src="./main_img/우주공감.png">
+            <img src="{{ url_for('static', filename='main_img/우주공감.png')}}">
             <h1 class="service_name">서비스 이름</h1>
             <h>
                 서비스 설명
@@ -96,7 +96,7 @@
             </div>
                 <!-- <h1 class=label>지역선택(도 단위, 예: 강원도)</h1> -->
             <div class="wrap">
-                <link rel="stylesheet" href="./main__css/paldo_select.css">
+                <link rel="stylesheet" href="{{url_for('static', filename='/main__css/paldo_select.css')}}">
                 <select class="selectbox" id="type__people">
                     <option>동반유형 선택</option>
                     <option value="">나홀로</option>
@@ -129,7 +129,7 @@
 
 
         <div class="bottom">
-            <form action="../infopage/infopage.html">
+            <form>
                 <input type="submit" value="결과보기" onclick=test() style="width:300px" class="btn btn-secondary btn-lg">
             </form>
         </div>    
