@@ -1,5 +1,6 @@
 var map;
 var MarkerArr = [];
+var SelectedMarker = [];
 function Initialization(_map){
     map = _map;
     var zoomControl = new kakao.maps.ZoomControl();
@@ -127,12 +128,21 @@ function displayMarker(){
             coords: "1,20,1,9,5,2,10,0,21,0,27,3,30,9,30,20,17,33,14,33"
         }
       );
+      var testicon = new kakao.maps.MarkerImage(
+        "../../images/location.svg",
+        new kakao.maps.Size(31, 35),
+        {
+            offset: new kakao.maps.Point(16, 34),
+            shape: "poly",
+            coords: "1,20,1,9,5,2,10,0,21,0,27,3,30,9,30,20,17,33,14,33"
+        }
+      );
     fetch("http://15.165.202.95/Certified")
     .then(response => response.json())  
     .then(json => {
         $.each(json, function(index,place){
             var id = place.id;
-
+            
             var position = new kakao.maps.LatLng(place.y,  place.x)
             var name = place.name.split('[')[0]
             var address = place.address
@@ -143,17 +153,6 @@ function displayMarker(){
             var help = place.help
             var imgSrc = place.src
             
-            if(help.indexOf("장애인 화장실") != -1)
-            {
-                $("#b1").attr("style","background-color:rgb(157,186,209)");
-                $("#bb1").attr("style","color:white");
-            }
-            else
-            {
-                $("#b1").attr("style","background-color:white");
-                $("#bb1").attr("style","color:rgb(157,186,209)");
-            }
-            
             
             var marker = new kakao.maps.Marker({
                 map: map,
@@ -163,9 +162,9 @@ function displayMarker(){
                 id == 2?Hotelicon:
                 BBicon
             })
-
+            // 클릭 이벤트
+            
             kakao.maps.event.addListener(marker, 'click', function() {
-                // 클릭 이벤트
                 document.getElementById("hotel-name").innerHTML=name;
                 document.getElementById("hotel-addr").innerHTML=address;
                 document.getElementById("hotel-num").innerHTML=phoneNumber;
@@ -173,7 +172,163 @@ function displayMarker(){
                 document.getElementById("hotel-summary").innerHTML=summary;
                 document.getElementById("hotel-info").innerHTML=info;
                 $("#hotel-img").attr("src",imgSrc);
-          })
+
+                console.log(marker)
+                SelectedMarker = marker
+                console.log(SelectedMarker)
+
+                //selectedMarker.setImage(Hanokicon);
+                
+                
+                if(id==1)
+                {
+                    marker.setImage(testicon)
+                }
+                if(id==2)
+                {
+                    marker.setImage(testicon)
+                }
+                if(id!=1 && id!=2)
+                {
+                    marker.setImage(testicon)
+                }
+
+                // 열린 관광 요소(12개)
+                if(help.indexOf("장애인 화장실") != -1)
+                {
+                    $("#b1").attr("style","background-color:rgb(157,186,209)");
+                    $("#bb1").attr("style","font-size:14px;color:white");
+                }
+                else
+                {
+                    $("#b1").attr("style","background-color:white");
+                    $("#bb1").attr("style","font-size:14px;color:rgb(157,186,209)");
+                }
+                
+                if(help.indexOf("장애인용 엘리베이터") != -1)
+                {
+                    $("#b2").attr("style","background-color:rgb(157,186,209)");
+                    $("#bb2").attr("style","font-size:14px;color:white");
+                }
+                else
+                {
+                    $("#b2").attr("style","background-color:white");
+                    $("#bb2").attr("style","font-size:14px;color:rgb(157,186,209)");
+                }
+
+                if(help.indexOf("장애인 전용 주차구역") != -1)
+                {
+                    $("#b3").attr("style","background-color:rgb(157,186,209)");
+                    $("#bb3").attr("style","font-size:14px;color:white");
+                }
+                else
+                {
+                    $("#b3").attr("style","background-color:white");
+                    $("#bb3").attr("style","font-size:14px;color:rgb(157,186,209)");
+                }
+
+                if(help.indexOf("주출입구 단차없음") != -1)
+                {
+                    $("#b4").attr("style","background-color:rgb(157,186,209)");
+                    $("#bb4").attr("style","font-size:14px;color:white");
+                }
+                else
+                {
+                    $("#b4").attr("style","background-color:white");
+                    $("#bb4").attr("style","font-size:14px;color:rgb(157,186,209)");
+                }
+
+                if(help.indexOf("지하철 접근가능") != -1)
+                {
+                    $("#b5").attr("style","background-color:rgb(157,186,209)");
+                    $("#bb5").attr("style","font-size:14px;color:white");
+                }
+                else
+                {
+                    $("#b5").attr("style","background-color:white");
+                    $("#bb5").attr("style","font-size:14px;color:rgb(157,186,209)");
+                }
+
+                if(help.indexOf("저상버스 접근가능") != -1)
+                {
+                    $("#b6").attr("style","background-color:rgb(157,186,209)");
+                    $("#bb6").attr("style","font-size:14px;color:white");
+                }
+                else
+                {
+                    $("#b6").attr("style","background-color:white");
+                    $("#bb6").attr("style","font-size:14px;color:rgb(157,186,209)");
+                }
+
+                if(help.indexOf("휠체어 대여") != -1)
+                {
+                    $("#b7").attr("style","background-color:rgb(157,186,209)");
+                    $("#bb7").attr("style","font-size:14px;color:white");
+                }
+                else
+                {
+                    $("#b7").attr("style","background-color:white");
+                    $("#bb7").attr("style","font-size:14px;color:rgb(157,186,209)");
+                }
+
+                if(help.indexOf("시각장애인 편의서비스") != -1)
+                {
+                    $("#b8").attr("style","background-color:rgb(157,186,209)");
+                    $("#bb8").attr("style","font-size:14px;color:white");
+                }
+                else
+                {
+                    $("#b8").attr("style","background-color:white");
+                    $("#bb8").attr("style","font-size:14px;color:rgb(157,186,209)");
+                }
+
+                if(help.indexOf("청각장애인 편의서비스") != -1)
+                {
+                    $("#b9").attr("style","background-color:rgb(157,186,209)");
+                    $("#bb9").attr("style","font-size:14px;color:white");
+                }
+                else
+                {
+                    $("#b9").attr("style","background-color:white");
+                    $("#bb9").attr("style","font-size:14px;color:rgb(157,186,209)");
+                }
+
+                if(help.indexOf("수유실") != -1)
+                {
+                    $("#b10").attr("style","background-color:rgb(157,186,209)");
+                    $("#bb10").attr("style","font-size:14px;color:white");
+                }
+                else
+                {
+                    $("#b10").attr("style","background-color:white");
+                    $("#bb10").attr("style","font-size:14px;color:rgb(157,186,209)");
+                }
+
+                if(help.indexOf("장애인 객실") != -1)
+                {
+                    $("#b11").attr("style","background-color:rgb(157,186,209)");
+                    $("#bb11").attr("style","font-size:14px;color:white");
+                }
+                else
+                {
+                    $("#b11").attr("style","background-color:white");
+                    $("#bb11").attr("style","font-size:14px;color:rgb(157,186,209)");
+                }
+
+                if(help.indexOf("유모차 대여") != -1)
+                {
+                    $("#b12").attr("style","background-color:rgb(157,186,209)");
+                    $("#bb12").attr("style","font-size:14px;color:white");
+                }
+                else
+                {
+                    $("#b12").attr("style","background-color:white");
+                    $("#bb12").attr("style","font-size:14px;color:rgb(157,186,209)");
+                }
+                SelectedMarker = marker
+
+          });
+          
 
             $('head').append('<link rel="stylesheet" type="text/css" href="./infopage_css/overlay.css">');
             var contents = 
