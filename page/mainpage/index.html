@@ -21,7 +21,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
-
+            <script src="getUserParams.js"></script>
             <title>메인 페이지</title>
     </head>
     <body id="main__body">
@@ -62,7 +62,7 @@
 
 
         
-        <div class="info">
+        <div class="info" style="position: relative; top: -125px;">
             <img src="./main_img/우주공감.png">
             <h1 class="service_name">서비스 이름</h1>
             <h>
@@ -79,17 +79,24 @@
                     <link rel="stylesheet" href="./main__css/paldo_select.css">
                     <select class="selectbox" id="type__paldo">
                         <option>지역 선택</option>
-                        <option value="경기도">경기</option>
-                        <option value="">경북</option>
-                        <option value="">경남</option>
-                        <option value="">광주</option>
-                        <option value="">대전</option>
-                        <option value="">부산</option>
-                        <option value="">서울</option>
-                        <option value="">인천</option>
-                        <option value="">전북</option>
-                        <option value="">전남</option>
-                        <option value="">제주</option>
+                        <option value="서울">서울</option>
+                        <option value="부산">부산</option>
+                        <option value="대구">대구</option> 
+                        <option value="인천">인천</option>
+                        <option value="광주">광주</option>
+                        <option value="대전">대전</option>
+                        <option value="울산">울산</option>
+                        <option value="세종">세종</option>
+                        <option value="경기">경기</option>
+                        <option value="강원">강원</option>
+                        <option value="충북">충북</option>
+                        <option value="충남">충남</option>
+                        <option value="전북">전북</option>
+                        <option value="전남">전남</option>
+                        <option value="경북">경북</option>
+                        <option value="경남">경남</option>
+                        <option value="제주">제주</option>
+
                     </select>
                 </div>
             </div>
@@ -98,42 +105,42 @@
                 <link rel="stylesheet" href="./main__css/paldo_select.css">
                 <select class="selectbox" id="type__people">
                     <option>동반유형 선택</option>
-                    <option value="">나홀로</option>
-                    <option value="">가족</option>
-                    <option value="">친구</option>
-                    <option value="">연인</option>
-                    <option value="">반려견 동반</option>
+                    <option value="나홀로">나홀로</option>
+                    <option value="가족">가족</option>
+                    <option value="친구">친구</option>
+                    <option value="연인">연인</option>
+                    <option value="반려견 동반">반려견 동반</option>
                 </select>
             </div>
         </div>
 
         <div class="input_group">
-            <h1 class="label" style="font-size: 20px;">가치 선택하기</h1>  
+            <h1 class="label" style="font-size: 20px; position: relative; top: -20px;">가치 선택하기</h1>  
             <form class="frame" method="get" action="form-action.html">
             <div class="left-box">
-                <label class="container"><input type="checkbox" name="region" value="경기도">자연/경치<span class="checkmark"></span></label>
-                <label class="container"><input type="checkbox" name="region" value="경상북도">체험/학습<span class="checkmark"></span></label>
-                <label class="container"><input type="checkbox" name="region" value="제주도">낭만적인<span class="checkmark"></span></label>
-                <label class="container"><input type="checkbox" name="region" value="인천">여유로운<span class="checkmark"></span></label>
-                <label class="container"><input type="checkbox" name="region" value="광주">미식<span class="checkmark"></span></label>
-                <label class="container"><input type="checkbox" name="region" value="대전">레저<span class="checkmark"></span></label>
+                <label class="container"><input type="checkbox" id="value_" value="자연/경치">자연/경치<span class="checkmark"></span></label>
+                <label class="container"><input type="checkbox" id="value_" value="체험/학습">체험/학습<span class="checkmark"></span></label>
+                <label class="container"><input type="checkbox" id="value_" value="낭만적인">낭만적인<span class="checkmark"></span></label>
+                <label class="container"><input type="checkbox" id="value_" value="여유로운">여유로운<span class="checkmark"></span></label>
+                <label class="container"><input type="checkbox" id="value_" value="미식">미식<span class="checkmark"></span></label>
+                <label class="container"><input type="checkbox" id="value_" value="레저">레저<span class="checkmark"></span></label>
             </div>
             <div class="right-box">
-                <label class="container"><input type="checkbox" name="region" value="경상남도">휴식/힐링<span class="checkmark"></span></label>
-                <label class="container"><input type="checkbox" name="region" value="서울">사진/영상<span class="checkmark"></span></label>
-                <label class="container"><input type="checkbox" name="region" value="부산">드라이브<span class="checkmark"></span></label>
-                <label class="container"><input type="checkbox" name="region" value="전라북도">활기찬<span class="checkmark"></span></label>
-                <label class="container"><input type="checkbox" name="region" value="전라남도">힐링<span class="checkmark"></span></label>
+                <label class="container"><input type="checkbox" id="value_" value="휴식/힐링">휴식/힐링<span class="checkmark"></span></label>
+                <label class="container"><input type="checkbox" id="value_" value="사진/영상">사진/영상<span class="checkmark"></span></label>
+                <label class="container"><input type="checkbox" id="value_" value="드라이브">드라이브<span class="checkmark"></span></label>
+                <label class="container"><input type="checkbox" id="value_" value="활기찬">활기찬<span class="checkmark"></span></label>
+                <label class="container"><input type="checkbox" id="value_" value="힐링">힐링<span class="checkmark"></span></label>
             </div>
         </div>
         <br>
         <link rel="stylesheet" href="./main__css/main_button.css">
-    <a href="http://127.0.0.1:5500/page/infopage/infopage.html" class="cta">
-    <span>결과 보기</span>
+    <a class="cta" >
+    <span type="checkbox"onclick=getUserParams()>결과 보기</span>
     <svg width="13px" height="10px" viewBox="0 0 13 10">
       <path d="M1,5 L11,5"></path>
       <polyline points="8 1 12 5 8 9"></polyline>
     </svg>
-  </a>
+    </a>  
     </body>
 </html>
