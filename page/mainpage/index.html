@@ -113,9 +113,11 @@
         </div>
 
         <div class="input_group">
-            <h1 class=label>가치 선택하기</h1>    
+            <h1>가치 선택하기</h1>    
             <form class="frame" method="get" action="form-action.html">
-                <label><input type="checkbox" name="region" value="경기도">자연/경치</label>
+                <label class="container"><input type="checkbox" checked="checked" name="region" value="경기도">자연/경치<span class="checkmark"></span></label>
+                <label class="container"><input type="checkbox" checked="checked" name="region" value="경기도">자연/경치<span class="checkmark"></span></label>
+
                 <label><input type="checkbox" name="region" value="경상북도">체험/학습</label>
                 <label><input type="checkbox" name="region" value="경상남도">휴식/힐링</label>
                 <label><input type="checkbox" name="region" value="광주">미식</label>
@@ -126,9 +128,19 @@
                 <label><input type="checkbox" name="region" value="전라북도">활기찬</label>
                 <label><input type="checkbox" name="region" value="전라남도">힐링</label>
                 <label><input type="checkbox" name="region" value="제주도">낭만적인</label>
-                <p class="bottom"><input type="reset" value="Reset"></p>    
-            </form>
+              <p class="bottom"><input type="reset" value="Reset" style="background-color:#00ff0000; color:#ffab9d; border: 0; outline: 0;"></p>
         </div>
+<<<<<<< HEAD:page/mainpage/main_page.html
+        <br>
+        <link rel="stylesheet" href="./main__css/main_button.css">
+<a href="http://127.0.0.1:5500/page/infopage/infopage.html" class="cta">
+    <span>결과 보기</span>
+    <svg width="13px" height="10px" viewBox="0 0 13 10">
+      <path d="M1,5 L11,5"></path>
+      <polyline points="8 1 12 5 8 9"></polyline>
+    </svg>
+  </a>
+=======
 
 
 
@@ -137,5 +149,6 @@
                 <input type="submit" value="결과보기" onclick=test() style="width:300px" class="btn btn-secondary btn-lg">
             </form>
         </div>    
+>>>>>>> 54d78b4e16b82ec4df22f5c4dfbe8899370d2fe0:page/mainpage/index.html
     </body>
 </html>
