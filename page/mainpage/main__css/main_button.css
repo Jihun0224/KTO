@@ -27,7 +27,7 @@ a {
     left: 0;
     display: block;
     border-radius: 28px;
-    background: rgba(255, 171, 157, 0.5);
+    background: rgb(129,166,222);
     width: 56px;
     height: 56px;
     transition: all .3s ease;
@@ -58,7 +58,7 @@ a {
 
 .cta:hover:before {
     width: 100%;
-    background: #ffab9d;
+    background: rgb(129,166,222);
 }
 
 .cta:hover svg {
