@@ -127,7 +127,7 @@ function displayMarker(){
             coords: "1,20,1,9,5,2,10,0,21,0,27,3,30,9,30,20,17,33,14,33"
         }
       );
-    fetch("http://localhost:5000/Certified")
+    fetch("http://15.165.202.95/Certified")
     .then(response => response.json())  
     .then(json => {
         $.each(json, function(index,place){
@@ -142,6 +142,9 @@ function displayMarker(){
             var info = place.info
             var help = place.help
             var imgSrc = place.src
+            
+            
+            
             var marker = new kakao.maps.Marker({
                 map: map,
                 position: position,
