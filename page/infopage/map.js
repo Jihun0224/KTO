@@ -135,6 +135,13 @@ function displayMarker(){
 
             var position = new kakao.maps.LatLng(place.y,  place.x)
             var name = place.name.split('[')[0]
+            var address = place.address
+            var phoneNumber = place.phoneNumber
+            var infoUrl = place.infoUrl
+            var summary = place.summary
+            var info = place.info
+            var help = place.help
+            var imgSrc = place.src
             var marker = new kakao.maps.Marker({
                 map: map,
                 position: position,
@@ -143,7 +150,17 @@ function displayMarker(){
                 id == 2?Hotelicon:
                 BBicon
             })
-            
+
+            kakao.maps.event.addListener(marker, 'click', function() {
+                // 클릭 이벤트
+                document.getElementById("hotel-name").innerHTML=name;
+                document.getElementById("hotel-addr").innerHTML=address;
+                document.getElementById("hotel-num").innerHTML=phoneNumber;
+                $("#hotel-url").attr("href",infoUrl);
+                document.getElementById("hotel-summary").innerHTML=summary;
+                document.getElementById("hotel-info").innerHTML=info;
+                $("#hotel-img").attr("src",imgSrc);
+          })
 
             $('head').append('<link rel="stylesheet" type="text/css" href="./infopage_css/overlay.css">');
             var contents = 
@@ -152,12 +169,12 @@ function displayMarker(){
             '        <div class="title">' + name +'</div>' + 
             '        <div class="body">' + 
             '            <div class="img">' +
-            '                <img src="https://cfile181.uf.daum.net/image/250649365602043421936D" width="73" height="70">' +
+            '                <img src="'+ imgSrc+ '"width="73" height="70">' +
             '           </div>' + 
             '            <div class="overlaydesc">' + 
-            '                <div class="ellipsis">'+place.address+'</div>' + 
-            '                <div class="jibun ellipsis">'+place.phoneNumber+'</div>' + 
-            '                <div><a href='+ place.infoUrl +'target="_blank" class="link">상세보기</a></div>' + 
+            '                <div class="ellipsis">'+address+'</div>' + 
+            '                <div class="jibun ellipsis">'+phoneNumber+'</div>' + 
+            '                <div><a href='+ infoUrl +'target="_blank" class="link">상세보기</a></div>' + 
             '            </div>' + 
             '        </div>' + 
             '    </div>' +    
@@ -165,9 +182,11 @@ function displayMarker(){
             var content = document.createElement('div');
             content.innerHTML = contents;
             content.style.cssText = 'background-color: white';
+            
 
             marker.setMap(map);
             MarkerArr.push(marker)
+            
 
             var overlay = new kakao.maps.CustomOverlay({
                 yAnchor: 2.5,
@@ -183,6 +202,7 @@ function displayMarker(){
                 overlay.setMap(map);
                 activeId = id;
             };
+
             
             var mouseOutHandler = function() {
                 timeoutId = window.setTimeout(function() {
