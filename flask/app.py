@@ -2,8 +2,12 @@ from flask_cors import CORS
 from flask import Flask,jsonify,request,render_template
 import pymongo
 import json
+from bson import json_util
+from mongoengine_jsonencoder import MongoEngineJSONEncoder
 
 app = Flask(__name__)
+app.json_encoder = MongoEngineJSONEncoder
+
 CORS(app)
 
 CONNECTION_STRING = "mongodb+srv://jihun:dja1wkd2@qualified.mmv3l.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
@@ -23,10 +27,10 @@ def index():
 
 @app.route("/result", methods=["GET", "POST"])
 def result():
-
     jsonData = request.get_json()
     col_results = list(certified.find().limit(1))
     return render_template('infopage.html',results = col_results)
+
 
 @app.route('/Certified')
 def Certified():
