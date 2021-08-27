@@ -1,6 +1,7 @@
 var map;
 var MarkerArr = [];
-var SelectedMarker = [];
+var SelectedMarker = null
+var temp=99;
 function Initialization(_map){
     map = _map;
     var zoomControl = new kakao.maps.ZoomControl();
@@ -128,9 +129,27 @@ function displayMarker(){
             coords: "1,20,1,9,5,2,10,0,21,0,27,3,30,9,30,20,17,33,14,33"
         }
       );
-      var testicon = new kakao.maps.MarkerImage(
-        "../../images/location.svg",
-        new kakao.maps.Size(31, 35),
+      var Hanokicon_sel = new kakao.maps.MarkerImage(
+        "../../images/hanok_select.png",
+        new kakao.maps.Size(41, 45),
+        {
+            offset: new kakao.maps.Point(16, 34),
+            shape: "poly",
+            coords: "1,20,1,9,5,2,10,0,21,0,27,3,30,9,30,20,17,33,14,33"
+        }
+      );
+      var Hotelicon_sel = new kakao.maps.MarkerImage(
+        "../../images/hotel_select.png",
+        new kakao.maps.Size(41, 45),
+        {
+            offset: new kakao.maps.Point(16, 34),
+            shape: "poly",
+            coords: "1,20,1,9,5,2,10,0,21,0,27,3,30,9,30,20,17,33,14,33"
+        }
+      );
+      var BBicon_sel = new kakao.maps.MarkerImage(
+        "../../images/bb_select.png",
+        new kakao.maps.Size(41, 45),
         {
             offset: new kakao.maps.Point(16, 34),
             shape: "poly",
@@ -153,17 +172,31 @@ function displayMarker(){
             var help = place.help
             var imgSrc = place.src
             
-            
             var marker = new kakao.maps.Marker({
                 map: map,
                 position: position,
-                image: 
+                image:
                 id == 1?Hanokicon:
                 id == 2?Hotelicon:
                 BBicon
             })
-            // 클릭 이벤트
+
             
+
+            // var marker1 = new kakao.maps.Marker({ 
+            //     // 지도 중심좌표에 마커를 생성합니다 
+            //     position: map.getCenter() 
+            // }); 
+            // marker1.setMap(map);
+
+            // kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+            //     var latlng = mouseEvent.latLng; 
+        
+            //             // 마커 위치를 클릭한 위치로 옮깁니다
+            //     marker1.setPosition(latlng);
+            // });
+            
+            // 클릭 이벤트
             kakao.maps.event.addListener(marker, 'click', function() {
                 document.getElementById("hotel-name").innerHTML=name;
                 document.getElementById("hotel-addr").innerHTML=address;
@@ -173,24 +206,66 @@ function displayMarker(){
                 document.getElementById("hotel-info").innerHTML=info;
                 $("#hotel-img").attr("src",imgSrc);
 
-                console.log(marker)
-                SelectedMarker = marker
-                console.log(SelectedMarker)
-
-                //selectedMarker.setImage(Hanokicon);
-                
+                // 클릭된 마커가 없고, click 마커가 클릭된 마커가 아니면
+                // 마커의 이미지를 클릭 이미지로 변경합니다
                 
                 if(id==1)
                 {
-                    marker.setImage(testicon)
+                    marker.setImage(Hanokicon_sel)
+
+                    if (SelectedMarker!=null){
+                        if(temp==1){
+                            SelectedMarker.setImage(Hanokicon)
+                        }
+                        if(temp==2){
+                            SelectedMarker.setImage(Hotelicon)
+                        }
+                        if(temp!=1 && temp!=2){
+                            SelectedMarker.setImage(BBicon)
+                        }
+                    }
+                    else{
+                        console.log("qq")
+                    }
+                    
                 }
                 if(id==2)
                 {
-                    marker.setImage(testicon)
+                    marker.setImage(Hotelicon_sel)
+
+                    if (SelectedMarker!=null){
+                        if(temp==1){
+                            SelectedMarker.setImage(Hanokicon)
+                        }
+                        if(temp==2){
+                            SelectedMarker.setImage(Hotelicon)
+                        }
+                        if(temp!=1 && temp!=2){
+                            SelectedMarker.setImage(BBicon)
+                        }
+                    }
+                    else{
+                        console.log("qq")
+                    }
                 }
                 if(id!=1 && id!=2)
                 {
-                    marker.setImage(testicon)
+                    marker.setImage(BBicon_sel)
+
+                    if (SelectedMarker!=null){
+                        if(temp==1){
+                            SelectedMarker.setImage(Hanokicon)
+                        }
+                        if(temp==2){
+                            SelectedMarker.setImage(Hotelicon)
+                        }
+                        if(temp!=1 && temp!=2){
+                            SelectedMarker.setImage(BBicon)
+                        }
+                    }
+                    else{
+                        console.log("qq")
+                    }
                 }
 
                 // 열린 관광 요소(12개)
@@ -326,6 +401,7 @@ function displayMarker(){
                     $("#bb12").attr("style","font-size:14px;color:rgb(157,186,209)");
                 }
                 SelectedMarker = marker
+                temp = id
 
           });
           
