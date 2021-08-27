@@ -9,8 +9,8 @@
 }
 .filterButtonBox{
     position: relative;
-    left: 30%;
-    right: 30%;
+    left: 20%;
+    right: 20%;
     top: 10px;
 }
 .filterBtn { 
@@ -40,4 +40,9 @@
 .markerFilter p{
     position: relative;
     top: -5px;
+}
+.markerFilter{
+    position: relative;
+    top: 420px;
+    z-index: 1;
 }

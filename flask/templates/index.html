@@ -21,8 +21,9 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
-            <script src="{{url_for('static', filename='js/getUserParams.js')}}"></script>
-            <title>우주공감</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <script src="{{url_for('static', filename='js/getUserParams.js')}}"></script>
+        <title>우주공감</title>
     </head>
     <body id="main__body">
         
@@ -65,10 +66,10 @@
         
         <div class="info" style="position: relative; top: -125px;">
             <img src="{{ url_for('static', filename='main_img/우주공감.png')}}" width="350" height="350"><br>
-            <h style="font-weight:bold; color: #002545;">우주공감</h><h>은 한국관광품질인증제가 보장하는 관광시설을 바탕으로 만들어진 서비스입니다.<br>
-                여행자가 생각하는 가치있는 여행을 중심으로 딱 맞는, 잊을 수 없는 경험을 선사해드립니다.<br>
+            <h style="font-weight:bold; color: #002545;">우주공감</h><h>은  한국관광품질인증제가 보장하는 관광시설을 바탕으로 만들어진 서비스입니다.<br>
+                여행자가 생각하는 가치 있는 여행을 중심으로 딱 맞는, 잊을 수 없는 경험을 선사해 드립니다.<br>
                 우주공감이 그려나가는 세상 속에서</h>
-                <h style="font-weight:bold; color: #002545;">우리가 주인공이 되는 공감하는 여행</h><h>을 만들어 보세요.</h>
+                <h style="font-weight:bold; color: #002545;">우리가 주인공이 되어 공감하는 여행</h><h>을 만들어 보세요.</h>
         </div>
 
         
@@ -100,9 +101,18 @@
                     </select>
                 </div>
             </div>
+            <div class="wrap">
+                <select class="selectbox" id="type__accommodation">
+                    <option>숙박 선택</option>
+                    <option value="한옥">한옥</option>
+                    <option value="호텔">호텔</option>
+                    <option value="펜션">펜션</option> 
+
+                </select>
+            </div>
+        </div>
                 <!-- <h1 class=label>지역선택(도 단위, 예: 강원도)</h1> -->
                 <div class="wrap">
-                    <link rel="stylesheet" href="{{url_for('static', filename='main__css/paldo_select.css')}}">
                     <select class="selectbox" id="type__people">
                         <option>동반유형 선택</option>
                         <option value="나홀로">나홀로</option>
@@ -115,7 +125,7 @@
             </div>
 
         <div class="input_group">
-            <h1 class="label" style="font-size: 20px; position: relative; top: -20px;">가치 선택하기</h1>  
+            <h1 class="label" style="font-size: 20px; position: relative; top: -40px;">가치 선택하기</h1>  
             <form class="frame" method="get" action="form-action.html">
             <div class="left-box">
                 <label class="container"><input type="checkbox" id="value_" value="자연/경치">자연/경치<span class="checkmark"></span></label>
@@ -142,5 +152,6 @@
       <polyline points="8 1 12 5 8 9"></polyline>
     </svg>
     </a>     
+    <br>
     </body>
 </html>

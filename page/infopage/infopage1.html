@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="map.js"></script>
+    <script src="menubar.js"></script>
+    <script src="description.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./infopage_css/infopage.css">
+    <link rel="stylesheet" href="./infopage_css/recommend_info.css">
+    <link rel="stylesheet" href="./infopage_css/menubar.css">
+    <title>결과화면 창</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container" style="height: auto;">
+        <div class="header">
+            <span class="menubar">
+                <ul>
+                    <li><a href="../mainpage/index.html" class="home">home</a></li>
+                    <li><a href="#" class="about">about</a></li>
+                    <li><a href="#" class="contact">contact</a></li>
+                    <div class="menuUnderline"></div>
+                </ul>
+            </span>
+        </div>
+        <div class="main" >
+            <ul>
+                <div style="text-align:center">
+                  <h id="hotel-summary" style="font-size:20px">부제</h>
+                </div>
+                <h1 id="hotel-name" style="text-align: center;font-weight:bold">베스트루이스해밀턴호텔</h1>
+                <div class="label" style="position: relative; top: 30px;">
+                <div>
+                    <img id="hotel-img" width="500" height="300" target="_blank" src="https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=98be5e22-f0f1-4c57-9bab-a85cd860990a"/>
+                    <br>
+                    
+                </div>
+                
+                <br>
+                <h style=font-weight:bold>주소 </h><h id="hotel-addr">addr</h><br>
+                <h style=font-weight:bold>전화번호 </h><h id="hotel-num">num</h>
+                <!-- <h style=font-weight:bold>대한민국 구석구석 페이지 이동 </h><a id="hotel-url" target="_blank">click!</a><br> -->
+                  
+                <p style="position: relative; top: 30px;">
+                    <h id="hotel-info">대한민국 테마여행 10선'은 전국의 10개 권역을 대한민국 대표 관광지로 육성하기 위한 문화체육관광부의 국내 여행 활성화 사업입니다. 각 권역에 있는 3~4개 지방자치단체는 지역의 테마에 맞는 선진 문화 관광 콘텐츠 개발에 힘을 모으고 고품격 관광 코스로 국내외 관광객을 맞이합니다. 전 세계인의 겨울 축제인 2018평창동계올림픽이 열리는 2월, 강릉 평창 속초 정선으로 떠나는 ‘드라마틱 강원 여행’을 추천합니다. 우리나라를 대표하는 바다와 산, 호수를 아우르는 자연 속에 푸근히 자리한 네 도시에서 감동 넘치는 여행, 내가 주연인 행복한 여정을 만끽해 보세요.</h>
+                  <br>
+                </p>
+
+                <h style=font-weight:bold><br><br>친환경적 요소</h>
+                    <br>
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups" >
+                  <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <button id="a1" type="button" style=background-color:rgb(160,208,151) class="btn btn-secondary"><h style=font-size:14px>풍력</h></button>
+                    <button id="a2" type="button" style=background-color:white class="btn btn-secondary"><h style=font-size:14px;color:rgb(160,208,151)>태양열</h></button>
+                    <button id="a3" type="button" style=background-color:white class="btn btn-secondary"><h style=font-size:14px;color:rgb(160,208,151)>어메니티</h></button>
+                    <button id="a4" type="button" style=background-color:white class="btn btn-secondary"><h style=font-size:14px;color:rgb(160,208,151)>일회용기 미사용</h></button>
+                  </div>
+                </div>
+                <br>
+                <h style=font-weight:bold>열린 관광 요소</h>
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                      <button id="b1" type="button" style=background-color:white class="btn btn-secondary"><h id="bb1" style='font-size:14px;color:rgb(157,186,209)'>장애인 화장실</h></button>
+                      <button id="b2" type="button" style=background-color:white class="btn btn-secondary"><h id="bb2" style=font-size:14px;color:rgb(157,186,209)>장애인용 엘리베이터</h></button>
+                      <button id="b3" type="button" style=background-color:white class="btn btn-secondary"><h id="bb3" style=font-size:14px;color:rgb(157,186,209)>장애인 전용 주차구역</h></button>
+                      <button id="b4" type="button" style=background-color:white class="btn btn-secondary"><h id="bb4" style=font-size:14px;color:rgb(157,186,209)>주출입구 단차없음</h></button>
+                    </div>
+                  </div>
+                  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                      <button id="b5" type="button" style=background-color:white class="btn btn-secondary"><h id="bb5" style=font-size:14px;color:rgb(157,186,209)>지하철 접근가능</h></button>
+                      <button id="b6" type="button" style=background-color:white class="btn btn-secondary"><h id="bb6" style='font-size:14px;color:rgb(157,186,209)'>저상버스 접근가능</h></button>
+                      <button id="b7" type="button" style=background-color:white class="btn btn-secondary"><h id="bb7" style=font-size:14px;color:rgb(157,186,209)>휠체어 대여</h></button>
+                      <button id="b8" type="button" style=background-color:white class="btn btn-secondary"><h id="bb8" style=font-size:14px;color:rgb(157,186,209)>시각장애인 편의</h></button>
+                    </div>
+                  </div>
+                  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                      <button id="b9" type="button" style=background-color:white class="btn btn-secondary"><h id="bb9" style=font-size:14px;color:rgb(157,186,209)>청각장애인 편의</h></button>
+                      <button id="b10" type="button" style=background-color:white class="btn btn-secondary"><h id="bb10" style=font-size:14px;color:rgb(157,186,209)>수유실</h></button>
+                      <button id="b11" type="button" style=background-color:white class="btn btn-secondary"><h id="bb11" style=font-size:14px;color:rgb(157,186,209)>장애인 객실</h></button>
+                      <button id="b12" type="button" style=background-color:white class="btn btn-secondary"><h id="bb12" style='font-size:14px;color:rgb(157,186,209)'>유모차 대여</h></button>
+                    </div>
+                  </div>
+
+                <div style="position: relative; top: 30px;">
+                    <div class="card-columns">
+                        <div class="card" style='width: 280px;'>
+                          <img class="card-img-top"  src="../mainpage/main_img/가평_피노키오와다빈치.png" alt="Card image cap">
+                          <div class="card-body">
+                            <h5 class="card-title">★★★★★(5)</h5>
+                            <p class="card-text" style="font-size: small;">좋아요~ 기대안하고 가서 그런지 아주 만족이었어요. 모텔 겸용이라 대실이 있는 것 말고는 ㅎ 깨끗하고 필요한 것들 다 있고 또 다대포 가면 이용하고 싶어요 하버뷰 이용했는데 욕조도 있고 욕조에서 티비도 보이구요. 호텔에서 잘 때 베게가 높아서 불편한 곳이 많은데 여기는 베게가 정말 폭신해서 편하게 잘 수 있었어요 다음에 가면 더 좋은 방도 이용해 보고 싶어요 추천합니다</p>
+                          </div>
+                    </div>
+                    <div class="card-columns">
+                     <div class="card" style='width: 280px; margin-left: 100px;'>
+                          <img class="card-img-top"  src="../mainpage/main_img/가평_피노키오와다빈치.png" alt="Card image cap">
+                          <div class="card-body">
+                            <h5 class="card-title">★★★★★(5)</h5>
+                            <p class="card-text" style="font-size: small;">좋아요~ 기대안하고 가서 그런지 아주 만족이었어요. 모텔 겸용이라 대실이 있는 것 말고는 ㅎ 깨끗하고 필요한 것들 다 있고 또 다대포 가면 이용하고 싶어요 하버뷰 이용했는데 욕조도 있고 욕조에서 티비도 보이구요. 호텔에서 잘 때 베게가 높아서 불편한 곳이 많은데 여기는 베게가 정말 폭신해서 편하게 잘 수 있었어요 다음에 가면 더 좋은 방도 이용해 보고 싶어요 추천합니다</p>
+                          </div>
+                    </div>
+                  </div>
+          </div>
+            </ul>
+        </div>
+        <div class="mapinfo" id="map" style="width:495px; height:500px; margin-left: 30px;margin-bottom: 30px;">
+            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=97b4f781718b6c8fccdf91b1e940a5dc"></script>
+            <script>
+                var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+                var options = { //지도를 생성할 때 필요한 기본 옵션
+                    center: new kakao.maps.LatLng(35.15911657089667, 129.15504711681382), //지도의 중심좌표.
+                    level: 5 //지도의 레벨(확대, 축소 정도)
+                };
+                var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+
+                Initialization(map);
+                displayMarker();
+            </script>
+        </div>
+
+        <div class="compare-frame" style="background-color: skyblue;position:relative; margin-left:30px">
+          <h>테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트</h>
+          <h>테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트</h>
+          <h>테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트</h>
+          <h>테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트</h>
+          <h>테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트</h>
+        </div>
+        <div class="blog-card" style="position: relative; left: 30px; top: 30px;">
+            <div class="meta">
+              <div class="photo" style="background-image: url(https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=806d3a5c-f4bf-4ad3-8c52-59ae5a988689)"></div>
+              <ul class="details">
+                <li class="author"style="font-size: 15px;"> 부산광역시 해운대구 해운대해변로 264</a></li>
+                <li class="date" style="font-size: 15px;">051-749-5700</li>
+                <li class="tags" >
+                  <ul style="background-color: transparent;">
+                    <a href="http://sunnfun.haeundae.go.kr"><h style="font-size: 15px;">홈페이지</h></a>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="description">
+              <h1>해운대해수욕장</h1>
+              <h2>도심에서 해수욕을 즐기다</h2>
+              <p></p>
+                부산의 대표 해수욕장인 해운대해수욕장. 넓은 백사장과 아름다운 해안선을 자랑하고
+                 있으며 얕은 수심과 잔잔한 물결로 해수욕장의 최적 조건을 갖추고 있다.</p>
+              <p class="read-more">
+                <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=36f54304-e9a8-4615-9226-eb749bf6ce75&big_category=A01&mid_category=A0101&big_area=6">내용 더보기</a>
+              </p>
+            </div>
+          </div>
+          
+          <div class="blog-card alt" style="position: relative; left: 625px; top: 30px; width: 600px; height: 277px;">
+            <div class="meta">
+              <div class="photo" style="background-image: url(https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=6c84bfd1-89cd-419f-a669-535e6cb60813)"></div>
+              <ul class="details">
+                <li class="author"style="font-size: 15px;"> 부산광역시 수영구 광안해변로 219</a></li>
+                <li class="date" style="font-size: 15px;">051-622-4251</li>
+                <li class="tags" >
+                  <ul style="background-color: transparent;">
+                    <a href="http://www.suyeong.go.kr"><h style="font-size: 15px;">홈페이지</h></a>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="description">
+              <h1>광안리해수욕장</h1>
+              <h2>광안대교의 아름다운 야경에 홀딱 반하게 되는 광안리해수욕장</h2>
+              <p>
+                광안리해수욕장은 부산광역시 수영구 광안2동에 있으며 해운대 해수욕장의 서쪽에 위치하고 있다.</p>
+              <p class="read-more">
+                <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=98763dd6-119d-4e32-910e-a40652334bda&big_category=A01&mid_category=A0101&big_area=6">내용 더보기</a>
+              </p>
+            </div>
+          </div>
+    </div>
+    <br>
+    <br>
+</body>

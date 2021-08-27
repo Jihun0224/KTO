@@ -42,14 +42,25 @@
       font-weight:normal;
   }
   
-  
-  
   body {
     padding-bottom: 3rem;
   }
 
-  #type__people{
-      position: relative;
-      left: 300px;
-        bottom: 40px;
-  }
+
+  #type__paldo{
+    position: relative;
+    left: -80px;
+    bottom: 0px;
+}
+
+  #type__accommodation{
+    position: relative;
+    left: 148px;
+    bottom: 40px;
+}
+
+#type__people{
+    position: relative;
+    left: 885px;
+    bottom: 80px;
+}

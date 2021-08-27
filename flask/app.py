@@ -26,7 +26,7 @@ def result():
 
     jsonData = request.get_json()
     col_results = list(certified.find().limit(1))
-    return render_template('infopage.html')
+    return render_template('infopage.html',results = col_results)
 
 @app.route('/Certified')
 def Certified():

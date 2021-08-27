@@ -73,13 +73,15 @@ table {
 
 .main{
 	grid-area: main;
-	padding:0 50px 0 0;
 }
 
 .label{
 	text-align:center;
 }
 
+.mapinfo{
+	grid-area: mapinfo;
+}
 
 .tourlist{
 	grid-area: tourlist;
@@ -98,16 +100,13 @@ table {
 	
 	margin: 0;
 	padding: 0;
-	padding-left: 20px;
   }
   ul {
 	background: #fff;
-	margin: 40px;
 	position: relative;
 	overflow: hidden;
   }
   .main ul{
-	margin: 40px;
 	}
 	.tourlist li{
 		width: 90%;
@@ -136,22 +135,15 @@ table {
 	bottom: 0;
   }
 
-.mapinfo .mapinfo{
-	z-index: 1;
-	
-}
-.mapinfo .markerFilter{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 80px;
-    z-index: 2;
-    display: 'flex';
-    justify-content: 'center';
-}
-.compare-frame {
+  .compare-frame {
 	border: 1px solid black;
-	margin: auto;
 	border-radius : 10px;
-	width:600px
+	width:495px
 	} 
+
+	.card-columns > .card{
+		width: 380px;
+	}
+	.card-columns{
+		 height: 500px;
+	}
