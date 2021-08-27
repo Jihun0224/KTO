@@ -56,14 +56,15 @@ table {
 	/* grid-template-columns: 200px 1fr */
 	/* grid-template-columns: 100px 200px auto */
 
-	grid-template-rows: 100px 500px 300px;
+	grid-template-rows: 100px 500px 300px 300px;
 	/* grid-template-rows: repeat(3, 1fr) */
 	/* grid-template-rows: 200px 1fr */
 	/* grid-template-rows: 100px 200px auto */
 	grid-template-areas:
 		"header header header"
 		"main    main    mapinfo"
-		"main    main	tourlist";
+		"main    main	compare"
+		"main    main   tourlist"
 }
 
 .header{
@@ -148,3 +149,9 @@ table {
     display: 'flex';
     justify-content: 'center';
 }
+.compare-frame {
+	border: 1px solid black;
+	margin: auto;
+	border-radius : 10px;
+	width:600px
+	} 
