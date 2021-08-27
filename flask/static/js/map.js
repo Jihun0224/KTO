@@ -330,7 +330,7 @@ function displayMarker(){
           });
           
 
-            $('head').append('<link rel="stylesheet" href=\"{{url_for(\"static\", filename=\"infopage_css/overlay.css\")}}">');
+            $('head').append('<link rel="stylesheet" href="../static/infopage_css/overlay.css">');
             var contents = 
             '<div class="overlaywrap">' + 
             '    <div class="overlayinfo">' + 
