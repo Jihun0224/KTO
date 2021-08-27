@@ -2,11 +2,8 @@ from flask_cors import CORS
 from flask import Flask,jsonify,request,render_template
 import pymongo
 import json
-from bson import json_util
-from mongoengine_jsonencoder import MongoEngineJSONEncoder
 
 app = Flask(__name__)
-app.json_encoder = MongoEngineJSONEncoder
 
 CORS(app)
 
