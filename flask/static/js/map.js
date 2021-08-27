@@ -1,6 +1,8 @@
 var map;
 var MarkerArr = [];
 var SelectedMarker = [];
+var EntireMarker = [];
+var FilterdMarker = []
 function Initialization(_map){
     map = _map;
     var zoomControl = new kakao.maps.ZoomControl();
@@ -9,7 +11,7 @@ function Initialization(_map){
     kakao.maps.event.addListener(map, 'zoom_changed', function() {        
 
         var level = map.getLevel();
-        if (level>12){
+        if (level>13){
             setMarkers(null);
             // DrawPolygon();
         }
@@ -18,10 +20,51 @@ function Initialization(_map){
         }
     });
 }
+
+function filterBtn(option){
+    FilterdMarker=[]
+    if(option == 0){
+        FilterdMarker = EntireMarker;
+    }
+    else if(option == 1){
+        
+        EntireMarker.map((MakerArr)=>{
+            if(MakerArr.Fb === "한옥"){
+              FilterdMarker.push(MakerArr)
+            }
+          })
+    }
+    else if(option ==2){
+        EntireMarker.map((MakerArr)=>{
+            if(MakerArr.Fb === "호텔"){
+              FilterdMarker.push(MakerArr)
+            }
+          })
+    }
+    else{
+        EntireMarker.map((MakerArr)=>{
+            if(MakerArr.Fb === "민박"){
+              FilterdMarker.push(MakerArr)
+            }
+          })
+    }
+    MarkerArr = FilterdMarker
+    setfilteredMarkers(map)
+}
+
+function setfilteredMarkers(map) {
+    for (var i = 0; i < EntireMarker.length; i++) {
+        EntireMarker[i].setMap(null);
+    }   
+    for (var i = 0; i < FilterdMarker.length; i++) {
+        FilterdMarker[i].setMap(map);
+    }  
+            
+}
 function setMarkers(map) {
     for (var i = 0; i < MarkerArr.length; i++) {
         MarkerArr[i].setMap(map);
-    }            
+    }
 }
 function DrawPolygon(){
     
@@ -157,6 +200,10 @@ function displayMarker(){
             var marker = new kakao.maps.Marker({
                 map: map,
                 position: position,
+                title:
+                id == 1?"한옥":
+                id == 2?"호텔":
+                "민박",
                 image: 
                 id == 1?Hanokicon:
                 id == 2?Hotelicon:
@@ -353,7 +400,7 @@ function displayMarker(){
             
 
             marker.setMap(map);
-            MarkerArr.push(marker)
+            MarkerArr.push(marker);
             
 
             var overlay = new kakao.maps.CustomOverlay({
@@ -387,5 +434,6 @@ function displayMarker(){
 
         })
     })
+    EntireMarker = MarkerArr;
 
 }
