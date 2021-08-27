@@ -16,8 +16,9 @@ html {height:100%;}
 
 .menubar
 {
-  position: absolute;
-  width:2030px;
+  position: absolute; 
+  left: 0;
+  width:1230px;
   margin: 0;
   border:none;
   overflow: hidden;
