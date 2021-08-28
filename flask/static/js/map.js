@@ -214,7 +214,19 @@ function displayMarker(){
             var info = place.info
             var help = place.help
             var imgSrc = place.src
-            
+
+            //초기 위치(디폴트값)
+            var defaultPosition = new kakao.maps.LatLng(37.12061132, 128.6271705);
+            // 지도 중심을 이동 시킵니다
+            map.setCenter(defaultPosition);
+
+            var marker_default = new kakao.maps.Marker({
+                position: defaultPosition,
+                image:
+                id == 1?Hanokicon_sel:
+                id == 2?Hotelicon_sel:
+                BBicon_sel
+            });
             
             var marker = new kakao.maps.Marker({
                 map: map,
@@ -228,21 +240,8 @@ function displayMarker(){
                 id == 2?Hotelicon:
                 BBicon
             })
-                        // var marker1 = new kakao.maps.Marker({ 
-            //     // 지도 중심좌표에 마커를 생성합니다 
-            //     position: map.getCenter() 
-            // }); 
-            // marker1.setMap(map);
-
-            // kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
-            //     var latlng = mouseEvent.latLng; 
-
-            //             // 마커 위치를 클릭한 위치로 옮깁니다
-            //     marker1.setPosition(latlng);
-            // });
 
             // 클릭 이벤트
-            
             kakao.maps.event.addListener(marker, 'click', function() {
                 document.getElementById("hotel-name").innerHTML=name;
                 document.getElementById("hotel-addr").innerHTML=address;
@@ -252,10 +251,9 @@ function displayMarker(){
                 document.getElementById("hotel-info").innerHTML=info;
                 $("#hotel-img").attr("src",imgSrc);
 
+
                 // 클릭된 마커가 없고, click 마커가 클릭된 마커가 아니면
                 // 마커의 이미지를 클릭 이미지로 변경합니다
-                
-                
                 if(id==1)
                 {
                     marker.setImage(Hanokicon_sel)
@@ -272,6 +270,7 @@ function displayMarker(){
                         }
                     }
                     else{
+                        console.log("qq")
                     }
                 }
                 if(id==2)
@@ -290,6 +289,7 @@ function displayMarker(){
                         }
                     }
                     else{
+                        console.log("qq")
                     }
                 }
                 if(id!=1 && id!=2)
@@ -470,7 +470,7 @@ function displayMarker(){
             content.innerHTML = contents;
             content.style.cssText = 'background-color: white';
             
-
+            marker_default.setMap(map);
             marker.setMap(map);
             MarkerArr.push(marker);
             
