@@ -200,7 +200,7 @@ function displayMarker(){
         }
       );
       var alg = new kakao.maps.MarkerImage(
-        "https://github.com/Jihun0224/KTO/blob/master/images/alg.png?raw=true",
+        "https://raw.githubusercontent.com/Jihun0224/KTO/master/flask/static/infopage_img/alg.png",
         new kakao.maps.Size(41, 45),
         {
             offset: new kakao.maps.Point(16, 34),
@@ -229,10 +229,10 @@ function displayMarker(){
             // 지도 중심을 이동 시킵니다
             map.setCenter(defaultPosition);
 
-            var marker_default = new kakao.maps.Marker({
-                position: defaultPosition,
-                image:alg
-            });
+            // var marker_default = new kakao.maps.Marker({
+            //     position: defaultPosition,
+            //     image:alg
+            // });
             
             var marker = new kakao.maps.Marker({
                 map: map,
@@ -241,7 +241,8 @@ function displayMarker(){
                 id == 1?"한옥":
                 id == 2?"호텔":
                 "민박",
-                image: 
+                image:
+                name == "비브릿지 "?alg:
                 id == 1?Hanokicon:
                 id == 2?Hotelicon:
                 BBicon
@@ -476,7 +477,6 @@ function displayMarker(){
             content.innerHTML = contents;
             content.style.cssText = 'background-color: white';
             
-            marker_default.setMap(map);
             marker.setMap(map);
             MarkerArr.push(marker);
             
