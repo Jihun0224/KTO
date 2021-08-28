@@ -6,16 +6,19 @@ function get_score(name) {
         dataType: "json"
     })
     .done(function(json) {
-
-           new Chart(document.getElementById("myChart"), {
+        if(window.chartObj != undefined){
+            window.chartObj.destroy();
+        }
+        window.chartObj = new Chart(document.getElementById("myChart"), {
             type: 'radar',
             data: {
               labels: ["청결", "시설만족도", "가격", "재방문", "안전","서비스"],
               datasets: [
                 {
-                label: json.crawling.rate==0
-                    ?"OTA 리뷰: 정보없음"
-                    :"OTA 리뷰 평균: "+json.crawling.rate.toFixed(1)+"점",
+                // label: json.crawling.rate==0
+                //     ?"OTA 리뷰: 정보없음"
+                //     :"OTA 리뷰 평균: "+json.crawling.rate.toFixed(1)+"점",
+                label: name,
                 fill: true,
                 backgroundColor: "rgba(255,99,132,0.2)",
                 borderColor: "rgba(255,99,132,1)",
@@ -34,9 +37,20 @@ function get_score(name) {
                     stepSize: 1
                     }
                 },
+            tooltips: {
+                callbacks: {
+                    label: function(tooltipItem, data) {
+                    var label = data.datasets[tooltipItem.datasetIndex].label + ' : ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                    return label;
+                    }
+                }
+                }
             }
         }); 
-            new Chart(document.getElementById("myChart_2"), {
+        if(window.chartObj2 != undefined){
+            window.chartObj2.destroy();
+        }
+        window.chartObj2 = new Chart(document.getElementById("myChart_2"), {
                 type: 'radar',
                 data: {
                     labels: ["청결", "서비스", "시설만족도", "재방문"],
