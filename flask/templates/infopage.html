@@ -8,6 +8,7 @@
     <script src="{{url_for('static', filename='js/menubar.js')}}"></script>
     <script src="{{url_for('static', filename='js/description.js')}}"></script>
     <script src="{{url_for('static', filename='js/getUserParams.js')}}"></script>
+    <script src="{{url_for('static', filename='js/get_recommend.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="{{url_for('static', filename='infopage_css/infopage.css')}}">
@@ -339,55 +340,68 @@
         });
           </script>
         </div>
+
+        <script>
+          var Data = $('#my-data').data();
+          Data = Data.other.replaceAll('\'','\"')
+          Data = JSON.parse(Data)
+          var address = Data.address.split(" ")[0]+" "+Data.address.split(" ")[1]
+          get_recommend(address)
+        </script>
         <div class="blog-card" style="position: relative; left: 30px; top: 30px;">
           <div class="meta">
-            <div class="photo" style="background-image: url(https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=806d3a5c-f4bf-4ad3-8c52-59ae5a988689)"></div>
-            <ul class="details">
-              <li class="author"style="font-size: 15px;"> 부산광역시 해운대구 해운대해변로 264</a></li>
-              <li class="date" style="font-size: 15px;">051-749-5700</li>
-              <li class="tags" >
-                <ul style="background-color: transparent;">
-                  <a href="http://sunnfun.haeundae.go.kr"><h style="font-size: 15px;">홈페이지</h></a>
-                </ul>
-              </li>
-            </ul>
+            <div class="photo" id="firstCardImg"style="background-image: url(https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=806d3a5c-f4bf-4ad3-8c52-59ae5a988689)"></div>
+
           </div>
           <div class="description">
-            <h1>해운대해수욕장</h1>
-            <h2>도심에서 해수욕을 즐기다</h2>
-            <p></p>
-              부산의 대표 해수욕장인 해운대해수욕장. 넓은 백사장과 아름다운 해안선을 자랑하고
-               있으며 얕은 수심과 잔잔한 물결로 해수욕장의 최적 조건을 갖추고 있다.</p>
-            <p class="read-more">
-              <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=36f54304-e9a8-4615-9226-eb749bf6ce75&big_category=A01&mid_category=A0101&big_area=6">내용 더보기</a>
+              <h1 id ="firstCardTitle">Name</h1>
+              <h2 id="firstCardAddress">Address</h2>
+              <p id="firstCardInfo" style=
+                                          "overflow: hidden; 
+                                          text-overflow: ellipsis; 
+                                          display: -webkit-box; 
+                                          -webkit-line-clamp: 7 ; 
+                                          -webkit-box-orient: vertical; 
+                                          word-wrap:break-word; 
+                                          line-height: 1.2em; 
+                                          height: 8.4em;">
+                Info
+              </p>
+              </p>
+               <p class="read-more">
+              <a id="firstCardUrl" href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=36f54304-e9a8-4615-9226-eb749bf6ce75&big_category=A01&mid_category=A0101&big_area=6">내용 더보기</a>
             </p>
           </div>
         </div>
         
+
         <div class="blog-card alt" style="position: relative; left: 625px; top: 30px; width: 600px; height: 277px;">
           <div class="meta">
-            <div class="photo" style="background-image: url(https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=6c84bfd1-89cd-419f-a669-535e6cb60813)"></div>
-            <ul class="details">
-              <li class="author"style="font-size: 15px;"> 부산광역시 수영구 광안해변로 219</a></li>
-              <li class="date" style="font-size: 15px;">051-622-4251</li>
-              <li class="tags" >
-                <ul style="background-color: transparent;">
-                  <a href="http://www.suyeong.go.kr"><h style="font-size: 15px;">홈페이지</h></a>
-                </ul>
-              </li>
-            </ul>
+            <div class="photo" id="SecondCardImg"style="background-image: url(https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=6c84bfd1-89cd-419f-a669-535e6cb60813)"></div>
+
           </div>
           <div class="description">
-            <h1>광안리해수욕장</h1>
-            <h2>광안대교의 아름다운 야경에 홀딱 반하게 되는 광안리해수욕장</h2>
-            <p>
-              광안리해수욕장은 부산광역시 수영구 광안2동에 있으며 해운대 해수욕장의 서쪽에 위치하고 있다.</p>
+            <h1 id ="SecondCardTitle">Name</h1>
+            <h2 id="SecondCardAddress">Address</h2>
+            <p id="SecondCardInfo" style=
+                                        "overflow: hidden; 
+                                        text-overflow: ellipsis; 
+                                        display: -webkit-box; 
+                                        -webkit-line-clamp: 7 ; 
+                                        -webkit-box-orient: vertical; 
+                                        word-wrap:break-word; 
+                                        line-height: 1.2em; 
+                                        height: 8.4em;">
+              Info
+            </p>
+
             <p class="read-more">
-              <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=98763dd6-119d-4e32-910e-a40652334bda&big_category=A01&mid_category=A0101&big_area=6">내용 더보기</a>
+              <a id="SecondCardUrl"href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=98763dd6-119d-4e32-910e-a40652334bda&big_category=A01&mid_category=A0101&big_area=6">내용 더보기</a>
             </p>
           </div>
         </div>
   </div>
+  
   <br>
   <br>
 </body>
