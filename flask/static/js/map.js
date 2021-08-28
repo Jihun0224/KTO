@@ -199,6 +199,33 @@ function displayMarker(){
             coords: "1,20,1,9,5,2,10,0,21,0,27,3,30,9,30,20,17,33,14,33"
         }
       );
+      var Hanokicon_alg = new kakao.maps.MarkerImage(
+        "https://raw.githubusercontent.com/Jihun0224/KTO/master/images/hanok_alg.png",
+        new kakao.maps.Size(41, 45),
+        {
+            offset: new kakao.maps.Point(16, 34),
+            shape: "poly",
+            coords: "1,20,1,9,5,2,10,0,21,0,27,3,30,9,30,20,17,33,14,33"
+        }
+      );
+      var Hotelicon_alg = new kakao.maps.MarkerImage(
+        "https://raw.githubusercontent.com/Jihun0224/KTO/master/images/hotel_alg.png",
+        new kakao.maps.Size(41, 45),
+        {
+            offset: new kakao.maps.Point(16, 34),
+            shape: "poly",
+            coords: "1,20,1,9,5,2,10,0,21,0,27,3,30,9,30,20,17,33,14,33"
+        }
+      );
+      var BBicon_alg = new kakao.maps.MarkerImage(
+        "https://raw.githubusercontent.com/Jihun0224/KTO/master/images/bb_alg.png",
+        new kakao.maps.Size(41, 45),
+        {
+            offset: new kakao.maps.Point(16, 34),
+            shape: "poly",
+            coords: "1,20,1,9,5,2,10,0,21,0,27,3,30,9,30,20,17,33,14,33"
+        }
+      );
     fetch("/Certified")
     .then(response => response.json())  
     .then(json => {
@@ -223,9 +250,9 @@ function displayMarker(){
             var marker_default = new kakao.maps.Marker({
                 position: defaultPosition,
                 image:
-                id == 1?Hanokicon_sel:
-                id == 2?Hotelicon_sel:
-                BBicon_sel
+                id == 1?Hanokicon_alg:
+                id == 2?Hotelicon_alg:
+                BBicon_alg
             });
             
             var marker = new kakao.maps.Marker({
