@@ -136,9 +136,9 @@ table {
   }
 
   .compare-frame {
-	border: 1px solid black;
+	border: 1px solid rgba(0,0,0,.125);
 	border-radius : 10px;
-	width:495px
+	width:495px;
 	} 
 
 	.card-columns > .card{
