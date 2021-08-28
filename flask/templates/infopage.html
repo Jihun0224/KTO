@@ -2,6 +2,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="my-data" data-name="{{data}}" data-other="{{data}}">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="{{url_for('static', filename='js/map.js')}}"></script>
     <script src="{{url_for('static', filename='js/menubar.js')}}"></script>
@@ -9,7 +10,7 @@
     <script src="{{url_for('static', filename='js/getUserParams.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
- 
+
     <link rel="stylesheet" href="{{url_for('static', filename='infopage_css/infopage.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='infopage_css/recommend_info.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='infopage_css/menubar.css')}}">
@@ -91,10 +92,12 @@
                     </div>
                   </div>
 
-                  <!-- <script>
+                  <script>
 
-
-              if(initdata[0].help.indexOf("장애인 화장실") != -1)
+              var Data = $('#my-data').data();
+              Data = Data.other.replaceAll('\'','\"')
+              Data = JSON.parse(Data)
+              if(Data.help.indexOf("장애인 화장실") != -1)
                 {
                     $("#b1").attr("style","background-color:rgb(157,186,209)");
                     $("#bb1").attr("style","font-size:14px;color:white");
@@ -105,7 +108,7 @@
                     $("#bb1").attr("style","font-size:14px;color:rgb(157,186,209)");
                 }
                 
-                if(initdata[0].help.indexOf("장애인용 엘리베이터") != -1)
+                if(Data.help.indexOf("장애인용 엘리베이터") != -1)
                 {
                     $("#b2").attr("style","background-color:rgb(157,186,209)");
                     $("#bb2").attr("style","font-size:14px;color:white");
@@ -116,7 +119,7 @@
                     $("#bb2").attr("style","font-size:14px;color:rgb(157,186,209)");
                 }
 
-                if(initdata[0].help.indexOf("장애인 전용 주차구역") != -1)
+                if(Data.help.indexOf("장애인 전용 주차구역") != -1)
                 {
                     $("#b3").attr("style","background-color:rgb(157,186,209)");
                     $("#bb3").attr("style","font-size:14px;color:white");
@@ -127,7 +130,7 @@
                     $("#bb3").attr("style","font-size:14px;color:rgb(157,186,209)");
                 }
 
-                if(initdata[0].help.indexOf("주출입구 단차없음") != -1)
+                if(Data.help.indexOf("주출입구 단차없음") != -1)
                 {
                     $("#b4").attr("style","background-color:rgb(157,186,209)");
                     $("#bb4").attr("style","font-size:14px;color:white");
@@ -138,7 +141,7 @@
                     $("#bb4").attr("style","font-size:14px;color:rgb(157,186,209)");
                 }
 
-                if(initdata[0].help.indexOf("지하철 접근가능") != -1)
+                if(Data.help.indexOf("지하철 접근가능") != -1)
                 {
                     $("#b5").attr("style","background-color:rgb(157,186,209)");
                     $("#bb5").attr("style","font-size:14px;color:white");
@@ -149,7 +152,7 @@
                     $("#bb5").attr("style","font-size:14px;color:rgb(157,186,209)");
                 }
 
-                if(initdata[0].help.indexOf("저상버스 접근가능") != -1)
+                if(Data.help.indexOf("저상버스 접근가능") != -1)
                 {
                     $("#b6").attr("style","background-color:rgb(157,186,209)");
                     $("#bb6").attr("style","font-size:14px;color:white");
@@ -160,7 +163,7 @@
                     $("#bb6").attr("style","font-size:14px;color:rgb(157,186,209)");
                 }
 
-                if(initdata[0].help.indexOf("휠체어 대여") != -1)
+                if(Data.help.indexOf("휠체어 대여") != -1)
                 {
                     $("#b7").attr("style","background-color:rgb(157,186,209)");
                     $("#bb7").attr("style","font-size:14px;color:white");
@@ -171,7 +174,7 @@
                     $("#bb7").attr("style","font-size:14px;color:rgb(157,186,209)");
                 }
 
-                if(initdata[0].help.indexOf("시각장애인 편의서비스") != -1)
+                if(Data.help.indexOf("시각장애인 편의서비스") != -1)
                 {
                     $("#b8").attr("style","background-color:rgb(157,186,209)");
                     $("#bb8").attr("style","font-size:14px;color:white");
@@ -182,7 +185,7 @@
                     $("#bb8").attr("style","font-size:14px;color:rgb(157,186,209)");
                 }
 
-                if(initdata[0].help.indexOf("청각장애인 편의서비스") != -1)
+                if(Data.help.indexOf("청각장애인 편의서비스") != -1)
                 {
                     $("#b9").attr("style","background-color:rgb(157,186,209)");
                     $("#bb9").attr("style","font-size:14px;color:white");
@@ -193,7 +196,7 @@
                     $("#bb9").attr("style","font-size:14px;color:rgb(157,186,209)");
                 }
 
-                if(initdata[0].help.indexOf("수유실") != -1)
+                if(Data.help.indexOf("수유실") != -1)
                 {
                     $("#b10").attr("style","background-color:rgb(157,186,209)");
                     $("#bb10").attr("style","font-size:14px;color:white");
@@ -204,7 +207,7 @@
                     $("#bb10").attr("style","font-size:14px;color:rgb(157,186,209)");
                 }
 
-                if(initdata[0].help.indexOf("장애인 객실") != -1)
+                if(Data.help.indexOf("장애인 객실") != -1)
                 {
                     $("#b11").attr("style","background-color:rgb(157,186,209)");
                     $("#bb11").attr("style","font-size:14px;color:white");
@@ -215,7 +218,7 @@
                     $("#bb11").attr("style","font-size:14px;color:rgb(157,186,209)");
                 }
 
-                if(initdata[0].help.indexOf("유모차 대여") != -1)
+                if(Data.help.indexOf("유모차 대여") != -1)
                 {
                     $("#b12").attr("style","background-color:rgb(157,186,209)");
                     $("#bb12").attr("style","font-size:14px;color:white");
@@ -226,7 +229,7 @@
                     $("#bb12").attr("style","font-size:14px;color:rgb(157,186,209)");
                 }
 
-                  </script> -->
+                  </script>
                 <div style="position: relative; top: 30px;">
                     <div class="card-columns">
                         <div class="card" style="width: 280px;">
@@ -251,9 +254,13 @@
           <div> 
           <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=37531866be664df9b26e2c034430dfc5"></script>
             <script>
+              var Data = $('#my-data').data();
+              Data = Data.other.replaceAll('\'','\"')
+              Data = JSON.parse(Data)
+
                 var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
                 var options = { //지도를 생성할 때 필요한 기본 옵션
-                    center: new kakao.maps.LatLng(35.15911657089667, 129.15504711681382), //지도의 중심좌표.
+                    center: new kakao.maps.LatLng(Data.y, Data.x), //지도의 중심좌표.
                     level: 5 //지도의 레벨(확대, 축소 정도)
                 };
                 var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴

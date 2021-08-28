@@ -272,7 +272,6 @@ function displayMarker(){
                         }
                     }
                     else{
-                        console.log("qq")
                     }
                 }
                 if(id==2)
@@ -291,7 +290,6 @@ function displayMarker(){
                         }
                     }
                     else{
-                        console.log("qq")
                     }
                 }
                 if(id!=1 && id!=2)

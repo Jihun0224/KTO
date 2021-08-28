@@ -6,6 +6,16 @@ import json
 app = Flask(__name__)
 
 CORS(app)
+def getSpecificId(id):
+  result = objectIdDecoder(list(collection.find({"_id": ObjectId(id)})))
+  return str(result)
+
+def objectIdDecoder(list):
+  results=[]
+  for document in list:
+    document['_id'] = str(document['_id'])
+    results.append(document)
+  return results
 
 CONNECTION_STRING = "mongodb+srv://jihun:dja1wkd2@qualified.mmv3l.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 client = pymongo.MongoClient(CONNECTION_STRING)
@@ -24,9 +34,18 @@ def index():
 
 @app.route("/result", methods=["GET", "POST"])
 def result():
-    jsonData = request.get_json()
-    col_results = list(certified.find().limit(1))
-    return render_template('infopage.html',results = col_results)
+
+        jsonData = request.get_json()
+
+        col_results = list(certified.find({}, {'_id': False}).limit(1));
+        data = {
+            "x":col_results[0]['x'],
+            "y":col_results[0]['y'],
+            "help":col_results[0]['help']
+        }
+        print(data)
+        return render_template('infopage.html',results = col_results, data = data)
+
 
 
 @app.route('/Certified')
