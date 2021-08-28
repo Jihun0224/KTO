@@ -3,13 +3,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta id="my-data" data-name="{{data}}" data-other="{{data}}">
-    <meta id="my-score" data-name="{{results}}" data-other="{{results}}">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="{{url_for('static', filename='js/map.js')}}"></script>
     <script src="{{url_for('static', filename='js/menubar.js')}}"></script>
+    <script src="{{url_for('static', filename='js/get_score.js')}}"></script>
     <script src="{{url_for('static', filename='js/description.js')}}"></script>
     <script src="{{url_for('static', filename='js/getUserParams.js')}}"></script>
-    <script src="{{url_for('static', filename='js/get_score.js')}}"></script>
     <script src="{{url_for('static', filename='js/get_recommend.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -310,11 +309,12 @@
           <canvas id="myChart_2" style="width: 2px; height: 1px; position: relative; top: -221px; left: 130px;"></canvas>
 
           <script>
-            var Data = $('#my-data').data();
-            Data = Data.other.replaceAll('\'','\"')
-            Data = JSON.parse(Data)
-            get_score(Data.name)
-         </script>
+              var Data = $('#my-data').data();
+              Data = Data.other.replaceAll('\'','\"')
+              Data = JSON.parse(Data)
+              get_score(Data.name)
+          </script>
+
         </div>
 
         <script>

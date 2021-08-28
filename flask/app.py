@@ -2,6 +2,7 @@ from flask_cors import CORS
 from flask import Flask,jsonify,request,render_template
 import pymongo
 import json
+import random
 
 app = Flask(__name__)
 
@@ -16,6 +17,10 @@ certified = db.certified
 
 # 추천여행지
 RecommendPlace = client.get_database('RecommendPlace')
+
+# 숙소 별점
+CertifiedScore = client.get_database('CertifiedScore')
+
 
 @app.route('/')
 def index():
@@ -46,19 +51,64 @@ def Certified():
 def recommend():
     #추천 관광지 
     search = request.args.get('address')
-    results=[]
-    results = list(RecommendPlace.place.find({ "address": { "$regex": search}}).limit(2))
-    if(len(results) < 2):
-        search = search.split(' ')[0]
-        count = 2-len(results)
-        recommend_results = list(RecommendPlace.place.find({ "address": { "$regex": search}}).limit(count))
-        if(count == 2):
-            return json.dumps(recommend_results, default=str,ensure_ascii=False)
-        else:
-            results.append(recommend_results.pop(0))
-            return json.dumps(results, default=str,ensure_ascii=False)
-    else:
+    results_raw=[]
+    result=[]
+    results_raw = list(RecommendPlace.place.find({ "address": { "$regex": search}}))
+    if(len(results_raw) >= 2):
+        results = random.sample(results_raw,2)
         return json.dumps(results, default=str,ensure_ascii=False)
+    else:
+        if(search.startswith('(')==True):
+            search = search.split(' ')[1]
+        else:
+            search = search.split(' ')[0]
+        count = 2-len(results_raw)
+        recommend_results = list(RecommendPlace.place.find({ "address": { "$regex": search}}))
+        recommend_results = random.sample(recommend_results,count)
+
+        for i in range(count):
+            results_raw.append(recommend_results.pop(i-1))
+
+        return json.dumps(results_raw, default=str,ensure_ascii=False)   
+@app.route("/score")
+def score():
+    
+    search = request.args.get('name')
+    result={
+        "raw":None,
+        "crawling":None
+    }
+    # 숙도 만족도 조사 By KTO 
+    raw_results = list(CertifiedScore.raw_score.find({ "name": { "$regex": search}}, {'_id': False}))
+    if not raw_results:
+        temp = {
+            "clean_score":0,
+            "revisit_score":0,
+            "service_score":0,
+            "facility_score":0,
+            "rate":0
+        }
+        result["raw"] = temp
+    else:
+        result["raw"] = raw_results.pop(0)    
+   
+    # 숙도 크롤링 별점
+    crawling_results = list(CertifiedScore.Score.find({ "name": { "$regex": search}}, {'_id': False}))
+    if not crawling_results:
+        temp = {
+            "clean_score":0,
+            "safety_score":0,
+            "revisit_score":0,
+            "price_score":0,
+            "service_score":0,
+            "facility_score":0,
+            "rate":0
+        }
+        result["crawling"] = temp
+    else:
+        result["crawling"] = crawling_results.pop(0)     
+
+    return json.dumps(result, default=str,ensure_ascii=False)
 
 if __name__ == '__main__': 
     app.run(host='0.0.0.0', port=5000)
