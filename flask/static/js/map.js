@@ -215,7 +215,7 @@ function displayMarker(){
             var id = place.id;
             
             var position = new kakao.maps.LatLng(place.y,  place.x)
-            var name = place.name.split('[')[0]
+            var name = place.name.split('[')[0].trim()
             var address = place.address
             var phoneNumber = place.phoneNumber
             var infoUrl = place.infoUrl
@@ -242,7 +242,8 @@ function displayMarker(){
                 id == 2?"호텔":
                 "민박",
                 image:
-                name == "비브릿지 "?alg:
+                //디폴트
+                name == "비브릿지"?alg:
                 id == 1?Hanokicon:
                 id == 2?Hotelicon:
                 BBicon
