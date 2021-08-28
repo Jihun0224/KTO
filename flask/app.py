@@ -14,8 +14,8 @@ client = pymongo.MongoClient(CONNECTION_STRING)
 db = client.get_database('Certified')
 certified = db.certified
 
-# 비대면 관광지 100선 가을 
-travelDestinationdb = client.get_database('travelDestination')
+# 추천여행지
+RecommendPlace = client.get_database('RecommendPlace')
 
 @app.route('/')
 def index():
@@ -44,17 +44,21 @@ def Certified():
 
 @app.route('/recommend')
 def recommend():
-    #추천 관광지 432개
+    #추천 관광지 
     search = request.args.get('address')
-    results = list(travelDestinationdb.autumn.find({ "address": { "$regex": search}}).limit(2))
+    results=[]
+    results = list(RecommendPlace.place.find({ "address": { "$regex": search}}).limit(2))
     if(len(results) < 2):
+        search = search.split(' ')[0]
         count = 2-len(results)
-        recommend_results = list(travelDestinationdb.recommend.find({ "address": { "$regex": search}}).limit(count))
-        results.append(recommend_results)
-        return json.dumps(results, default=str,ensure_ascii=False)
+        recommend_results = list(RecommendPlace.place.find({ "address": { "$regex": search}}).limit(count))
+        if(count == 2):
+            return json.dumps(recommend_results, default=str,ensure_ascii=False)
+        else:
+            results.append(recommend_results.pop(0))
+            return json.dumps(results, default=str,ensure_ascii=False)
     else:
         return json.dumps(results, default=str,ensure_ascii=False)
-
 
 if __name__ == '__main__': 
     app.run(host='0.0.0.0', port=5000)

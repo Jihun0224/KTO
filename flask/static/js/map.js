@@ -248,7 +248,6 @@ function displayMarker(){
                 id == 2?Hotelicon:
                 BBicon
             })
-
             // 클릭 이벤트
             kakao.maps.event.addListener(marker, 'click', function() {
                 document.getElementById("hotel-name").innerHTML=name;
@@ -258,7 +257,8 @@ function displayMarker(){
                 document.getElementById("hotel-summary").innerHTML=summary;
                 document.getElementById("hotel-info").innerHTML=info;
                 $("#hotel-img").attr("src",imgSrc);
-
+                placeAddress = place.address.split(" ")[0]+" "+place.address.split(" ")[1]
+                get_recommend(placeAddress)
 
                 // 클릭된 마커가 없고, click 마커가 클릭된 마커가 아니면
                 // 마커의 이미지를 클릭 이미지로 변경합니다
@@ -278,7 +278,6 @@ function displayMarker(){
                         }
                     }
                     else{
-                        console.log("qq")
                     }
                 }
                 if(id==2)
@@ -297,7 +296,6 @@ function displayMarker(){
                         }
                     }
                     else{
-                        console.log("qq")
                     }
                 }
                 if(id!=1 && id!=2)
@@ -316,7 +314,6 @@ function displayMarker(){
                         }
                     }
                     else{
-                        console.log("qq")
                     }
                 }
 
@@ -515,4 +512,25 @@ function displayMarker(){
     })
     EntireMarker = MarkerArr;
 
+}
+function get_recommend(address) {
+    $.ajax({
+        url: "/recommend",
+        data: { address: address },
+        method: "GET",
+        dataType: "json"
+    })
+    .done(function(json) {
+        $("#firstCardAddress").html(json[0].address);
+        $("#firstCardInfo").html(json[0].info);
+        $("#firstCardTitle").html(json[0].name);
+        $("#firstCardUrl").attr("href",json[0].url);
+        $("#firstCardImg").css('background-image', 'url(' + json[0].src + ')');
+
+        $("#SecondCardAddress").html(json[1].address);
+        $("#SecondCardInfo").html(json[1].info);
+        $("#SecondCardTitle").html(json[1].name);
+        $("#SecondCardUrl").attr("href",json[1].url);
+        $("#SecondCardImg").css('background-image', 'url(' + json[1].src + ')');
+    })
 }
