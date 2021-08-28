@@ -39,20 +39,20 @@ function get_score(name) {
             new Chart(document.getElementById("myChart_2"), {
                 type: 'radar',
                 data: {
-                  labels: ["청결", "시설만족도", "서비스", "재방문"],
-                  datasets: [
-                  {
-                   label: json.raw.rate==0
-                            ?"만족도 조사: 정보없음"
-                            :"만족도 조사 평균: "+ json.raw.rate.toFixed(1) +"점",
-                   fill: true,
-                   backgroundColor: "rgba(179,181,198,0.2)",
-                   borderColor: "rgba(179,181,198,1)",
-                   pointBorderColor: "#fff",
-                   pointBackgroundColor: "rgba(179,181,198,1)",
-                   pointBorderColor: "#fff",
-                   data: [json.raw.clean_score.toFixed(1),json.raw.facility_score.toFixed(1),json.raw.service_score.toFixed(1),json.raw.revisit_score.toFixed(1)]
-                }
+                    labels: ["청결", "서비스", "시설만족도", "재방문"],
+                    datasets: [
+                    {
+                     label: json.raw.rate==0
+                              ?"만족도 조사: 정보없음"
+                              :"만족도 조사 평균: "+ json.raw.rate.toFixed(1) +"점",
+                     fill: true,
+                     backgroundColor: "rgba(179,181,198,0.2)",
+                     borderColor: "rgba(179,181,198,1)",
+                     pointBorderColor: "#fff",
+                     pointBackgroundColor: "rgba(179,181,198,1)",
+                     pointBorderColor: "#fff",
+                     data: [json.raw.facility_score.toFixed(1),json.raw.clean_score.toFixed(1),json.raw.service_score.toFixed(1),json.raw.revisit_score.toFixed(1)]
+                  }
             ]
         },
                 options: {
