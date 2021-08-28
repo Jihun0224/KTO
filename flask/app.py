@@ -6,16 +6,6 @@ import json
 app = Flask(__name__)
 
 CORS(app)
-def getSpecificId(id):
-  result = objectIdDecoder(list(collection.find({"_id": ObjectId(id)})))
-  return str(result)
-
-def objectIdDecoder(list):
-  results=[]
-  for document in list:
-    document['_id'] = str(document['_id'])
-    results.append(document)
-  return results
 
 CONNECTION_STRING = "mongodb+srv://jihun:dja1wkd2@qualified.mmv3l.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 client = pymongo.MongoClient(CONNECTION_STRING)
@@ -27,6 +17,9 @@ certified = db.certified
 # 비대면 관광지 100선 가을 
 travelDestinationdb = client.get_database('travelDestination')
 autumn = travelDestinationdb.autumn
+
+#추천 관광지 432개
+recommend = travelDestinationdb.recommend
 
 @app.route('/')
 def index():
@@ -41,16 +34,20 @@ def result():
         data = {
             "x":col_results[0]['x'],
             "y":col_results[0]['y'],
-            "help":col_results[0]['help']
+            "help":col_results[0]['help'],
+            "name":col_results[0]['name'].split('[')[0]
         }
-        print(data)
         return render_template('infopage.html',results = col_results, data = data)
-
-
 
 @app.route('/Certified')
 def Certified():
     col_results = list(certified.find({}))
+
+    return json.dumps(col_results, default=str,ensure_ascii=False)
+
+@app.route('/recommend')
+def recommend():
+    col_results = list(recommend.find({}))
 
     return json.dumps(col_results, default=str,ensure_ascii=False)
 
