@@ -246,7 +246,7 @@ function displayMarker(){
                 "민박",
                 image:
                 //디폴트
-                name == Data.name?alg:
+                place.y == Data.y?alg:
                 id == 1?Hanokicon:
                 id == 2?Hotelicon:
                 BBicon
