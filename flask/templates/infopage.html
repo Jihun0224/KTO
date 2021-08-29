@@ -36,25 +36,25 @@
         <div class="main">
             <ul>
                 <div style="text-align:center">
-                  <h1 id="hotel-name" style="text-align: center;font-weight:bold">{{results[0].name.split('[')[0]}}</h1>
-                  <h id="hotel-summary" style="font-size:20px">{{results[0].summary}}</h>
+                  <h1 id="hotel-name" style="text-align: center;font-weight:bold">{{results.get('name').split('[')[0]}}</h1>
+                  <h id="hotel-summary" style="font-size:20px">{{results.get('summary')}}</h>
                 </div>
 
                 <div class="label" style="position: relative; top: 30px;">
                 <div>
-                    <img id="hotel-img" width="500" height="300" target="_blank" src="{{results[0].src}}"/>
+                    <img id="hotel-img" width="500" height="300" target="_blank" src="{{results.get('src')}}"/>
                     <br>
                     
                 </div>
 
                 <br>
                 
-                <h style=font-weight:bold>주소: </h><h id="hotel-addr">{{results[0].address}}</h><br>
-                <h style=font-weight:bold>전화번호 </h><h id="hotel-num">{{results[0].phoneNumber}}</h>
+                <h style=font-weight:bold>주소: </h><h id="hotel-addr">{{results.get('address')}}</h><br>
+                <h style=font-weight:bold>전화번호: </h><h id="hotel-num">{{results.get('phoneNumber')}}</h>
                 <!-- <h style=font-weight:bold>대한민국 구석구석 페이지 이동 </h><a id="hotel-url" target="_blank">click!</a><br> -->
                   
                 <p style="position: relative; top: 30px;">
-                    <h id="hotel-info">{{results[0].info}}</h>
+                    <h id="hotel-info">{{results.get('info')}}</h>
                   <br>
                 </p>
                 <!-- <h style=font-weight:bold><br><br>친환경적 요소</h>

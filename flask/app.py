@@ -30,34 +30,54 @@ def result():
 
     dosi = request.args.get('dosi')
     accommodation = int(request.args.get('accommodation'))
-    type_ = request.args.get('type')
+    type_ = request.args.get('type') #동반 유형
     value = request.args.get('value')
+    destination = []
 
     # 도로 1차 필터
     dosi_results = list(certified.find({"address": { "$regex": dosi}}, {'_id': False}));
     # 도로, 숙소 타입 2차 필터
-    dosi_type_results = list(certified.find({"$and":[ 
-                                    {"address": { "$regex": dosi} },
-                                   {"id": accommodation}]
-                                    } , {'_id': False}
-                                    ));
-    # 동반자 유형으롤 3차 필터
+    dosi_type_results=[]
+    for data_ in dosi_results:
+        if(data_["id"] == accommodation):
+            dosi_type_results.append(data_)
+    if(len(dosi_type_results)==0):
+        # 선택한 시에 원하는 숙박유형이 없을 때
+        random_val = random.randrange(len(dosi_results))
+        destination = dosi_results.pop(random_val-1)
+    else:
+        with_results=[]
+        for data_ in dosi_type_results:
+            if type_ in data_["with"]:
+                with_results.append(data_)
+        if(len(with_results)==0):
+            # 동반 유형이 수용가능한 업소가 없을 때
+            random_val = random.randrange(len(dosi_type_results))
+            destination = dosi_type_results.pop(random_val-1)
+        else:
+            value_results=[]
+            for data_ in with_results:
+                if value in data_["label"]:
+                    value_results.append(data_)
+            if(len(value_results)==0):
+                    # 첫번째 가치에 해당하는 업소가 없을 때
+                random_val = random.randrange(len(with_results))
+                destination = with_results.pop(random_val-1)
+            else:
+                random_val = random.randrange(len(value_results))
+                destination = value_results.pop(random_val-1)
+        print(destination)
+        print(type(destination))
 
-    # 가치로 최종 필터
 
-
-
-    col_results = list(certified.find({}, {'_id': False}).limit(1));
-    print(col_results)
-    data = {
-        "x":col_results[0]['x'],
-        "y":col_results[0]['y'],
-        "help":col_results[0]['help'],
-        "name":col_results[0]['name'].split('[')[0],
-        "address":col_results[0]['address'],
+        data = {
+        "x":destination.get('x'),
+        "y":destination.get('y'),
+        "help":destination.get('help'),
+        "name":destination.get('name').split('[')[0],
+        "address":destination.get('address'),
     };
-    print(data)
-    return render_template('infopage.html',results = col_results, data = data)
+    return render_template('infopage.html',results = destination, data = data)
 
 @app.route('/Certified')
 def Certified():
