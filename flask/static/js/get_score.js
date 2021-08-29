@@ -15,10 +15,9 @@ function get_score(name) {
               labels: ["청결", "시설만족도", "가격", "재방문", "안전","서비스"],
               datasets: [
                 {
-                // label: json.crawling.rate==0
-                //     ?"OTA 리뷰: 정보없음"
-                //     :"OTA 리뷰 평균: "+json.crawling.rate.toFixed(1)+"점",
-                label: name,
+                label: json.crawling.rate==0
+                    ?"OTA 리뷰: 정보없음"
+                    :"OTA 리뷰 평균: "+json.crawling.rate.toFixed(1)+"점",
                 fill: true,
                 backgroundColor: "rgba(255,99,132,0.2)",
                 borderColor: "rgba(255,99,132,1)",
@@ -40,20 +39,20 @@ function get_score(name) {
             tooltips: {
                 callbacks: {
                     label: function(tooltipItem, data) {
-                    var label = data.datasets[tooltipItem.datasetIndex].label + ' : ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                    var label = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
                     return label;
                     }
                 }
                 }
             }
         }); 
-        if(window.chartObj2 != undefined){
+if(window.chartObj2 != undefined){
             window.chartObj2.destroy();
         }
         window.chartObj2 = new Chart(document.getElementById("myChart_2"), {
                 type: 'radar',
                 data: {
-                    labels: ["청결", "서비스", "시설만족도", "재방문"],
+                    labels: ["서비스", "청결", "시설만족도", "재방문"],
                     datasets: [
                     {
                      label: json.raw.rate==0
@@ -65,7 +64,7 @@ function get_score(name) {
                      pointBorderColor: "#fff",
                      pointBackgroundColor: "rgba(179,181,198,1)",
                      pointBorderColor: "#fff",
-                     data: [json.raw.facility_score.toFixed(1),json.raw.clean_score.toFixed(1),json.raw.service_score.toFixed(1),json.raw.revisit_score.toFixed(1)]
+                     data: [json.raw.service_score.toFixed(1),json.raw.clean_score.toFixed(1),json.raw.facility_score.toFixed(1),json.raw.revisit_score.toFixed(1)]
                   }
             ]
         },
@@ -78,7 +77,15 @@ function get_score(name) {
                             stepSize: 1
                     },
                 },
+                tooltips: {
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                        var label = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                        return label;
+                        }
+                    }
+                    }
             }
-        });    
+        });     
     })
 }

@@ -95,7 +95,6 @@
                   </div>
 
                   <script>
-
               var Data = $('#my-data').data();
               Data = Data.other.replaceAll('\'','\"')
               Data = JSON.parse(Data)
@@ -232,6 +231,26 @@
                 }
 
                   </script>
+                <div class="compare-frame" style="position:relative; width: 587px; height: 300px; top: 15px;" >
+
+                  <img id="wordcloudSrc" width="470" height="250" style="position:relative; top:25px;" src="https://fluffyword.s3.ap-northeast-2.amazonaws.com/숙소별+리뷰+워드클라우드/(주)척산온천휴양촌.jpg" onerror="sendError();">
+
+                </div>
+                <script>
+                  var Data = $('#my-data').data();
+                  Data = Data.other.replaceAll('\'','\"')
+                  Data = JSON.parse(Data)
+                  
+                  url = "https://fluffyword.s3.ap-northeast-2.amazonaws.com/숙소별+리뷰+워드클라우드/"+Data.name.trimRight()+".jpg"
+                  $("#wordcloudSrc").attr("src", url);
+                  
+                  function sendError() {
+                    $("#wordcloudSrc").attr("src", "{{ url_for('static', filename='infopage_img/sorry.png')}}");
+
+                    }
+                </script>
+
+
                 <div style="position: relative; top: 30px;">
                     <div class="card-columns">
                         <div class="card" style="width: 280px;">
@@ -306,7 +325,7 @@
         </div>
         
         <div class="compare-frame" style="position:relative; margin-left:30px; top: 20px;" >
-          <canvas id="myChart" style="width: 2px; height: 1px; position: relative; top: 25px; right: 115px;"></canvas>
+          <canvas id="myChart" style="z-index:2; width: 2px; height: 1px; position: relative; top: 25px; right: 120px;"></canvas>
           <canvas id="myChart_2" style="width: 2px; height: 1px; position: relative; top: -221px; left: 130px;"></canvas>
 
           <script>
