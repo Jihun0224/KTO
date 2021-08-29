@@ -236,7 +236,7 @@ function displayMarker(){
             //     position: defaultPosition,
             //     image:alg
             // });
-            
+
             var marker = new kakao.maps.Marker({
                 map: map,
                 position: position,
