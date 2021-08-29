@@ -74,6 +74,8 @@
 
         
         <div class="input">
+            <h2 class="label" style="font-size: 25px; width:380px; position: relative; top: -40px;">자, 이제 주인공이 되어 볼까요?</h2>  
+
             <div class="input_group">
                 <!-- <h1 class=label>지역선택(도 단위, 예: 강원도)</h1> -->
                 <div class="wrap">
@@ -90,12 +92,12 @@
                         <option value="세종">세종</option>
                         <option value="경기">경기</option>
                         <option value="강원">강원</option>
-                        <option value="충북">충북</option>
-                        <option value="충남">충남</option>
-                        <option value="전북">전북</option>
-                        <option value="전남">전남</option>
-                        <option value="경북">경북</option>
-                        <option value="경남">경남</option>
+                        <option value="충청북도">충북</option>
+                        <option value="충청남도">충남</option>
+                        <option value="전라북도">전북</option>
+                        <option value="전라남도">전남</option>
+                        <option value="경상북도">경북</option>
+                        <option value="경상남도">경남</option>
                         <option value="제주">제주</option>
 
                     </select>
@@ -104,9 +106,9 @@
             <div class="wrap">
                 <select class="selectbox" id="type__accommodation">
                     <option>숙박 선택</option>
-                    <option value="한옥">한옥</option>
-                    <option value="호텔">호텔</option>
-                    <option value="펜션">펜션</option> 
+                    <option value="1">한옥</option>
+                    <option value="2">호텔</option>
+                    <option value="3">민박</option> 
 
                 </select>
             </div>
@@ -117,37 +119,32 @@
                     <option value="가족">가족</option>
                     <option value="친구">친구</option>
                     <option value="연인">연인</option>
-                    <option value="반려견 동반">반려견 동반</option>
+                    <option value="반려견">반려견 동반</option>
 
                 </select>
             </div>
         
-        </div>
-                <!-- <h1 class=label>지역선택(도 단위, 예: 강원도)</h1> -->
-            
-        </div>
-
-        
-
+        </div>    
+    </div>
         <div class="input_group">
-            <h2 class="label" style="font-size: 20px; position: relative; top: -40px;">가치 선택</h2>  
-            <form class="frame" method="get" action="form-action.html">
+            <form class="frame" >
             <div class="left-box">
-                <label class="container"><input type="checkbox" id="value_" value="체험/놀이">체험/놀이<span class="checkmark"></span></label>
-                <label class="container"><input type="checkbox" id="value_" value="자연/풍경">자연/풍경<span class="checkmark"></span></label>
-                <label class="container"><input type="checkbox" id="value_" value="관광지">관광지<span class="checkmark"></span></label>
+                <label class="container"><input type="checkbox" id="value_" value="도심">도심<span class="checkmark"></span></label>
+                <label class="container"><input type="checkbox" id="value_" value="자연">자연<span class="checkmark"></span></label>
+                <label class="container"><input type="checkbox" id="value_" value="바다">바다<span class="checkmark"></span></label>
                 
             </div>
             <div class="right-box">
-                <label class="container"><input type="checkbox" id="value_" value="휴식/힐링">휴식/힐링<span class="checkmark"></span></label>
-                <label class="container"><input type="checkbox" id="value_" value="비즈니스">비즈니스<span class="checkmark"></span></label>
-                <label class="container"><input type="checkbox" id="value_" value="미식/식도락">미식/식도락<span class="checkmark"></span></label>
+                <label class="container"><input type="checkbox" id="value_" value="맛집">맛집<span class="checkmark"></span></label>
+                <label class="container"><input type="checkbox" id="value_" value="놀거리">놀거리<span class="checkmark"></span></label>
+                <label class="container"><input type="checkbox" id="value_" value="문화">문화<span class="checkmark"></span></label>
+               
             </div>
         </div>
         <br>
         <link rel="stylesheet" href="{{url_for('static', filename='main__css/main_button.css')}}">
     <a class="cta">
-    <span type="button" onclick=getUserParams()>결과 보기</span>
+    <span type="button" id ="post_params"onclick=getUserParams()>결과 보기</span>
     <svg width="13px" height="10px" viewBox="0 0 13 10">
       <path d="M1,5 L11,5"></path>
       <polyline points="8 1 12 5 8 9"></polyline>

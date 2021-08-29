@@ -21,24 +21,42 @@ RecommendPlace = client.get_database('RecommendPlace')
 # 숙소 별점
 CertifiedScore = client.get_database('CertifiedScore')
 
-
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route("/result", methods=["GET", "POST"])
+@app.route("/result", methods=["POST","GET"])
 def result():
 
-    jsonData = request.get_json()
+    dosi = request.args.get('dosi')
+    accommodation = int(request.args.get('accommodation'))
+    type_ = request.args.get('type')
+    value = request.args.get('value')
+
+    # 도로 1차 필터
+    dosi_results = list(certified.find({"address": { "$regex": dosi}}, {'_id': False}));
+    # 도로, 숙소 타입 2차 필터
+    dosi_type_results = list(certified.find({"$and":[ 
+                                    {"address": { "$regex": dosi} },
+                                   {"id": accommodation}]
+                                    } , {'_id': False}
+                                    ));
+    # 동반자 유형으롤 3차 필터
+
+    # 가치로 최종 필터
+
+
 
     col_results = list(certified.find({}, {'_id': False}).limit(1));
+    print(col_results)
     data = {
         "x":col_results[0]['x'],
         "y":col_results[0]['y'],
         "help":col_results[0]['help'],
         "name":col_results[0]['name'].split('[')[0],
         "address":col_results[0]['address'],
-    }
+    };
+    print(data)
     return render_template('infopage.html',results = col_results, data = data)
 
 @app.route('/Certified')
