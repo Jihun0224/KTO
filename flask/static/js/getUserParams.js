@@ -16,6 +16,7 @@ function getUserParams(){
         selectedEls.forEach((el) => {
         params.value.push(el.value);
     });
+
     if(params.dosi=='지역 선택'){
         alert("지역을 선택해 주세요.");
     }
@@ -26,7 +27,10 @@ function getUserParams(){
         alert("동반유형을 선택해 주세요.");
     }
     else if(params.value == ''){
-        alert("1개 이상의 가치를 가치를 선택해 주세요.");
+        alert("가치를 선택해 주세요.");
+    }
+    else if(params.value.length > 1){
+        alert("제일 중요하다고 생각하는 하나의 가치만 선택해 주세요.");
     }
     else{
         (async () => {
