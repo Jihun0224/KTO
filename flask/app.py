@@ -33,7 +33,7 @@ def result():
     type_ = request.args.get('type') #동반 유형
     value = request.args.get('value')
     destination = []
-
+    data={}
     # 도로 1차 필터
     dosi_results = list(certified.find({"address": { "$regex": dosi}}, {'_id': False}));
     # 도로, 숙소 타입 2차 필터
@@ -67,8 +67,7 @@ def result():
                 random_val = random.randrange(len(value_results))
                 destination = value_results.pop(random_val-1)
 
-
-        data = {
+    data = {
         "x":destination.get('x'),
         "y":destination.get('y'),
         "help":destination.get('help'),
