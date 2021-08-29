@@ -184,7 +184,7 @@ body{overflow-x: hidden;}
 
 #wrap section:nth-child(3):before {
   background-color: #b30000;
-  background-image: url(../main_img/충남_공주_한옥마을.png);
+  background-image: url(../main_img/거제_해안거님길.png);
 }
 
 .hide-images #wrap section:nth-child(3):before {
@@ -205,7 +205,7 @@ body{overflow-x: hidden;}
 
 #wrap section:nth-child(4):before {
   background-color: #990000;
-  background-image: url(../main_img/거제_해안거님길.png);
+  background-image: url(../main_img/충남_공주_한옥마을.png);
 }
 
 .hide-images #wrap section:nth-child(4):before {

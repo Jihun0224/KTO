@@ -13,7 +13,7 @@
 }
 
 .frame{
-    width:500px;
+    width:700px;
     height: 210px;
     margin: auto;
     padding: 53px;
@@ -59,8 +59,8 @@
     padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
-    font-size: 18px;
-    width: 150px;
+    font-size: 15px;
+    width: 300px;
   }
   /* Hide the browser's default checkbox */
   .container input {
