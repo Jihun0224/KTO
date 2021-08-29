@@ -98,6 +98,7 @@
               var Data = $('#my-data').data();
               Data = Data.other.replaceAll('\'','\"')
               Data = JSON.parse(Data)
+
               if(Data.help.indexOf("장애인 화장실") != -1)
                 {
                     $("#b1").attr("style","background-color:rgb(157,186,209)");

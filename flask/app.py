@@ -12,8 +12,8 @@ CONNECTION_STRING = "mongodb+srv://jihun:dja1wkd2@qualified.mmv3l.mongodb.net/my
 client = pymongo.MongoClient(CONNECTION_STRING)
 
 # 인증 숙소
-db = client.get_database('Certified')
-certified = db.certified
+db = client.get_database('Certified2')
+certified = db.certified2
 
 # 추천여행지
 RecommendPlace = client.get_database('RecommendPlace')

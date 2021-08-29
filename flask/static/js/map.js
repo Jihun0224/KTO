@@ -227,7 +227,6 @@ function displayMarker(){
             var Data = $('#my-data').data();
             Data = Data.other.replaceAll('\'','\"')
             Data = JSON.parse(Data)
-
             //초기 위치(디폴트값)
             var defaultPosition = new kakao.maps.LatLng(Data.y, Data.x);
             // 지도 중심을 이동 시킵니다
@@ -247,7 +246,7 @@ function displayMarker(){
                 "민박",
                 image:
                 //디폴트
-                name == "비브릿지"?alg:
+                name == Data.name?alg:
                 id == 1?Hanokicon:
                 id == 2?Hotelicon:
                 BBicon
