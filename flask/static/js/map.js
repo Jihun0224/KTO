@@ -224,8 +224,12 @@ function displayMarker(){
             var help = place.help
             var imgSrc = place.src
 
+            var Data = $('#my-data').data();
+            Data = Data.other.replaceAll('\'','\"')
+            Data = JSON.parse(Data)
+
             //초기 위치(디폴트값)
-            var defaultPosition = new kakao.maps.LatLng(37.12061132, 128.6271705);
+            var defaultPosition = new kakao.maps.LatLng(Data.y, Data.x);
             // 지도 중심을 이동 시킵니다
             map.setCenter(defaultPosition);
 

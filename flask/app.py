@@ -66,8 +66,6 @@ def result():
             else:
                 random_val = random.randrange(len(value_results))
                 destination = value_results.pop(random_val-1)
-        print(destination)
-        print(type(destination))
 
 
         data = {
