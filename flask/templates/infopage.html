@@ -32,11 +32,14 @@
                     <div class="menuUnderline"></div>
                 </ul>
             </span>
-        </div>
-        <div class="main">
-            <ul>
-                <div style="text-align:center">
-                  <h1 id="hotel-name" style="text-align: center;font-weight:bold">{{results.get('name').split('[')[0]}}</h1>
+            <img src="{{ url_for('static', filename='infopage_img/koreaQuality.png')}}" style="position: relative; top: 50px; z-index: 1;" width="120" height="70">           
+
+        </div>          
+
+        <div class="main" style="position: relative; top: 25px;">
+           <ul>
+                <div style="text-align:center">                 
+                  <h1 id="hotel-name" style="text-align: center;font-weight:bold">{{results.get('name').split('[')[0]}}</h1></img>
                   <h id="hotel-summary" style="font-size:20px">{{results.get('summary')}}</h>
                 </div>
 
@@ -232,8 +235,8 @@
                 }
 
                   </script>
-                <div class="compare-frame" style="position:relative; width: 587px; height: 300px; top: 15px;" >
-
+                <div class="compare-frame" style="position:relative; width: 587px; height: 350px; top: 15px;" >
+                  <h3 style="position:relative; top: 10px; ">고객 리뷰의 주요 키워드</h3>
                   <img id="wordcloudSrc" width="470" height="250" style="position:relative; top:25px;" src="https://fluffyword.s3.ap-northeast-2.amazonaws.com/숙소별+리뷰+워드클라우드/(주)척산온천휴양촌.jpg" onerror="sendError();">
 
                 </div>
