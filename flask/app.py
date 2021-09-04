@@ -89,15 +89,15 @@ def recommend():
     results_raw=[]
     result=[]
     results_raw = list(RecommendPlace.place.find({ "address": { "$regex": search}}))
-    if(len(results_raw) >= 2):
-        results = random.sample(results_raw,2)
+    if(len(results_raw) >= 3):
+        results = random.sample(results_raw,3)
         return json.dumps(results, default=str,ensure_ascii=False)
     else:
         if(search.startswith('(')==True):
             search = search.split(' ')[1]
         else:
             search = search.split(' ')[0]
-        count = 2-len(results_raw)
+        count = 3-len(results_raw)
         recommend_results = list(RecommendPlace.place.find({ "address": { "$regex": search}}))
         recommend_results = random.sample(recommend_results,count)
 

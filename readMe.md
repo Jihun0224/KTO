@@ -1,7 +1,7 @@
 # Install  
 1. flask 가상환경 생성 후 가상환경 실행 후 pip install -r requirements.txt  
-1. flask run
-
+1. flask run  
+--- 
 ## 추가 필요
 - 메인페이지에 한국관광공사, 빅리더 마크 함께 넣기 --> O
 

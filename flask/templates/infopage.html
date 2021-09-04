@@ -33,7 +33,6 @@
                 </ul>
             </span>
             <img src="{{ url_for('static', filename='infopage_img/koreaQuality.png')}}" style="position: relative; top: 50px; z-index: 1;" width="120" height="70">           
-
         </div>          
 
         <div class="main" style="position: relative; top: 25px;">
@@ -352,7 +351,15 @@
 
           </div>
           <div class="description">
-              <h1 id ="firstCardTitle">Name</h1>
+              <h1 id ="firstCardTitle" style=
+                                            "overflow: hidden; 
+                                            text-overflow: ellipsis; 
+                                            display: -webkit-box; 
+                                            -webkit-line-clamp: 1 ; 
+                                            -webkit-box-orient: vertical; 
+                                            word-wrap:break-word; 
+                                            line-height: 1.2em; 
+                                            height: 1.2em;">Name</h1>
               <h2 id="firstCardAddress">Address</h2>
               <p id="firstCardInfo" style=
                                           "overflow: hidden; 
@@ -399,7 +406,31 @@
           </div>
         </div>
   </div>
-  
+  <div class="blog-card" style="position: relative; left: 370px; top: 30px; width: 600px; height: 277px;">
+    <div class="meta">
+      <div class="photo" id="thirdCardImg"style="background-image: url(https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=806d3a5c-f4bf-4ad3-8c52-59ae5a988689)"></div>
+
+    </div>
+    <div class="description">
+        <h1 id ="thirdCardTitle">Name</h1>
+        <h2 id="thirdCardAddress">Address</h2>
+        <p id="thirdCardInfo" style=
+                                    "overflow: hidden; 
+                                    text-overflow: ellipsis; 
+                                    display: -webkit-box; 
+                                    -webkit-line-clamp: 7 ; 
+                                    -webkit-box-orient: vertical; 
+                                    word-wrap:break-word; 
+                                    line-height: 1.2em; 
+                                    height: 8.4em;">
+          Info
+        </p>
+        </p>
+         <p class="read-more">
+        <a id="thirdCardUrl" href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=36f54304-e9a8-4615-9226-eb749bf6ce75&big_category=A01&mid_category=A0101&big_area=6">내용 더보기</a>
+      </p>
+    </div>
+  </div>
   <br>
   <br>
 </body>
