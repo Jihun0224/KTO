@@ -173,7 +173,7 @@ function displayMarker(){
         }
       );
       var Hanokicon_sel = new kakao.maps.MarkerImage(
-        "https://github.com/Jihun0224/KTO/blob/master/images/hanok_select.png?raw=true",
+        "https://github.com/Jihun0224/KTO/blob/master/flask/static/infopage_img/hanok_select.png?raw=true",
         new kakao.maps.Size(41, 45),
         {
             offset: new kakao.maps.Point(16, 34),
@@ -182,7 +182,7 @@ function displayMarker(){
         }
       );
       var Hotelicon_sel = new kakao.maps.MarkerImage(
-        "https://github.com/Jihun0224/KTO/blob/master/images/hotel_select.png?raw=true",
+        "https://github.com/Jihun0224/KTO/blob/master/flask/static/infopage_img/hotel_select.png?raw=true",
         new kakao.maps.Size(41, 45),
         {
             offset: new kakao.maps.Point(16, 34),
@@ -191,7 +191,7 @@ function displayMarker(){
         }
       );
       var BBicon_sel = new kakao.maps.MarkerImage(
-        "https://github.com/Jihun0224/KTO/blob/master/images/bb_select.png?raw=true",
+        "https://github.com/Jihun0224/KTO/blob/master/flask/static/infopage_img/bb_select.png?raw=true",
         new kakao.maps.Size(41, 45),
         {
             offset: new kakao.maps.Point(16, 34),
