@@ -16,7 +16,7 @@ function get_score(name) {
               datasets: [
                 {
                 label: json.crawling.rate==0
-                    ?"고객 후기"
+                    ?"고객 후기: 정보없음"
                     :"고객 후기 평균: "+json.crawling.rate.toFixed(1)+"점",
                 fill: true,
                 backgroundColor: "rgba(255,99,132,0.2)",

@@ -18,6 +18,11 @@ function get_recommend(address) {
         $("#SecondCardUrl").attr("href",json[1].url);
         $("#SecondCardImg").css('background-image', 'url(' + json[1].src + ')');
         
+        $("#thirdCardAddress").html(json[2].address);
+        $("#thirdCardInfo").html(json[2].info);
+        $("#thirdCardTitle").html(json[2].name);
+        $("#thirdCardUrl").attr("href",json[2].url);
+        $("#thirdCardImg").css('background-image', 'url(' + json[2].src + ')');
     })
 
 }
