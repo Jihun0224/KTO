@@ -71,7 +71,7 @@
                   </div>
                 </div> -->
                 <br><br>
-                <h style=font-weight:bold>열린 관광 요소</h><br>
+                <h5 style=font-weight:bold>열린 관광 요소</h5>
 
                 <!-- <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                   <div class="btn-group mr-2" role="group" aria-label="First group">
@@ -219,7 +219,7 @@
 
                   </script>
                 <div class="compare-frame" style="position:relative; width: 587px; height: 350px; top: 15px;" >
-                  <h3 style="position:relative; top: 10px;text-align:center">고객 리뷰의 주요 키워드</h3>
+                  <h4 style="position:relative; top: 10px;text-align:center; font-weight:bold">고객 리뷰의 주요 키워드</h4>
                   <img id="wordcloudSrc" width="470" height="250" style="position:relative; top:25px; left:62px" src="https://fluffyword.s3.ap-northeast-2.amazonaws.com/숙소별+리뷰+워드클라우드/(주)척산온천휴양촌.jpg" onerror="sendError();">
 
                 </div>
@@ -238,33 +238,30 @@
 
                 </script>
 
-                <div style="position: relative; top: 30px;">
+                <br><br><h4 style="font-weight:bold; text-align:center">유사한 품질인증 숙소 더 알아보기</h4>
+                <div style="position: relative; top: 10px;">
                     <div class="card-columns">
                         <div class="card" style="width: 280px;">
-                          <img class="card-img-top"  src="{{ url_for('static', filename='infopage_img/1.jpg')}}"  alt="Card image cap">
+                          <img id="similar1-img" class="card-img-top"  src="{{ url_for('static', filename='infopage_img/1.jpg')}}"  alt="Card image cap">
                           <div class="card-body">
-                            <h5 class="card-title">
-                              <img src="https://raw.githubusercontent.com/Jihun0224/KTO/master/flask/static/infopage_img/star.png">
-                              <img src="https://raw.githubusercontent.com/Jihun0224/KTO/master/flask/static/infopage_img/star.png">
-                              <img src="https://raw.githubusercontent.com/Jihun0224/KTO/master/flask/static/infopage_img/star.png">
-                              <img src="https://raw.githubusercontent.com/Jihun0224/KTO/master/flask/static/infopage_img/star.png">
-                              <img src="https://raw.githubusercontent.com/Jihun0224/KTO/master/flask/static/infopage_img/star.png">(5)</h5>
-                            <p class="card-text" style="font-size: small;">여자친구랑 같이 둘이서 오붓한 시간을 보내고자 풀빌라를 찾아봤고, 제일 마음에 들어서 예약하게 되었습니다. 건물도 완전 깨끗하고 깔끔하고, 조리도구도 완벽하게 준비되어있어서 더 좋았습니다. 강원도라서 그런지 역시 공기가 맑고 마음이 정화가 되는 느낌이었습니다.</p>
+                            <h5 id="similar1-name" class="card-title" style="text-align:center; font-weight:bold">유사숙소1</h5>
+                              <!-- <img src="https://raw.githubusercontent.com/Jihun0224/KTO/master/flask/static/infopage_img/star.png">-->
+                              
+                            <h class="card-text" style="font-size: 14px; font-weight:bold">주소: </h><h id="similar1-addr">테스트테스트테스트테스트</h><br>
+                            <h class="card-text" style="font-size: 14px; font-weight:bold">전화번호: </h><h id="similar1-num">테스트테스트테스트테스트</h><br>
+                            <a id="similar1-url" href= "" class="card-text" style="font-size: 14px; font-weight:bold">상세보기(url)</a>
                           </div>
                     </div>
                     <div class="card-columns">
                         <div class="card" style="width: 280px; margin-left: 100px;">
-                          <img class="card-img-top"  src="{{ url_for('static', filename='infopage_img/3.jpg')}}" alt="Card image cap">
+                          <img id="similar2-img" class="card-img-top"  src="{{ url_for('static', filename='infopage_img/1.jpg')}}"  alt="Card image cap">
                           <div class="card-body">
-                            <h5 class="card-title">
-                              <img src="https://raw.githubusercontent.com/Jihun0224/KTO/master/flask/static/infopage_img/star.png">
-                              <img src="https://raw.githubusercontent.com/Jihun0224/KTO/master/flask/static/infopage_img/star.png">
-                              <img src="https://raw.githubusercontent.com/Jihun0224/KTO/master/flask/static/infopage_img/star.png">
-                              <img src="https://raw.githubusercontent.com/Jihun0224/KTO/master/flask/static/infopage_img/star.png">(4)</h5>
-                            <p class="card-text" style="font-size: small;">
-                              시설은 사진이랑 그대로에요! 앞에 산이 있어 운치있는 분위기네요.
-                              다만 입실하고 나서 방 안에 쓰레기 같은게 있어서 청소가 미흡한 것 같다는 느낌이 있었고, 바닥이 타일인데 슬리퍼를 안신기에는 퍼석퍼석한 먼지 느낌이 났어요.
-                              전기 그릴도 숯그릴 못지않게 잘돼서 좋았어요.</p>
+                            <h5 id="similar2-name" class="card-title" style="text-align:center; font-weight:bold">유사숙소2</h5>
+                              <!-- <img src="https://raw.githubusercontent.com/Jihun0224/KTO/master/flask/static/infopage_img/star.png">-->
+                              
+                            <h class="card-text" style="font-size: 14px; font-weight:bold">주소: </h><h id="similar2-addr">테스트테스트테스트테스트테스트</h><br>
+                            <h class="card-text" style="font-size: 14px; font-weight:bold">전화번호: </h><h id="similar2-num">테스트테스트테스트테스트</h><br>
+                            <a id="similar2-url" href= "" class="card-text" style="font-size: 14px; font-weight:bold">상세보기(url)</a>
                           </div>
                         </div>
                 </div>           
