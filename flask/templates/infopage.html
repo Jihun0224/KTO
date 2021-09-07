@@ -1,3 +1,10 @@
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <script>  
+        alert("모든 조건에 일치하는 결과가 없어서 일부 조건에 일치하는 숙소를 추천합니다.\n") 
+    </script>
+    {% endif %}
+{% endwith %}
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
@@ -241,7 +248,7 @@
                 <br><br><h4 style="font-weight:bold; text-align:center">유사한 품질인증 숙소 더 알아보기</h4>
                 <div style="position: relative; top: 10px;">
                     <div class="card-columns">
-                        <div class="card" style="width: 280px;">
+                        <div class="card" style="width: 280px; height: 390px;">
                           <img id="similar1-img" class="card-img-top"  src="{{ url_for('static', filename='infopage_img/1.jpg')}}"  alt="Card image cap">
                           <div class="card-body">
                             <h5 id="similar1-name" class="card-title" style="text-align:center; font-weight:bold">유사숙소1</h5>
@@ -253,7 +260,7 @@
                           </div>
                     </div>
                     <div class="card-columns">
-                        <div class="card" style="width: 280px; margin-left: 100px;">
+                        <div class="card" style="width: 280px; margin-left: 100px;height: 390px;">
                           <img id="similar2-img" class="card-img-top"  src="{{ url_for('static', filename='infopage_img/1.jpg')}}"  alt="Card image cap">
                           <div class="card-body">
                             <h5 id="similar2-name" class="card-title" style="text-align:center; font-weight:bold">유사숙소2</h5>
