@@ -232,10 +232,7 @@ function displayMarker(){
             // 지도 중심을 이동 시킵니다
             map.setCenter(defaultPosition);
 
-            // var marker_default = new kakao.maps.Marker({
-            //     position: defaultPosition,
-            //     image:alg
-            // });
+            
 
             var marker = new kakao.maps.Marker({
                 map: map,
@@ -326,134 +323,110 @@ function displayMarker(){
                 // 열린 관광 요소(12개)
                 if(help.indexOf("장애인 화장실") != -1)
                 {
-                    $("#b1").attr("style","background-color:rgb(157,186,209)");
-                    $("#bb1").attr("style","font-size:14px;color:white");
+                  $("#b1").attr("src","../static/열린관광이미지/장애인화장실T.png");
                 }
                 else
                 {
-                    $("#b1").attr("style","background-color:white");
-                    $("#bb1").attr("style","font-size:14px;color:rgb(157,186,209)");
+                  $("#b1").attr("src","../static/열린관광이미지/장애인화장실F.png");
                 }
                 
                 if(help.indexOf("장애인용 엘리베이터") != -1)
                 {
-                    $("#b2").attr("style","background-color:rgb(157,186,209)");
-                    $("#bb2").attr("style","font-size:14px;color:white");
+                  $("#b2").attr("src","../static/열린관광이미지/장애인용엘리베이터T.png");
                 }
                 else
                 {
-                    $("#b2").attr("style","background-color:white");
-                    $("#bb2").attr("style","font-size:14px;color:rgb(157,186,209)");
+                  $("#b2").attr("src","../static/열린관광이미지/장애인용엘리베이터F.png");
                 }
 
                 if(help.indexOf("장애인 전용 주차구역") != -1)
                 {
-                    $("#b3").attr("style","background-color:rgb(157,186,209)");
-                    $("#bb3").attr("style","font-size:14px;color:white");
+                  $("#b3").attr("src","../static/열린관광이미지/장애인전용주차구역T.png");
                 }
                 else
                 {
-                    $("#b3").attr("style","background-color:white");
-                    $("#bb3").attr("style","font-size:14px;color:rgb(157,186,209)");
+                  $("#b3").attr("src","../static/열린관광이미지/장애인전용주차구역F.png");
                 }
 
                 if(help.indexOf("주출입구 단차없음") != -1)
                 {
-                    $("#b4").attr("style","background-color:rgb(157,186,209)");
-                    $("#bb4").attr("style","font-size:14px;color:white");
+                  $("#b4").attr("src","../static/열린관광이미지/주출입구단차없음T.png");
                 }
                 else
                 {
-                    $("#b4").attr("style","background-color:white");
-                    $("#bb4").attr("style","font-size:14px;color:rgb(157,186,209)");
+                  $("#b4").attr("src","../static/열린관광이미지/주출입구단차없음F.png");
                 }
 
                 if(help.indexOf("지하철 접근가능") != -1)
                 {
-                    $("#b5").attr("style","background-color:rgb(157,186,209)");
-                    $("#bb5").attr("style","font-size:14px;color:white");
+                  $("#b5").attr("src","../static/열린관광이미지/지하철접근가능T.png");
                 }
                 else
                 {
-                    $("#b5").attr("style","background-color:white");
-                    $("#bb5").attr("style","font-size:14px;color:rgb(157,186,209)");
+                  $("#b5").attr("src","../static/열린관광이미지/지하철접근가능F.png");
                 }
 
                 if(help.indexOf("저상버스 접근가능") != -1)
                 {
-                    $("#b6").attr("style","background-color:rgb(157,186,209)");
-                    $("#bb6").attr("style","font-size:14px;color:white");
+                  $("#b6").attr("src","../static/열린관광이미지/저상버스접근가능T.png");
                 }
                 else
                 {
-                    $("#b6").attr("style","background-color:white");
-                    $("#bb6").attr("style","font-size:14px;color:rgb(157,186,209)");
+                  $("#b6").attr("src","../static/열린관광이미지/저상버스접근가능F.png");
                 }
 
                 if(help.indexOf("휠체어 대여") != -1)
                 {
-                    $("#b7").attr("style","background-color:rgb(157,186,209)");
-                    $("#bb7").attr("style","font-size:14px;color:white");
+                  $("#b7").attr("src","../static/열린관광이미지/휠체어대여T.png");
                 }
                 else
                 {
-                    $("#b7").attr("style","background-color:white");
-                    $("#bb7").attr("style","font-size:14px;color:rgb(157,186,209)");
+                  $("#b7").attr("src","../static/열린관광이미지/휠체어대여F.png");
                 }
 
                 if(help.indexOf("시각장애인 편의서비스") != -1)
                 {
-                    $("#b8").attr("style","background-color:rgb(157,186,209)");
-                    $("#bb8").attr("style","font-size:14px;color:white");
+                  $("#b8").attr("src","../static/열린관광이미지/시각장애인편의서비스T.png");
                 }
                 else
                 {
-                    $("#b8").attr("style","background-color:white");
-                    $("#bb8").attr("style","font-size:14px;color:rgb(157,186,209)");
+                  $("#b8").attr("src","../static/열린관광이미지/시각장애인편의서비스F.png");
                 }
 
                 if(help.indexOf("청각장애인 편의서비스") != -1)
                 {
-                    $("#b9").attr("style","background-color:rgb(157,186,209)");
-                    $("#bb9").attr("style","font-size:14px;color:white");
+                  $("#b9").attr("src","../static/열린관광이미지/청각장애인편의서비스T.png");
                 }
                 else
                 {
-                    $("#b9").attr("style","background-color:white");
-                    $("#bb9").attr("style","font-size:14px;color:rgb(157,186,209)");
+                  $("#b9").attr("src","../static/열린관광이미지/청각장애인편의서비스F.png");
                 }
 
                 if(help.indexOf("수유실") != -1)
                 {
-                    $("#b10").attr("style","background-color:rgb(157,186,209)");
-                    $("#bb10").attr("style","font-size:14px;color:white");
+                  $("#b10").attr("src","../static/열린관광이미지/수유실T.png");
                 }
                 else
                 {
-                    $("#b10").attr("style","background-color:white");
-                    $("#bb10").attr("style","font-size:14px;color:rgb(157,186,209)");
+                  $("#b10").attr("src","../static/열린관광이미지/수유실F.png");
                 }
 
                 if(help.indexOf("장애인 객실") != -1)
                 {
-                    $("#b11").attr("style","background-color:rgb(157,186,209)");
-                    $("#bb11").attr("style","font-size:14px;color:white");
+                  $("#b11").attr("src","../static/열린관광이미지/장애인객실T.png");
                 }
                 else
                 {
-                    $("#b11").attr("style","background-color:white");
-                    $("#bb11").attr("style","font-size:14px;color:rgb(157,186,209)");
+                  $("#b11").attr("src","../static/열린관광이미지/장애인객실F.png");
                 }
 
                 if(help.indexOf("유모차 대여") != -1)
                 {
-                    $("#b12").attr("style","background-color:rgb(157,186,209)");
-                    $("#bb12").attr("style","font-size:14px;color:white");
+                  $("#b12").attr("src","../static/열린관광이미지/유모차대여T.png");
                 }
                 else
                 {
-                    $("#b12").attr("style","background-color:white");
-                    $("#bb12").attr("style","font-size:14px;color:rgb(157,186,209)");
+                  $("#b12").attr("src","../static/열린관광이미지/유모차대여F.png");
                 }
                 SelectedMarker = marker
                 temp = id
