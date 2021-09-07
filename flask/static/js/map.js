@@ -428,6 +428,23 @@ function displayMarker(){
                 {
                   $("#b12").attr("src","../static/열린관광이미지/유모차대여F.png");
                 }
+
+                // 첫번째 유사숙소
+                document.getElementById("similar1-name").innerHTML=name;
+                document.getElementById("similar1-addr").innerHTML=address;
+                document.getElementById("similar1-num").innerHTML=phoneNumber;
+                $("#similar1-img").attr("src","첫번째유사숙소이미지");
+                $("#similar1-url").attr("href","첫번째유사숙소링크");
+
+                // 두번째 유사숙소
+                document.getElementById("similar2-name").innerHTML=두번째유사숙소이름;
+                document.getElementById("similar2-addr").innerHTML=두번째유사숙소주소;
+                document.getElementById("similar2-num").innerHTML=두번째유사숙소전화번호;
+                $("#similar2-img").attr("src","두번째유사숙소이미지");
+                $("#similar2-url").attr("href","두번째유사숙소링크");
+                
+                
+                
                 SelectedMarker = marker
                 temp = id
           });
