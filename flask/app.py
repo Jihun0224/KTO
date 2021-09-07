@@ -100,10 +100,8 @@ def recommend():
         count = 3-len(results_raw)
         recommend_results = list(RecommendPlace.place.find({ "address": { "$regex": search}}))
         recommend_results = random.sample(recommend_results,count)
-
         for i in range(count):
-            results_raw.append(recommend_results.pop(i-1))
-
+            results_raw.append(recommend_results.pop(0))
         return json.dumps(results_raw, default=str,ensure_ascii=False)   
 @app.route("/score")
 def score():
