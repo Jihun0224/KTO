@@ -1,5 +1,5 @@
 function GetTourapiImages() {
-    // tourapi 관광지 사진 호출 test
+    // tourapi 관광지 사진 호출
     $.ajax({
     type: "GET",
     url: "http://api.visitkorea.or.kr/openapi/service/rest/PhotoGalleryService/galleryList?ServiceKey=EFoCqYt%2BLkiQlVlyq5YnUJ85Rlw80roqfZCNNS4sMikQ4aL4vFP3kDp7wxo9WD1O17l1SHxG3Wq45XyxMZLLFA%3D%3D&arrange=A&MobileOS=ETC&MobileApp=AppTesting&numOfRows=4355&_type=json",

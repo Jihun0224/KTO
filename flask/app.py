@@ -1,11 +1,11 @@
 from flask_cors import CORS
-from flask import Flask,jsonify,request,render_template
+from flask import Flask,jsonify,request,render_template, flash
 import pymongo
 import json
 import random
 
 app = Flask(__name__)
-
+app.secret_key = 'some_secret'
 CORS(app)
 
 CONNECTION_STRING = "mongodb+srv://jihun:dja1wkd2@qualified.mmv3l.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
@@ -43,8 +43,10 @@ def result():
             dosi_type_results.append(data_)
     if(len(dosi_type_results)==0):
         # 선택한 시에 원하는 숙박유형이 없을 때
-        random_val = random.randrange(len(dosi_results))
-        destination = dosi_results.pop(random_val-1)
+        # random_val = random.randrange(len(dosi_results))
+        # destination = dosi_results.pop(random_val-1)
+        flash('없음')
+        return render_template('index.html')
     else:
         with_results=[]
         for data_ in dosi_type_results:
@@ -52,8 +54,10 @@ def result():
                 with_results.append(data_)
         if(len(with_results)==0):
             # 동반 유형이 수용가능한 업소가 없을 때
-            random_val = random.randrange(len(dosi_type_results))
-            destination = dosi_type_results.pop(random_val-1)
+            # random_val = random.randrange(len(dosi_type_results))
+            # destination = dosi_type_results.pop(random_val-1)
+            flash('없음')
+            return render_template('index.html')
         else:
             value_results=[]
             for data_ in with_results:
@@ -63,6 +67,8 @@ def result():
                 # 첫번째 가치에 해당하는 업소가 없을 때
                 random_val = random.randrange(len(with_results))
                 destination = with_results.pop(random_val-1)
+                flash('없음')
+                return render_template('index.html')            
             else:
                 random_val = random.randrange(len(value_results))
                 destination = value_results.pop(random_val-1)

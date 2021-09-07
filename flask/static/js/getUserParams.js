@@ -29,12 +29,13 @@ function getUserParams(){
     else if(params.value == ''){
         alert("가치를 선택해 주세요.");
     }
-    else if(params.value.length > 1){
-        alert("제일 중요하다고 생각하는 한 개의 가치만 선택해 주세요.");
+    else if(params.value.length > 2){
+        alert("제일 중요하다고 생각하는 두 개의 가치만 선택해 주세요.");
     }
     else{
         
           url = "dosi="+params.dosi+"&accommodation="+params.accommodation+"&type="+params.type+"&value="+params.value
           location.href ="./result?"+url
+
     }
 }
