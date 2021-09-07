@@ -1,7 +1,7 @@
 {% with messages = get_flashed_messages() %}
     {% if messages %}
     <script>  
-        alert("모든 조건에 일치하는 결과가 없어서 일부 조건에 일치하는 숙소를 추천합니다.\n") 
+        alert("모든 조건에 일치하는 결과가 없어\n일부 조건과 일치하는 숙소를 추천합니다.\n") 
     </script>
     {% endif %}
 {% endwith %}
@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta id="my-data" data-name="{{data}}" data-other="{{data}}">
     <meta id="my-score" data-name="{{results}}" data-other="{{results}}">
+    <meta id="similar" data-name="{{similar}}" data-other="{{similar}}">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="{{url_for('static', filename='js/map.js')}}"></script>
     <script src="{{url_for('static', filename='js/menubar.js')}}"></script>
@@ -18,6 +19,7 @@
     <script src="{{url_for('static', filename='js/getUserParams.js')}}"></script>
     <script src="{{url_for('static', filename='js/get_score.js')}}"></script>
     <script src="{{url_for('static', filename='js/get_recommend.js')}}"></script>
+    <script src="{{url_for('static', filename='js/get_similar.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="{{url_for('static', filename='infopage_css/infopage.css')}}">
@@ -79,18 +81,6 @@
                 </div> -->
                 <br><br>
                 <h5 style=font-weight:bold>열린 관광 요소</h5>
-
-                <!-- <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                  <div class="btn-group mr-2" role="group" aria-label="First group">
-                    <button type="button" class="btn btn-secondary">1</button>
-                    <button type="button" class="btn btn-secondary">2</button>
-                    <button type="button" class="btn btn-secondary">3</button>
-                    <button type="button" class="btn btn-secondary">4</button>
-                    <button type="button" class="btn btn-secondary">5</button>
-                    <button type="button" class="btn btn-secondary">6</button>
-                  </div> -->
-
-                  
 
                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups"></div>
                   <div class="btn-group mr-2" role="group" aria-label="First group" style="position:absloute">
@@ -226,7 +216,7 @@
 
                   </script>
                 <div class="compare-frame" style="position:relative; width: 587px; height: 350px; top: 15px;" >
-                  <h4 style="position:relative; top: 10px;text-align:center; font-weight:bold">고객 리뷰의 주요 키워드</h4>
+                  <h4 style="position:relative; top: 10px;text-align:center; font-weight:bold">고객 리뷰 주요 키워드</h4>
                   <img id="wordcloudSrc" width="470" height="250" style="position:relative; top:25px; left:62px" src="https://fluffyword.s3.ap-northeast-2.amazonaws.com/숙소별+리뷰+워드클라우드/(주)척산온천휴양촌.jpg" onerror="sendError();">
 
                 </div>
@@ -249,31 +239,40 @@
                 <div style="position: relative; top: 10px;">
                     <div class="card-columns">
                         <div class="card" style="width: 280px; height: 390px;">
-                          <img id="similar1-img" class="card-img-top"  src="{{ url_for('static', filename='infopage_img/1.jpg')}}"  alt="Card image cap">
+                          <img id="similar1-img" height="185.5" width="278" class="card-img-top"  src="{{ url_for('static', filename='infopage_img/1.jpg')}}"  alt="Card image cap">
                           <div class="card-body">
                             <h5 id="similar1-name" class="card-title" style="text-align:center; font-weight:bold">유사숙소1</h5>
                               <!-- <img src="https://raw.githubusercontent.com/Jihun0224/KTO/master/flask/static/infopage_img/star.png">-->
-                              
-                            <h class="card-text" style="font-size: 14px; font-weight:bold">주소: </h><h id="similar1-addr">테스트테스트테스트테스트</h><br>
-                            <h class="card-text" style="font-size: 14px; font-weight:bold">전화번호: </h><h id="similar1-num">테스트테스트테스트테스트</h><br>
-                            <a id="similar1-url" href= "" class="card-text" style="font-size: 14px; font-weight:bold">상세보기(url)</a>
+                            <div style="position: relative; top: 20px;">
+                              <h class="card-text" style="font-size: 14px; font-weight:bold">주소: </h><h id="similar1-addr">none</h><br>
+                              <h class="card-text" style="font-size: 14px; font-weight:bold">전화번호: </h><h id="similar1-num">none</h><br>
+                              <a id="similar1-url" href= "" class="card-text" style="font-size: 14px; font-weight:bold; position: relative; top: 10px;">상세보기</a>
+                            </div>
+
                           </div>
                     </div>
                     <div class="card-columns">
                         <div class="card" style="width: 280px; margin-left: 100px;height: 390px;">
-                          <img id="similar2-img" class="card-img-top"  src="{{ url_for('static', filename='infopage_img/1.jpg')}}"  alt="Card image cap">
+                          <img id="similar2-img" height="185.5" width="278" class="card-img-top"  src="{{ url_for('static', filename='infopage_img/1.jpg')}}"  alt="Card image cap">
                           <div class="card-body">
                             <h5 id="similar2-name" class="card-title" style="text-align:center; font-weight:bold">유사숙소2</h5>
                               <!-- <img src="https://raw.githubusercontent.com/Jihun0224/KTO/master/flask/static/infopage_img/star.png">-->
-                              
-                            <h class="card-text" style="font-size: 14px; font-weight:bold">주소: </h><h id="similar2-addr">테스트테스트테스트테스트테스트</h><br>
-                            <h class="card-text" style="font-size: 14px; font-weight:bold">전화번호: </h><h id="similar2-num">테스트테스트테스트테스트</h><br>
-                            <a id="similar2-url" href= "" class="card-text" style="font-size: 14px; font-weight:bold">상세보기(url)</a>
+                            <div style="position: relative; top: 20px;">
+                              <h class="card-text" style="font-size: 14px; font-weight:bold">주소: </h><h id="similar2-addr">none</h><br>
+                              <h class="card-text" style="font-size: 14px; font-weight:bold">전화번호: </h><h id="similar2-num">none</h><br>
+                              <a id="similar2-url" href= "" class="card-text" style="font-size: 14px; font-weight:bold; position: relative; top: 10px;">상세보기</a>
+                            </div>
                           </div>
                         </div>
                 </div>           
             </ul>
         </div>
+        <script>          
+          var similar = $('#similar').data();
+          similar = similar.other.replaceAll('\'','\"')
+          similar = JSON.parse(similar)
+          getSimilar(similar)
+        </script>
         <div class="mapinfo" id="map" style="width:495px; height:500px; margin-left: 30px;margin-bottom: 30px;">
           <div> 
           <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=37531866be664df9b26e2c034430dfc5"></script>
@@ -332,6 +331,7 @@
           Data = JSON.parse(Data)
           var address = Data.address.split(" ")[0]+" "+Data.address.split(" ")[1]
           get_recommend(address)
+
         </script>
         <div class="blog-card" style="position: relative; left: 30px; top: 30px;">
           <div class="meta">
