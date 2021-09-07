@@ -160,7 +160,11 @@ def result():
                             similar.append(with_results.pop(0))
                         except:
                             similar.append(dosi_type_results.pop(0)) 
-
+        if(dosi=="세종특"):
+            similar=[]
+            dosi_results = list(certified.find({'address':{"$regex": "충청남도"}, 'id':accommodation}, {'_id': False}).limit(2));
+            for i in range(2):
+                similar.append(dosi_results.pop(0))
     data = {
         "x":destination.get('x'),
         "y":destination.get('y'),
@@ -243,6 +247,11 @@ def similar():
     id_ = int(request.args.get('id'))
     results=[]
     results = list(certified.find({'address': { "$regex": address}, 'id' : id_}, {'_id': False}).limit(2));  
+    if(address=="세종특별자치시"):
+        results=[]
+        dosi_results = list(certified.find({'address':{"$regex": "충청남도"}, 'id':id_}, {'_id': False}).limit(2));
+        for i in range(2):
+            results.append(dosi_results.pop(0))
     if(len(results) < 2):
         results = list(certified.find({"id": id_}, {'_id': False}).limit(2));  
     return json.dumps(results, default=str,ensure_ascii=False)
