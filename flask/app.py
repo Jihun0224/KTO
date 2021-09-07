@@ -53,7 +53,9 @@ def result():
             similar.append(dosi_results.pop(0))
         else:
             for i in range(2):
-                similar.append(dosi_results.pop(0))
+                temp = dosi_results.pop(0)
+                if(temp['name'] != destination['name']):
+                    similar.append(temp)
         flash('없음')
     else:
         with_results=[]
@@ -62,17 +64,28 @@ def result():
                 with_results.append(data_)
         if(len(with_results)==0):
             # 동반 유형이 수용가능한 업소가 없을 때
+            flash("없음")
             random_val = random.randrange(len(dosi_type_results))
             destination = dosi_type_results.pop(random_val-1)
+            
             if(len(dosi_type_results)>2):
+                
                 for i in range(2):
-                    similar.append(dosi_type_results.pop(0))
+                    temp = dosi_type_results.pop(0)
+                    if(temp['name'] != destination['name']):
+                        similar.append(temp)                    
             elif(len(dosi_type_results) == 1):
-                similar.append(dosi_type_results.pop(0))
-                similar.append(dosi_results.pop(0))
+                temp = dosi_type_results.pop(0)
+                if(temp['name'] != destination['name']):
+                    similar.append(temp)                   
+                temp1 = dosi_results.pop(0)
+                if(temp['name'] != destination['name'] and temp1['name'] != destination['name']):
+                    similar.append(temp1)
             else:
                 for i in range(2):
-                    similar.append(dosi_results.pop(0))
+                    temp = dosi_results.pop(0)
+                    if(temp['name'] != destination['name']):
+                        similar.append(temp)
         else:
             value_results=[]
             for data_ in with_results:
@@ -80,6 +93,8 @@ def result():
                     value_results.append(data_)
             if(len(value_results)==0):
                 if(len(values) == 1):
+                    if(values[0] == "바다"):
+                        flash("없음")           
                     # 첫번째 가치에 해당하는 업소가 없을 때
                     random_val = random.randrange(len(with_results))
                     destination = with_results.pop(random_val-1)
@@ -108,6 +123,8 @@ def result():
                         # 첫번째와 두번째 가치에 해당하는 업소가 없을 때
                         random_val = random.randrange(len(with_results))
                         destination = with_results.pop(random_val-1)
+                        if(values[0] == "바다" or values[1] == "바다"):
+                            flash("없음")
                         if(len(with_results)>2):
                             for i in range(2):
                                 similar.append(with_results.pop(0))
