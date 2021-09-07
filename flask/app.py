@@ -60,7 +60,7 @@ def result():
                 if value in data_["label"]:
                     value_results.append(data_)
             if(len(value_results)==0):
-                    # 첫번째 가치에 해당하는 업소가 없을 때
+                # 첫번째 가치에 해당하는 업소가 없을 때
                 random_val = random.randrange(len(with_results))
                 destination = with_results.pop(random_val-1)
             else:
