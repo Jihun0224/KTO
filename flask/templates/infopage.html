@@ -236,7 +236,7 @@
 
                 <br><br><h4 style="font-weight:bold; text-align:center">유사한 품질인증 숙소 더 알아보기</h4>
                 <div style="position: relative; top: 10px;">
-                    <div class="card-columns">
+                    <div class="card-columns" style="height: 434px">
                         <div class="card" style="width: 280px; height: 390px;">
                           <img id="similar1-img" height="185.5" width="278" class="card-img-top"  src="{{ url_for('static', filename='infopage_img/1.jpg')}}"  alt="Card image cap">
                           <div class="card-body">
@@ -245,12 +245,12 @@
                             <div style="position: relative; top: 5px;">
                               <h class="card-text" style="font-size: 14px; font-weight:bold">주소: </h><h id="similar1-addr">none</h><br>
                               <h class="card-text" style="font-size: 14px; font-weight:bold">전화번호: </h><h id="similar1-num">none</h><br>
-                              <a id="similar1-url" href= "" class="card-text" style="font-size: 14px; font-weight:bold;">상세보기</a>
+                              <a id="similar1-url" href="" class="card-text" style="font-size: 14px; font-weight:bold;">상세보기</a>
                             </div>
 
                           </div>
                     </div>
-                    <div class="card-columns">
+                    <div class="card-columns" >
                         <div class="card" style="width: 280px; margin-left: 100px;height: 390px;">
                           <img id="similar2-img" height="185.5" width="278" class="card-img-top"  src="{{ url_for('static', filename='infopage_img/1.jpg')}}"  alt="Card image cap">
                           <div class="card-body">
@@ -264,8 +264,13 @@
                           </div>
                         </div>
                 </div>           
+                
             </ul>
+            
+              
         </div>
+        
+        
         <script>          
           var Data = $('#my-data').data();
           Data = Data.other.replaceAll('\'','\"')
@@ -332,6 +337,8 @@
           get_recommend(address)
 
         </script>
+
+        
         <div class="blog-card" style="position: relative; left: 30px; top: 30px;">
           <div class="meta">
             <div class="photo" id="firstCardImg"style="background-image: url(http://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=b30c4f25-1c3c-4bc6-a51c-9a61f297c124)"></div>
@@ -366,47 +373,48 @@
           </div>
         </div>
         
-
-        <div class="blog-card alt" style="position: relative; left: 625px; top: 30px; width: 600px; height: 277px;">
+        <div class="blog-card" style="position: relative; left: 625px; top: 30px; width: 600px; height: 277px;">
           <div class="meta">
-            <div class="photo" id="SecondCardImg"style="background-image: url(https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=6c84bfd1-89cd-419f-a669-535e6cb60813)"></div>
+            <div class="photo" id="thirdCardImg"style="background-image: url(https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=806d3a5c-f4bf-4ad3-8c52-59ae5a988689)"></div>
+        
           </div>
           <div class="description" style="height: 287px;">
-            <h1 id ="SecondCardTitle"style=
-                              "overflow: hidden; 
-                              text-overflow: ellipsis; 
-                              display: -webkit-box; 
-                              -webkit-line-clamp: 1 ; 
-                              -webkit-box-orient: vertical; 
-                              word-wrap:break-word; 
-                              line-height: 1.2em; 
-                              height: 1.2em;">>Name</h1>
-            <h2 id="SecondCardAddress">Address</h2>
-            <p id="SecondCardInfo" style=
-                                        "overflow: hidden; 
-                                        text-overflow: ellipsis; 
-                                        display: -webkit-box; 
-                                        -webkit-line-clamp: 7 ; 
-                                        -webkit-box-orient: vertical; 
-                                        word-wrap:break-word; 
-                                        line-height: 1.2em; 
-                                        height: 8.4em;">
-              Info
-            </p>
-
-            <p class="read-more">
-              <a id="SecondCardUrl"href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=98763dd6-119d-4e32-910e-a40652334bda&big_category=A01&mid_category=A0101&big_area=6">내용 더보기</a>
+              <h1 id ="thirdCardTitle"style=
+                                      "overflow: hidden; 
+                                      text-overflow: ellipsis; 
+                                      display: -webkit-box; 
+                                      -webkit-line-clamp: 1 ; 
+                                      -webkit-box-orient: vertical; 
+                                      word-wrap:break-word; 
+                                      line-height: 1.2em; 
+                                      height: 1.2em;">>Name</h1>
+              <h2 id="thirdCardAddress">Address</h2>
+              <p id="thirdCardInfo" style=
+                                          "overflow: hidden; 
+                                          text-overflow: ellipsis; 
+                                          display: -webkit-box; 
+                                          -webkit-line-clamp: 7 ; 
+                                          -webkit-box-orient: vertical; 
+                                          word-wrap:break-word; 
+                                          line-height: 1.2em; 
+                                          height: 8.4em;">
+                Info
+              </p>
+              </p>
+               <p class="read-more">
+              <a id="thirdCardUrl" href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=36f54304-e9a8-4615-9226-eb749bf6ce75&big_category=A01&mid_category=A0101&big_area=6">내용 더보기</a>
             </p>
           </div>
         </div>
-  </div>
-  <div class="blog-card" style="position: relative; left: 370px; top: 30px; width: 600px; height: 277px;">
-    <div class="meta">
-      <div class="photo" id="thirdCardImg"style="background-image: url(https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=806d3a5c-f4bf-4ad3-8c52-59ae5a988689)"></div>
-
-    </div>
-    <div class="description" style="height: 287px;">
-        <h1 id ="thirdCardTitle"style=
+      
+      
+        <div class="review">
+          <div class="blog-card alt" style="position: relative; left: 328px; top: 30px; width: 600px; height: 277px;">
+            <div class="meta">
+              <div class="photo" id="SecondCardImg"style="background-image: url(https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=6c84bfd1-89cd-419f-a669-535e6cb60813)"></div>
+            </div>
+            <div class="description" style="height: 287px;">
+              <h1 id ="SecondCardTitle"style=
                                 "overflow: hidden; 
                                 text-overflow: ellipsis; 
                                 display: -webkit-box; 
@@ -415,24 +423,31 @@
                                 word-wrap:break-word; 
                                 line-height: 1.2em; 
                                 height: 1.2em;">>Name</h1>
-        <h2 id="thirdCardAddress">Address</h2>
-        <p id="thirdCardInfo" style=
-                                    "overflow: hidden; 
-                                    text-overflow: ellipsis; 
-                                    display: -webkit-box; 
-                                    -webkit-line-clamp: 7 ; 
-                                    -webkit-box-orient: vertical; 
-                                    word-wrap:break-word; 
-                                    line-height: 1.2em; 
-                                    height: 8.4em;">
-          Info
-        </p>
-        </p>
-         <p class="read-more">
-        <a id="thirdCardUrl" href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=36f54304-e9a8-4615-9226-eb749bf6ce75&big_category=A01&mid_category=A0101&big_area=6">내용 더보기</a>
-      </p>
-    </div>
-  </div>
+              <h2 id="SecondCardAddress">Address</h2>
+              <p id="SecondCardInfo" style=
+                                          "overflow: hidden; 
+                                          text-overflow: ellipsis; 
+                                          display: -webkit-box; 
+                                          -webkit-line-clamp: 7 ; 
+                                          -webkit-box-orient: vertical; 
+                                          word-wrap:break-word; 
+                                          line-height: 1.2em; 
+                                          height: 8.4em;">
+                Info
+              </p>
+  
+              <p class="read-more">
+                <a id="SecondCardUrl"href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=98763dd6-119d-4e32-910e-a40652334bda&big_category=A01&mid_category=A0101&big_area=6">내용 더보기</a>
+              </p>
+            </div>
+          </div>
+          <br>
+          <br>
+          
+        
+        
+
+  
   <br>
   <br>
   
