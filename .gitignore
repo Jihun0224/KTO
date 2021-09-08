@@ -2,3 +2,6 @@
 *.csv
 *.xlsx
 *.xls
+flask/KTO/
+flask/venv/
+node_modules
