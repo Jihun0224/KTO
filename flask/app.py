@@ -54,7 +54,8 @@ def result():
                 with_results.append(data_)
         if(len(with_results)==0):
             # 동반 유형이 수용가능한 업소가 없을 때
-            flash("없음")
+            # if(type_ in "반려견"):
+            flash('없음')
             random_val = random.randrange(len(dosi_type_results))
             destination = dosi_type_results.pop(random_val-1)
         else:
@@ -64,8 +65,8 @@ def result():
                     value_results.append(data_)
             if(len(value_results)==0):
                 if(len(values) == 1):
-                    if(values[0] == "바다"):
-                        flash("없음")           
+                    if(values[0] in "바다"):
+                        flash("없음")    
                     # 첫번째 가치에 해당하는 업소가 없을 때
                     random_val = random.randrange(len(with_results))
                     destination = with_results.pop(random_val-1)           
@@ -79,7 +80,7 @@ def result():
                         # 첫번째와 두번째 가치에 해당하는 업소가 없을 때
                         random_val = random.randrange(len(with_results))
                         destination = with_results.pop(random_val-1)
-                        if(values[0] == "바다" or values[1] == "바다"):
+                        if(values[0] in "바다" or values[1] in "바다"):
                             flash("없음")
                     else:
                         random_val = random.randrange(len(value_results))
