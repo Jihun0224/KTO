@@ -34,12 +34,12 @@
  }
  .filterImg{
      position: relative;
-     top: 5px;
+     bottom: 3px;
  }
 
 .markerFilter p{
     position: relative;
-    top: 7px;
+    top: -5px;
 }
 .markerFilter{
     position: relative;
