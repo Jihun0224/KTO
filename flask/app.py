@@ -44,8 +44,8 @@ def result():
             dosi_type_results.append(data_)
     if(len(dosi_type_results)==0):
         # 선택한 시에 원하는 숙박유형이 없을 때
-        random_val = random.randrange(len(dosi_results))
-        destination = dosi_results.pop(random_val-1)
+        dosi_results = random.sample(dosi_results,1)
+        destination = dosi_results.pop()
         flash('없음')
     else:
         with_results=[]
@@ -56,8 +56,8 @@ def result():
             # 동반 유형이 수용가능한 업소가 없을 때
             # if(type_ in "반려견"):
             flash('없음')
-            random_val = random.randrange(len(dosi_type_results))
-            destination = dosi_type_results.pop(random_val-1)
+            dosi_type_results = random.sample(dosi_type_results,1)
+            destination = dosi_type_results.pop()
         else:
             value_results=[]
             for data_ in with_results:
@@ -67,10 +67,9 @@ def result():
                 if(len(values) == 1):
                     if(values[0] in "바다"):
                         flash("없음")    
-                    # 첫번째 가치에 해당하는 업소가 없을 때
-                    random_val = random.randrange(len(with_results))
-                    destination = with_results.pop(random_val-1)           
-
+                    # 첫번째 가치에 해당하는 업소가 없을 때        
+                    with_results = random.sample(with_results,1)
+                    destination = with_results.pop()
                 # 가치를 2개 골랐을 때
                 else:
                     for data_ in with_results:
@@ -78,17 +77,17 @@ def result():
                             value_results.append(data_)
                     if(len(value_results)==0):
                         # 첫번째와 두번째 가치에 해당하는 업소가 없을 때
-                        random_val = random.randrange(len(with_results))
-                        destination = with_results.pop(random_val-1)
+                        with_results = random.sample(with_results,1)
+                        destination = with_results.pop()                        
                         if(values[0] in "바다" or values[1] in "바다"):
                             flash("없음")
                     else:
-                        random_val = random.randrange(len(value_results))
-                        destination = value_results.pop(random_val-1) 
+                        value_results = random.sample(value_results,1)
+                        destination = value_results.pop()                        
             # 첫번째 가치에 일치하는 숙소가 있을 때
             else:
-                random_val = random.randrange(len(value_results))
-                destination = value_results.pop(random_val-1) 
+                value_results = random.sample(value_results,1)
+                destination = value_results.pop()       
     data = {
         "x":destination.get('x'),
         "y":destination.get('y'),
