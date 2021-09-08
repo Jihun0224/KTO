@@ -60,13 +60,14 @@
                 </div>
 
                 <br>
-                
-                <h style=font-weight:bold>주소: </h><h id="hotel-addr">{{results.get('address')}}</h><br>
-                <h style=font-weight:bold>전화번호: </h><h id="hotel-num">{{results.get('phoneNumber')}}</h>
-                <!-- <h style=font-weight:bold>대한민국 구석구석 페이지 이동 </h><a id="hotel-url" target="_blank">click!</a><br> -->
-                  
-                <p style="position: relative; top: 30px;">
-                    <h id="hotel-info">{{results.get('info')}}</h>
+                <div style="text-align:left">
+                <h style="font-weight:bold;">주소: </h><h id="hotel-addr">{{results.get('address')}}</h><br>
+                <div style="position: relative; top: 5px;"><h style="font-weight:bold;">전화번호: </h><h id="hotel-num">{{results.get('phoneNumber')}}</h><br></div>
+                <div style="position: relative; top: 10px;"><a id="hotel-url" href="{{results.get('infoUrl')}}" target="_blank">상세보기</a><br></div>
+              </div>
+                <p style="position: relative; top: 30px; text-align:left;">
+                  <img style="position: relative; top: -20px;" src="../static/infopage_img/wing.png" width="30px" height="30px">  
+                  <h id="hotel-info">{{results.get('info')}}</h>
                   <br>
                 </p>
                 <!-- <h style=font-weight:bold><br><br>친환경적 요소</h>
