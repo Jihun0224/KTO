@@ -11,7 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta id="my-data" data-name="{{data}}" data-other="{{data}}">
     <meta id="my-score" data-name="{{results}}" data-other="{{results}}">
-    <meta id="similar" data-name="{{similar}}" data-other="{{similar}}">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="{{url_for('static', filename='js/map.js')}}"></script>
     <script src="{{url_for('static', filename='js/menubar.js')}}"></script>
@@ -268,10 +267,10 @@
             </ul>
         </div>
         <script>          
-          var similar = $('#similar').data();
-          similar = similar.other.replaceAll('\'','\"')
-          similar = JSON.parse(similar)
-          getSimilar(similar)
+          var Data = $('#my-data').data();
+          Data = Data.other.replaceAll('\'','\"')
+          Data = JSON.parse(Data)
+          get_similar(Data.id, Data.address.split(' ')[0], Data.name)
         </script>
         <div class="mapinfo" id="map" style="width:495px; height:500px; margin-left: 30px;margin-bottom: 30px;">
           <div> 

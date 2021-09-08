@@ -33,7 +33,6 @@ def result():
     type_ = request.args.get('type') #동반 유형
     value = request.args.get('value')
     values = value.split(',')
-    similar = []
     destination = []
     data={}
     # 도로 1차 필터
@@ -47,15 +46,6 @@ def result():
         # 선택한 시에 원하는 숙박유형이 없을 때
         random_val = random.randrange(len(dosi_results))
         destination = dosi_results.pop(random_val-1)
-        if(dosi=="세종특"):
-            similar.append(dosi_results.pop(0))
-            dosi_results = list(certified.find({'address':{"$regex": "충청남도"}, 'id':accommodation}, {'_id': False}).limit(1));
-            similar.append(dosi_results.pop(0))
-        else:
-            for i in range(2):
-                temp = dosi_results.pop(0)
-                if(temp['name'] != destination['name']):
-                    similar.append(temp)
         flash('없음')
     else:
         with_results=[]
@@ -67,25 +57,6 @@ def result():
             flash("없음")
             random_val = random.randrange(len(dosi_type_results))
             destination = dosi_type_results.pop(random_val-1)
-            
-            if(len(dosi_type_results)>2):
-                
-                for i in range(2):
-                    temp = dosi_type_results.pop(0)
-                    if(temp['name'] != destination['name']):
-                        similar.append(temp)                    
-            elif(len(dosi_type_results) == 1):
-                temp = dosi_type_results.pop(0)
-                if(temp['name'] != destination['name']):
-                    similar.append(temp)                   
-                temp1 = dosi_results.pop(0)
-                if(temp['name'] != destination['name'] and temp1['name'] != destination['name']):
-                    similar.append(temp1)
-            else:
-                for i in range(2):
-                    temp = dosi_results.pop(0)
-                    if(temp['name'] != destination['name']):
-                        similar.append(temp)
         else:
             value_results=[]
             for data_ in with_results:
@@ -97,22 +68,7 @@ def result():
                         flash("없음")           
                     # 첫번째 가치에 해당하는 업소가 없을 때
                     random_val = random.randrange(len(with_results))
-                    destination = with_results.pop(random_val-1)
-                    if(len(with_results)>2):
-                        for i in range(2):
-                            similar.append(with_results.pop(0))
-                    elif(len(with_results) == 1):
-                        similar.append(with_results.pop(0))
-                        try:
-                            similar.append(dosi_type_results.pop(0))
-                        except:
-                            similar.append(dosi_results.pop(0))
-                    else:
-                        for i in range(2):
-                            try:
-                                similar.append(dosi_type_results.pop(0))
-                            except:
-                                similar.append(dosi_results.pop(0))              
+                    destination = with_results.pop(random_val-1)           
 
                 # 가치를 2개 골랐을 때
                 else:
@@ -125,71 +81,22 @@ def result():
                         destination = with_results.pop(random_val-1)
                         if(values[0] == "바다" or values[1] == "바다"):
                             flash("없음")
-                        if(len(with_results)>2):
-                            for i in range(2):
-                                similar.append(with_results.pop(0))
-                        elif(len(with_results) == 1):
-                            similar.append(with_results.pop(0))
-                            try:
-                                similar.append(dosi_type_results.pop(0))
-                            except:
-                                similar.append(dosi_results.pop(0))  
-                        else:
-                            for i in range(2):
-                                try:
-                                    similar.append(dosi_type_results.pop(0))
-                                except:
-                                    similar.append(dosi_results.pop(0))  
                     else:
                         random_val = random.randrange(len(value_results))
-                        destination = value_results.pop(random_val-1)
-                        if(len(value_results)>2):
-                            for i in range(2):
-                                similar.append(value_results.pop(0))
-                        elif(len(value_results) == 1):
-                            similar.append(value_results.pop(0))
-                            try:
-                                similar.append(with_results.pop(0))
-                            except:
-                                similar.append(dosi_type_results.pop(0))  
-                        else:
-                            for i in range(2):
-                                try:
-                                    similar.append(with_results.pop(0))
-                                except:
-                                    similar.append(dosi_type_results.pop(0)) 
+                        destination = value_results.pop(random_val-1) 
             # 첫번째 가치에 일치하는 숙소가 있을 때
             else:
                 random_val = random.randrange(len(value_results))
-                destination = value_results.pop(random_val-1)
-                if(len(value_results)>2):
-                    for i in range(2):
-                        similar.append(value_results.pop(0))
-                elif(len(value_results) == 1):
-                    similar.append(value_results.pop(0))
-                    try:
-                        similar.append(with_results.pop(0))
-                    except:
-                        similar.append(dosi_type_results.pop(0))  
-                else:
-                    for i in range(2):
-                        try:
-                            similar.append(with_results.pop(0))
-                        except:
-                            similar.append(dosi_type_results.pop(0)) 
-        if(dosi=="세종특"):
-            similar=[]
-            dosi_results = list(certified.find({'address':{"$regex": "충청남도"}, 'id':accommodation}, {'_id': False}).limit(2));
-            for i in range(2):
-                similar.append(dosi_results.pop(0))
+                destination = value_results.pop(random_val-1) 
     data = {
         "x":destination.get('x'),
         "y":destination.get('y'),
         "help":destination.get('help'),
-        "name":destination.get('name').split('[')[0],
+        "name":destination.get('name'),
         "address":destination.get('address'),
+        "id":destination.get('id'),
     };
-    return render_template('infopage.html',results = destination, data = data,similar=similar )
+    return render_template('infopage.html',results = destination, data = data)
 
 @app.route('/Certified')
 def Certified():
@@ -262,7 +169,7 @@ def score():
 def similar():
     address = request.args.get('address')
     id_ = int(request.args.get('id'))
-    name = request.args.get('name')
+    name = request.args.get('name').split("[")[0].strip().split("(")[0].strip()
     results=[]  
     if(address=="세종특별자치시"):
         results=[]
