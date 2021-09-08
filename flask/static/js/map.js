@@ -261,7 +261,7 @@ function displayMarker(){
                 get_recommend(placeAddress)
                 url = "https://fluffyword.s3.ap-northeast-2.amazonaws.com/숙소별+리뷰+워드클라우드/"+name.trimRight()+".jpg"
                 $("#wordcloudSrc").attr("src", url);
-                get_similar(place.id, place.address.split(" ")[0])
+                get_similar(place.id, place.address.split(" ")[0], name)
                 get_score(name)
                 // 클릭된 마커가 없고, click 마커가 클릭된 마커가 아니면
                 // 마커의 이미지를 클릭 이미지로 변경합니다
@@ -514,10 +514,10 @@ function get_recommend(address) {
         $("#SecondCardImg").css('background-image', 'url(' + json[1].src + ')');
     })
 }
-function get_similar(id,address) {
+function get_similar(id,address,name) {
   $.ajax({
       url: "/similar",
-      data: {id:id,address: address },
+      data: {id:id,address: address,name:name },
       method: "GET",
       dataType: "json"
   })

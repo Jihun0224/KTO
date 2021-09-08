@@ -262,15 +262,31 @@ def score():
 def similar():
     address = request.args.get('address')
     id_ = int(request.args.get('id'))
-    results=[]
-    results = list(certified.find({'address': { "$regex": address}, 'id' : id_}, {'_id': False}).limit(2));  
+    name = request.args.get('name')
+    results=[]  
     if(address=="세종특별자치시"):
         results=[]
-        dosi_results = list(certified.find({'address':{"$regex": "충청남도"}, 'id':id_}, {'_id': False}).limit(2));
-        for i in range(2):
-            results.append(dosi_results.pop(0))
-    if(len(results) < 2):
-        results = list(certified.find({"id": id_}, {'_id': False}).limit(2));  
+        dosi_results = list(certified.find({'address':{"$regex": "세종특별자치시"}, 'id':id_,'name': { '$not': { '$regex': name } }}, {'_id': False}).limit(1));
+        results.append(dosi_results.pop())
+        dosi_results = list(certified.find({'address':{"$regex": "충청북도"}, 'id':id_}, {'_id': False}).limit(1));
+        results.append(dosi_results.pop())
+    else:    
+        dosi_results = list(certified.find({'address':{"$regex": address},"id": id_,'name': { '$not': { '$regex': name } }}, {'_id': False}));
+        if(len(dosi_results)>2):
+            dosi_results = random.sample(dosi_results,2)
+            for i in range(2):
+                results.append(dosi_results.pop())
+        elif(len(dosi_results)==1):
+            results.append(dosi_results.pop())
+            dosi_results = list(certified.find({"id": id_,'name': { '$not': { '$regex': name } }}, {'_id': False}).limit(1));
+            
+            dosi_results = random.sample(dosi_results,1)
+            results.append(dosi_results.pop())
+        else:
+            dosi_results = list(certified.find({"id": id_,'name': { '$not': { '$regex': name } }}, {'_id': False}).limit(2));
+            dosi_results = random.sample(dosi_results,2)
+            for i in range(2):
+                results.append(dosi_results.pop())
     return json.dumps(results, default=str,ensure_ascii=False)
 
 if __name__ == '__main__': 
