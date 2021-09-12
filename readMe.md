@@ -1,18 +1,14 @@
+
+# 메인 페이지
+![image](https://user-images.githubusercontent.com/59672592/132982902-566d744f-2dcd-4e62-9719-0c2c177c19d8.png)  
+![image](https://user-images.githubusercontent.com/59672592/132982914-e5f97ac8-2d70-4c62-bdf0-a336e4c4c2e9.png)  
+![image](https://user-images.githubusercontent.com/59672592/132982927-2e130122-21f8-4b26-9323-e25ccddb052c.png)  
+---
+# 추천 결과 페이지  
+![image](https://user-images.githubusercontent.com/59672592/132983186-64282d70-af4a-4152-aba4-b2ac3961330c.png)  
+![image](https://user-images.githubusercontent.com/59672592/132983205-f7b40dd7-7bf5-4d02-a54e-a5355eb47f06.png)  
+![image](https://user-images.githubusercontent.com/59672592/132983221-d8bc5b6b-d7c9-4bdb-b7ff-723e15b47baa.png)  
+![image](https://user-images.githubusercontent.com/59672592/132983230-aff03f0b-9d45-4260-a802-a672a24c022e.png)  
 # Install  
 1. flask 가상환경 생성 후 가상환경 실행 후 pip install -r requirements.txt  
 1. flask run  
---- 
-## 추가 필요
-- 메인페이지에 한국관광공사, 빅리더 마크 함께 넣기 --> O
-
-- 워드클라우드에 고객 리뷰의 주요 키워드입니다. 라는 문구 넣기 --> O
-
-- OTA 리뷰 평균 -> 고객 후기 --> O
-
-- 열린 관광 요소 아이콘화 하기 --> O  
-
-- 검색되었을때 품질인증 마크 혹은 글귀를 확인할 수 있게 하기 --> O
----
-## +  
-- 일치하는 검색 결과가 없을 때 없다고 메세지 뜨게 할 것
-- 고객 리뷰 평균 점수에 대해 좀 의문
