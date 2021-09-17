@@ -146,7 +146,7 @@ function displayMarker(){
     var timeoutId = null;
     
     var Hanokicon = new kakao.maps.MarkerImage(
-        "https://raw.githubusercontent.com/Jihun0224/KTO/9af2149d150227a68a141282ec774297be5c2ea7/images/hanok.svg?token=AOHIQEAVK3MV25LYSEBT5MLBE7UJE",
+        "https://raw.githubusercontent.com/Jihun0224/KTO/master/flask/static/infopage_img/hanok.svg?token=AOHIQEE5PRA2OYADIYRXCK3BHXGXI",
         new kakao.maps.Size(31, 35),
         {
             offset: new kakao.maps.Point(16, 34),
@@ -155,7 +155,7 @@ function displayMarker(){
         }
       );
       var Hotelicon = new kakao.maps.MarkerImage(
-        "https://raw.githubusercontent.com/Jihun0224/KTO/9af2149d150227a68a141282ec774297be5c2ea7/images/hotel.svg?token=AOHIQEEZOLBSCFDN26GSCH3BE7UKI",
+        "https://raw.githubusercontent.com/Jihun0224/KTO/master/flask/static/infopage_img/hotel.svg?token=AOHIQEDUY2JUHP7DUXI2YK3BHXGYO",
         new kakao.maps.Size(31, 35),
         {
             offset: new kakao.maps.Point(16, 34),
@@ -164,7 +164,7 @@ function displayMarker(){
         }
       );
       var BBicon = new kakao.maps.MarkerImage(
-        "https://raw.githubusercontent.com/Jihun0224/KTO/9af2149d150227a68a141282ec774297be5c2ea7/images/bb.svg?token=AOHIQECHEJD66VNIKC4CX6DBE7UCS",
+        "https://raw.githubusercontent.com/Jihun0224/KTO/master/flask/static/infopage_img/bb.svg?token=AOHIQED7C3B5OBX6VLYTK2LBHXGUQ",
         new kakao.maps.Size(31, 35),
         {
             offset: new kakao.maps.Point(16, 34),
@@ -173,7 +173,7 @@ function displayMarker(){
         }
       );
       var Hanokicon_sel = new kakao.maps.MarkerImage(
-        "https://github.com/Jihun0224/KTO/blob/master/flask/static/infopage_img/hanok_select.png?raw=true",
+        "https://raw.githubusercontent.com/Jihun0224/KTO/master/flask/static/infopage_img/hanok_select.png?token=AOHIQEFNF7EAADEZNTWL6WLBHXHCC",
         new kakao.maps.Size(41, 45),
         {
             offset: new kakao.maps.Point(16, 34),
@@ -200,7 +200,7 @@ function displayMarker(){
         }
       );
       var alg = new kakao.maps.MarkerImage(
-        "https://raw.githubusercontent.com/Jihun0224/KTO/master/flask/static/infopage_img/alg.png",
+        "https://github.com/Jihun0224/KTO/blob/master/flask/static/infopage_img/alg.png?raw=true",
         new kakao.maps.Size(41, 45),
         {
             offset: new kakao.maps.Point(16, 34),
